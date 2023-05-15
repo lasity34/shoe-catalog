@@ -59,7 +59,6 @@ function DisplayShoeTemplate(shoes) {
 function color_display() {
   const selected_color = this.value
   const filtered_shoes = shoeInstance.filter_color(shoe_data, selected_color)
-  DisplayShoeTemplate(filtered_shoes)
 }
 
 color_select.addEventListener("change", color_display)

@@ -1,10 +1,6 @@
-
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
-document.addEventListener("DOMContentLoaded", function () {
-
- 
 
 
 const category_display = document.querySelector(".category_display")
@@ -13,14 +9,6 @@ const shoe_display = document.querySelector(".display_container")
 
 
 const shoeInstance = shoe_factory()
-
-updateCategoryTemplate()
-DisplayShoeTemplate()
-const color_select = document.querySelector("#color_select")
-const size_select = document.querySelector("#size_select");
-const brand_select = document.querySelector("#brand_select");
-
-
 
 function updateCategoryTemplate() {
   const templateSource = document.querySelector("#categoryTemplate").innerHTML;
@@ -43,31 +31,31 @@ function updateCategoryTemplate() {
 
 }
 
-function DisplayShoeTemplate(shoes) {
+function DisplayShoeTemplate() {
   const templateSource = document.querySelector("#shoeDisplayTemplate").innerHTML;
   const shoeTemplate = Handlebars.compile(templateSource);
 
-  const shoeData = {shoes: shoes}
+  const shoeData = {
+   
+  }
   
-  
+
   const userDataHTML = shoeTemplate(shoeData);
 
   shoe_display.innerHTML = userDataHTML;
  
 }
 
-function color_display() {
-  const selected_color = this.value
-  const filtered_shoes = shoeInstance.filter_color(shoe_data, selected_color)
-  DisplayShoeTemplate(filtered_shoes)
-}
-
-color_select.addEventListener("change", color_display)
 
 
-
-    
- 
+document.addEventListener("DOMContentLoaded", function () {
+  updateCategoryTemplate()
+  const color_select = document.querySelector("#color_select")
+  const size_select = document.querySelector("#size_select");
+  const brand_select = document.querySelector("#brand_select");
+  console.log(color_select)
+    )
+  DisplayShoeTemplate()
 })
 
 

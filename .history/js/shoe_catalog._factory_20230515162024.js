@@ -1,4 +1,4 @@
-
+import { shoe_data } from "../data/shoe_data"
 
 
 export function shoe_factory() {
@@ -26,15 +26,12 @@ export function shoe_factory() {
   return [...strings, ...numbers]
   }
 
-  function filter_color(shoe_data ,color) {
-   return shoe_data.filter(shoe => shoe.color === color)
-  }
-
+ 
 
 
   return {
     filter_shoe_categories,
-    filter_color
+
   };
 }
 

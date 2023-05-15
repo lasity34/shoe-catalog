@@ -1,6 +1,5 @@
 
 
-
 export function shoe_factory() {
 
   function filter_shoe_categories(shoe_data, category) {
@@ -26,15 +25,15 @@ export function shoe_factory() {
   return [...strings, ...numbers]
   }
 
-  function filter_color(shoe_data ,color) {
-   return shoe_data.filter(shoe => shoe.color === color)
+  function filter_show_display() {
+
   }
 
 
 
   return {
     filter_shoe_categories,
-    filter_color
+    filter_show_display
   };
 }
 

@@ -43,12 +43,13 @@ function updateCategoryTemplate() {
 
 }
 
-function DisplayShoeTemplate(shoes) {
+function DisplayShoeTemplate() {
   const templateSource = document.querySelector("#shoeDisplayTemplate").innerHTML;
   const shoeTemplate = Handlebars.compile(templateSource);
 
-  const shoeData = {shoes: shoes}
-  
+  const shoeData = {
+   color: color_display()
+  }
   
   const userDataHTML = shoeTemplate(shoeData);
 
@@ -58,8 +59,8 @@ function DisplayShoeTemplate(shoes) {
 
 function color_display() {
   const selected_color = this.value
-  const filtered_shoes = shoeInstance.filter_color(shoe_data, selected_color)
-  DisplayShoeTemplate(filtered_shoes)
+
+  shoeInstance.filter_color(selected_color)
 }
 
 color_select.addEventListener("change", color_display)

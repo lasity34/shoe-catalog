@@ -27,7 +27,7 @@ export function shoe_factory() {
   }
 
   function filter_color(shoe_data ,color) {
-   return shoe_data.filter(shoe => shoe.color === color)
+   return shoe_data.filter(shoe.color === color)
   }
 
 

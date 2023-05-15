@@ -12,28 +12,28 @@
           <label for="color">Color:</label>
           <select id="color_select" name="color">
               {{#each colors}}
-              <option  value={{this}}>{{this}}</option>
+              <option class="{{this}}" value={{this}}>{{this}}</option>
               {{/each}}
           </select>
 
           <label for="size">Size:</label>
           <select id="size_select" name="size">
               {{#each sizes}}
-              <option  value={{this}}>{{this}}</option>
+              <option class="{{this}}" value={{this}}>{{this}}</option>
               {{/each}}
           </select>
 
           <label for="brand">Brand:</label>
           <select id="brand_select" name="brand">
               {{#each brands}}
-              <option  value={{this}}>{{this}}</option>
+              <option class="{{this}}" value={{this}}>{{this}}</option>
               {{/each}}
           </select>
       </section>
     </script>
     <script type="text/x-template" id="shoeDisplayTemplate">
-      {{#each shoes}}
-            <p> we have {{this.in_stock}} {{this.color}} in stock </p>
+      {{#each shoe}}
+             <p>{{this}}</p>
      {{/each}}
     </script>
   </head>

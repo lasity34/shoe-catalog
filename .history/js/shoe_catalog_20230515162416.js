@@ -15,7 +15,7 @@ const shoe_display = document.querySelector(".display_container")
 const shoeInstance = shoe_factory()
 
 updateCategoryTemplate()
-DisplayShoeTemplate()
+
 const color_select = document.querySelector("#color_select")
 const size_select = document.querySelector("#size_select");
 const brand_select = document.querySelector("#brand_select");
@@ -43,31 +43,29 @@ function updateCategoryTemplate() {
 
 }
 
-function DisplayShoeTemplate(shoes) {
+function DisplayShoeTemplate() {
   const templateSource = document.querySelector("#shoeDisplayTemplate").innerHTML;
   const shoeTemplate = Handlebars.compile(templateSource);
 
-  const shoeData = {shoes: shoes}
+  const shoeData = {
+   
+  }
   
-  
+
   const userDataHTML = shoeTemplate(shoeData);
 
   shoe_display.innerHTML = userDataHTML;
  
 }
 
-function color_display() {
-  const selected_color = this.value
-  const filtered_shoes = shoeInstance.filter_color(shoe_data, selected_color)
-  DisplayShoeTemplate(filtered_shoes)
-}
-
-color_select.addEventListener("change", color_display)
 
 
 
+
+
+  console.log(color_select)
     
- 
+  DisplayShoeTemplate()
 })
 
 
