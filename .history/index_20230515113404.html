@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <title>Lubas Shoes</title>
+    <script type="text/x-template" id="categoryTemplate">
+      {{#each differentCategories}}
+      <option class="category" value="{{name}}">{{name}}</option>
+
+      {{/each}}
+      
+    </script>
+  </head>
+  <body>
+    <div class="title_container">
+      <img class="title" src="./images/shoe_title_trans.png" />
+    </div>
+
+    <section class="category_value">
+      <label for="color">Color:</label>
+      <select id="color_select" name="color"></select>
+
+      <label for="size">Size:</label>
+      <select id="size_select" name="size"></select>
+
+      <label for="brand">Brand:</label>
+      <select id="brand_select" name="brand"></select>
+    </section>
+    <section class="display_container">
+      <div class="info_display"></div>
+      <div class="shoe_display">
+        <img />
+      </div>
+    </section>
+
+    <script src="./js/shoe_catalog.js"></script>
+    <script src="./js/shoe_catalog._factory.js"></script>
+  </body>
+</html>

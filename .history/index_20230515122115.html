@@ -8,26 +8,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Lubas Shoes</title>
     <script type="text/x-template" id="categoryTemplate">
-        <section class="category_value">
+        <section>
             <label for="color">Color:</label>
             <select id="color_select" name="color">
-                {{#each colors}}
-                <option value={{this}}>{{color}}</option>
-                {{/each}}
-            </select>
 
-            <label for="size">Size:</label>
-            <select id="size_select" name="size">
-                {{#each sizes}}
-                <option value={{this}}>{{this}}</option>
-                {{/each}}
-            </select>
-
-            <label for="brand">Brand:</label>
-            <select id="brand_select" name="brand">
-                {{#each brands}}
-                <option value={{this}}>{{this}}</option>
-                {{/each}}
             </select>
         </section>
       
@@ -38,7 +22,7 @@
       <img class="title" src="./images/shoe_title_trans.png" />
     </div>
 
-    <section class="category_display">
+    <section class="category_value">
    
     </section>
    
@@ -49,7 +33,7 @@
       </div>
     </section>
 
-    
-    <script type="module" src="./js/shoe_catalog.js"></script>
+    <script src="./js/shoe_catalog.js"></script>
+    <script src="./js/shoe_catalog._factory.js"></script>
   </body>
 </html>

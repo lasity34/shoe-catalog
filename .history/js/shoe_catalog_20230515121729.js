@@ -1,0 +1,29 @@
+import { shoe_data } from "../data/shoe_data";
+
+
+const color_display = document.querySelector("#color_select");
+const size_display = document.querySelector("#size_select");
+const brand_display = document.querySelector("#brand_select");
+const category_display = document.querySelector(".category_value")
+
+const shoeInstance = shoe_factory()
+
+function updateCategoryTemplate(selectedValue) {
+  const templateSource = document.querySelector("#categoryTemplate").innerHTML;
+  const shoeTemplate = Handlebars.compile(templateSource);
+
+  const shoeData = {
+    color: shoeInstance.filter_shoe_categories(shoe_data, "color"),
+    size: shoeInstance.filter_shoe_categories(shoe_data, "size"),
+    brand: shoeInstance.filter_shoe_categories(shoe_data, "brand")
+
+  }
+
+   
+  
+
+  const userDataHTML = shoeTemplate(shoeData);
+
+  color_display.innerHTML = userDataHTML;
+  townDataElemTemp.value = selectedValue;
+}

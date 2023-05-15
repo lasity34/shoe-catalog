@@ -1,13 +1,11 @@
-import { shoe_data } from "../data/shoe_data.js";
-import { shoe_factory } from "./shoe_catalog._factory.js";
+import { shoe_data } from "../data/shoe_data";
 
 
-const color_select = document.querySelector("#color_select");
-const size_select = document.querySelector("#size_select");
-const brand_select = document.querySelector("#brand_select");
+const color_display = document.querySelector("#color_select");
+const size_display = document.querySelector("#size_select");
+const brand_display = document.querySelector("#brand_select");
 const category_display = document.querySelector(".category_display")
-
-
+const category_value = document.querySelector(".category_value")
 
 const shoeInstance = shoe_factory()
 
@@ -33,6 +31,4 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
-color_select.addEventListener("change", updateCategoryTemplate)
-size_select.addEventListener("change", updateCategoryTemplate)
-brand_select.addEventListener("change", updateCategoryTemplate)
+category_value.addEventListener("change", updateCategoryTemplate)

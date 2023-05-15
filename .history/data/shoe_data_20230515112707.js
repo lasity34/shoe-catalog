@@ -1,7 +1,7 @@
 
 
 
-export const shoe_data = 
+const shoe_data = 
      [
         {
             id: 1,

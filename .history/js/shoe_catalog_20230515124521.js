@@ -1,5 +1,4 @@
-import { shoe_data } from "../data/shoe_data.js";
-import { shoe_factory } from "./shoe_catalog._factory.js";
+import { shoe_data } from "../data/shoe_data";
 
 
 const color_select = document.querySelector("#color_select");

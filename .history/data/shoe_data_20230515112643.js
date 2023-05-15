@@ -1,7 +1,7 @@
 
 
 
-export const shoe_data = 
+const shoe_data = 
      [
         {
             id: 1,
@@ -19,9 +19,9 @@ export const shoe_data =
             color : 'brown',
             brand : "Nike",
             size : 7,
-            price : 600,
+            price : 700,
             img : "images\nike_air_dunk.webp",
-            in_stock : 6,
+            in_stock : 8,
 
 
         },
@@ -29,10 +29,10 @@ export const shoe_data =
             id: 3,
             color : 'blue',
             brand : "Mike",
-            size : 9,
+            size : 8,
             price : 350,
             img : "images\puma_blaze.webp",
-            in_stock : 5,
+            in_stock : 8,
 
 
         },
