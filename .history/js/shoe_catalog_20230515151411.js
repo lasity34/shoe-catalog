@@ -40,7 +40,7 @@ function DisplayShoeTemplate() {
 
   const userDataHTML = shoeTemplate(shoeData);
 
-  shoe_display.innerHTML = userDataHTML;
+  category_display.innerHTML = userDataHTML;
  
 }
 
@@ -48,7 +48,6 @@ function DisplayShoeTemplate() {
 
 document.addEventListener("DOMContentLoaded", function () {
   updateCategoryTemplate()
-  DisplayShoeTemplate()
 })
 
 

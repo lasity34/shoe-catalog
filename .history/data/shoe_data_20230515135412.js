@@ -4,25 +4,6 @@
 export const shoe_data = 
      [
         {
-            id: 0,
-            color : 'Select Color',
-            brand : "Select Brand",
-            size : "Select Size",
-
-
-        },
-        {
-            id: 1,
-            color : 'black',
-            brand : "pitbull",
-            size : 8,
-            price : 500,
-            img : "images\pitbull_men_hiker.webp",
-            in_stock : 8,
-
-
-        },
-        {
             id: 1,
             color : 'black',
             brand : "pitbull",

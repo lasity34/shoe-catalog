@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <title>Lubas Shoes</title>
+    <script type="text/x-template" id="categoryTemplate">
+        <section class="category_value">
+            <label for="color">Color:</label>
+            <select id="color_select" name="color">
+                {{#each colors}}
+                <option value={{this}}>{{this}}</option>
+                {{/each}}
+            </select>
+
+            <label for="size">Size:</label>
+            <select id="size_select" name="size">
+                {{#each sizes}}
+                <option value={{this}}>{{this}}</option>
+                {{/each}}
+            </select>
+
+            <label for="brand">Brand:</label>
+            <select id="brand_select" name="brand">
+                {{#each brands}}
+                <option value={{this}}>{{this}}</option>
+                {{/each}}
+            </select>
+        </section>
+      
+    </script>
+    <script type="text/x-template" id="shoeDisplayTemplate">
+        {{#each shoe}}
+               <p>{{this}}</p>
+                {{/each}}
+    </script>
+  </head>
+  <body>
+    <div class="title_container">
+      <img class="title" src="./images/shoe_title_trans.png" />
+    </div>
+
+    <section class="category_display">
+   
+    </section>
+   
+    <section class="display_container">
+      <div class="info_display"></div>
+      <div class="shoe_display">
+        <img />
+      </div>
+    </section>
+
+    
+    <script type="module" src="./js/shoe_catalog.js"></script>
+  </body>
+</html>

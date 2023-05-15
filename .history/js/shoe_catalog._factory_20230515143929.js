@@ -6,8 +6,8 @@ export function shoe_factory() {
     
   const unique_category = Array.from(new Set(shoe_data.map(shoe => shoe[category])))
 
-  const numbers = unique_category.filter(a => !isNaN(a))
-  const strings = unique_category.filter(b => isNaN(b))
+  const numbers = unique_category.filter(a => !NaN(a))
+  const strings = unique_category.filter(b => NaN(b))
 
 
   numbers.sort((a,b) => a - b)

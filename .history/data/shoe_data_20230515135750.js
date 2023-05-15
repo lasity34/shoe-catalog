@@ -8,6 +8,9 @@ export const shoe_data =
             color : 'Select Color',
             brand : "Select Brand",
             size : "Select Size",
+            price : 500,
+            img : "images\pitbull_men_hiker.webp",
+            in_stock : 8,
 
 
         },

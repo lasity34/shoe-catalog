@@ -6,8 +6,8 @@ export function shoe_factory() {
     
   const unique_category = Array.from(new Set(shoe_data.map(shoe => shoe[category])))
 
-  const numbers = unique_category.filter(a => !isNaN(a))
-  const strings = unique_category.filter(b => isNaN(b))
+  const numbers = unique_category.filter(a => !NaN(a))
+  const strings = unique_category.filter(b => NaN(b))
 
 
   numbers.sort((a,b) => a - b)
@@ -16,10 +16,11 @@ export function shoe_factory() {
     const aStartsWithS = a[0].toLowerCase() === "s";
     const bStartWithS = b[0].toLowerCase() === "s";
 
-    if (aStartsWithS && !bStartWithS) return -1
-      if (!aStartsWithS && bStartWithS) return 1
-      return a.localeCompare(b)
-    
+    if (aStartsWithS && !bStartWithS) {
+      return -1
+    } else if (!aStartsWithS && bStartWithS) {
+      return 1
+    }
   })
 
   return [...strings, ...numbers]
