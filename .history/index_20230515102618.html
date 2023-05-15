@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Lubas Shoes</title>
-    <script type="text/x-template" id="categoryTemplate">
+    <script type="text/x-template" id="regTemplate">
         {{#each differentCategories}}
         <option class="color" value="{{color}}">{{color}}</option>
   
@@ -31,13 +31,13 @@
         <img />
     </div>
     <section class="category_value">
-        <label for="color">Color:</label>
+        <label for="color">color:</label>
         <select id="color_select" name="color"></select>
 
-        <label for="size">Size:</label>
+        <label for="size">size:</label>
         <select id="size_select" name="size"></select>
 
-        <label for="brand">Brand:</label>
+        <label for="brand">brand:</label>
         <select id="brand_select" name="brand"></select>
       </section>
 

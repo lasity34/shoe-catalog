@@ -7,21 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Lubas Shoes</title>
-    <script type="text/x-template" id="categoryTemplate">
+    <script type="text/x-template" id="regTemplate">
         {{#each differentCategories}}
-        <option class="color" value="{{color}}">{{color}}</option>
-  
-        {{/each}}
-        {{#each differentCategories}}
-        <option class="size" value="{{size}}">{{size}}</option>
-  
-        {{/each}}
-        {{#each differentCategories}}
-        <option class="brand" value="{{brand}}">{{brand}}</option>
+        <option class="town" value="{{name}}">{{name}}</option>
   
         {{/each}}
       </script>
-      
   </head>
   <body>
     <div class="title_container">
@@ -30,16 +21,9 @@
     <div class="shoe_display">
         <img />
     </div>
-    <section class="category_value">
-        <label for="color">Color:</label>
-        <select id="color_select" name="color"></select>
+    <div class="category_group">
 
-        <label for="size">Size:</label>
-        <select id="size_select" name="size"></select>
-
-        <label for="brand">Brand:</label>
-        <select id="brand_select" name="brand"></select>
-      </section>
+    </div>
 
     <script src="./js/shoe_catalog.js"></script>
     <script src="./js/shoe_catalog._factory.js"></script>
