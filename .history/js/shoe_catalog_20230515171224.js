@@ -65,15 +65,8 @@ function size_display() {
   DisplayShoeTemplate(filtered_size)
 }
 
-function brand_display() {
-  const selected_brand = this.value
-  const filtered_brand = shoeInstance.filter_brand(shoe_data, selected_brand)
-  DisplayShoeTemplate(filtered_brand)
-}
-
 color_select.addEventListener("change", color_display)
 size_select.addEventListener("change", size_display)
-brand_select.addEventListener("change", brand_display)
 
 
 

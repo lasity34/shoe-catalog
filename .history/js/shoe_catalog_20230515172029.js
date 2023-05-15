@@ -73,7 +73,6 @@ function brand_display() {
 
 color_select.addEventListener("change", color_display)
 size_select.addEventListener("change", size_display)
-brand_select.addEventListener("change", brand_display)
 
 
 

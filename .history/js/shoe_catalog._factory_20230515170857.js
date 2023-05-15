@@ -5,13 +5,12 @@ export function shoe_factory() {
 
   function filter_shoe_categories(shoe_data, category) {
     
-    
   const unique_category = Array.from(new Set(shoe_data.map(shoe => shoe[category])))
 
   const numbers = unique_category.filter(a => !isNaN(a))
   const strings = unique_category.filter(b => isNaN(b))
 
-  // sort alphabetically
+
   numbers.sort((a,b) => a - b)
 
   strings.sort((a, b) => {
@@ -32,7 +31,7 @@ export function shoe_factory() {
   }
 
   function filter_size(shoe_data ,size) {
-    return shoe_data.filter(shoe => shoe.size === Number(size))
+    return shoe_data.filter(shoe => shoe.size === size)
    }
 
   function filter_brand(shoe_data ,brand) {
@@ -43,9 +42,7 @@ export function shoe_factory() {
 
   return {
     filter_shoe_categories,
-    filter_color,
-    filter_size,
-    filter_brand
+    filter_color
   };
 }
 
