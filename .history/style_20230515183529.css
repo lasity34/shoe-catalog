@@ -17,17 +17,17 @@
 
 .category_value {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 0 auto;
-    width: 40%;
+    width: 45%;
     padding: 1em;
-    
+    font-size: 1.8rem;
 }
 
 .category_value div {
     margin-bottom: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -39,15 +39,12 @@
     border: 1px solid #ccc;
     appearance: none;
     background-color: #fff;
-    font-size: 1.5rem;
+   
 }
 
-.category_value select:hover {
-    background-color: #f0f0f0;
+label {
+    font-size: 1.2rem;
 }
-
-
-
 
 
 @media (max-width: 700px) {

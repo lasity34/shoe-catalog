@@ -3,13 +3,10 @@
 
 export function shoe_factory() {
 
-  function get_default_shoe(shoe_data) {
-    return shoe_data[0]
-  }
-
   function filter_shoe_categories(shoe_data, category) {
     
-  const unique_category = Array.from(new Set(shoe_data.map(shoe => shoe[category])))
+    
+  const unique_category = Array.from(new Set([shoe_data[0][category], ...shoe_data.map(shoe => shoe[category])]))
 
   const numbers = unique_category.filter(a => !isNaN(a))
   const strings = unique_category.filter(b => isNaN(b))
@@ -24,6 +21,7 @@ export function shoe_factory() {
     if (aStartsWithS && !bStartWithS) return -1
       if (!aStartsWithS && bStartWithS) return 1
       return a.localeCompare(b)
+    
   })
 
   return [...strings, ...numbers]
@@ -47,8 +45,7 @@ export function shoe_factory() {
     filter_shoe_categories,
     filter_color,
     filter_size,
-    filter_brand,
-    get_default_shoe
+    filter_brand
   };
 }
 

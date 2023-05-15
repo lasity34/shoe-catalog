@@ -10,7 +10,7 @@
     <script type="text/x-template" id="categoryTemplate">
       <section class="category_value">
         <div class="input_container">
-           
+            <label for="color">Color:</label>
           <select id="color_select" name="color">
               {{#each colors}}
               <option  value={{this}}>{{this}}</option>
@@ -19,7 +19,7 @@
         </div>
         
           <div>
-       
+          <label for="size">Size:</label>
           <select id="size_select" name="size">
               {{#each sizes}}
               <option  value={{this}}>{{this}}</option>
@@ -27,7 +27,7 @@
           </select>
         </div>
         <div>
-          
+          <label for="brand">Brand:</label>
           <select id="brand_select" name="brand">
               {{#each brands}}
               <option  value={{this}}>{{this}}</option>

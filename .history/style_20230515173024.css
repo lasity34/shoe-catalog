@@ -1,0 +1,26 @@
+
+
+
+
+.title_container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.title {
+    width: 300px;
+    
+}
+
+.category_value {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 700px) {
+    .title {
+        width: 200px;
+    }
+}

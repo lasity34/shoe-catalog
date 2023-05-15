@@ -17,7 +17,7 @@
 
 .category_value {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 0 auto;
     width: 40%;
     padding: 1em;
@@ -27,7 +27,7 @@
 .category_value div {
     margin-bottom: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 

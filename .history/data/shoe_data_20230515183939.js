@@ -4,7 +4,7 @@
 export const shoe_data = 
      [
         {
-            id: 1,
+            id: 0,
             color : 'Color',
             brand : "Brand",
             size : "Size",
@@ -12,7 +12,7 @@ export const shoe_data =
 
         },
         {
-            id: 2,
+            id: 1,
             color : 'black',
             brand : "pitbull",
             size : 8,
@@ -23,7 +23,7 @@ export const shoe_data =
 
         },
         {
-            id: 3,
+            id: 2,
             color : 'brown',
             brand : "Nike",
             size : 7,
@@ -34,7 +34,7 @@ export const shoe_data =
 
         },
         {
-            id: 4,
+            id: 3,
             color : 'blue',
             brand : "Mike",
             size : 9,
@@ -45,7 +45,7 @@ export const shoe_data =
 
         },
         {
-            id: 5,
+            id: 4,
             color : 'blue',
             brand : "Addidas",
             size : 7,

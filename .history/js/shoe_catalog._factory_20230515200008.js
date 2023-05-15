@@ -9,6 +9,7 @@ export function shoe_factory() {
 
   function filter_shoe_categories(shoe_data, category) {
     
+    
   const unique_category = Array.from(new Set(shoe_data.map(shoe => shoe[category])))
 
   const numbers = unique_category.filter(a => !isNaN(a))
@@ -24,6 +25,7 @@ export function shoe_factory() {
     if (aStartsWithS && !bStartWithS) return -1
       if (!aStartsWithS && bStartWithS) return 1
       return a.localeCompare(b)
+    
   })
 
   return [...strings, ...numbers]
