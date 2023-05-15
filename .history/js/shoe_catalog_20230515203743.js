@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const shoeInstance = shoe_factory();
   initializeApp();
- 
+  console.log(shoe_data)
 // main function
   function initializeApp() {
     updateCategoryTemplate();
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sizes: shoeInstance.filter_shoe_categories(shoe_data, "size"),
       brands: shoeInstance.filter_shoe_categories(shoe_data, "brand"),
     };
-    console.log(shoeData)
+
     const userDataHTML = shoeTemplate(shoeData);
 
     category_display.innerHTML = userDataHTML;

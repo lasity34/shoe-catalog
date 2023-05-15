@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const shoeInstance = shoe_factory();
   initializeApp();
- 
+  console.log(shoe_data)
 // main function
   function initializeApp() {
     updateCategoryTemplate();
