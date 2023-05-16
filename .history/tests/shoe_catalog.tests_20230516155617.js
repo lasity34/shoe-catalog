@@ -122,9 +122,20 @@ describe("Testing if categories are filtered", function() {
 
         const shoe_instance = shoe_factory()
         
-        shoe_instance.filter_price(shoe_data, "5999.00")
-      
-        assert.deepEqual([     {
+        shoe_instance.filter_price(shoe_data, 5999.00)
+       console.log(shoe_data)
+        assert.deepEqual([    {
+            id: 2,
+            color : 'Grey',
+            name : "Nike Dunk Low Mica Green",
+            brand : "Nike",
+            size : 8,
+            price : parseFloat(4999).toFixed(2),
+            img : "./images/nike_dunk_low.jpg",
+            in_stock : 8,
+
+        },
+        {
             id: 3,
             color : 'Red',
             name : "Nike Dunk Low Satin",
@@ -135,22 +146,10 @@ describe("Testing if categories are filtered", function() {
             in_stock : 6,
            
 
-        },
-        {
-            id: 5,
-            color : 'Blue',
-            name: 'Yeezy Boost 700 MNVN Bright Cyan',
-            brand : "Yeezy",
-            size : 10,
-            price : parseFloat(5999).toFixed(2),
-            img : "./images/yeezy_boost_700.jpg",
-            in_stock : 5,
-
-
         }
     
     
-    ], shoe_instance.filter_price(shoe_data, "5999.00"))
+    ], shoe_instance.filter_price(shoe_data, 5999.00))
     })
 
 } )
