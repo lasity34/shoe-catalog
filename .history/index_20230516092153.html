@@ -41,12 +41,10 @@
        {{#each shoes}}
        <div class="shoe_item">
         <img src="{{this.img}}" />
-            <h4>{{this.name}}</h4>
-            <h4>R{{this.price}}</h4>
-             <h4 id="item_message"> We have {{this.in_stock}} {{this.color}} in stock </h4>
-            </div>
+            <h5>{{this.brand}}</h5>
+             <p> we have {{this.in_stock}} {{this.color}} in stock </p>
       {{/each}}
-      
+      <div>
     </script>
   </head>
   <body>
@@ -55,9 +53,8 @@
     </div>
 
     <section class="category_display"></section>
-    <section class="display_container">
-    
-    </section>
+
+    <section class="display_container"></section>
 
     <script type="module" src="./js/shoe_catalog.js"></script>
   </body>

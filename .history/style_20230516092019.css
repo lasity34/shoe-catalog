@@ -17,7 +17,6 @@
 
 
 
-
 .category_value {
     display: flex;
     justify-content: center;
@@ -47,42 +46,19 @@
     background-color: #f0f0f0;
 }
 
-
 .display_container {
     display: flex;
-
-    flex-wrap: wrap; 
-   
-}
-
-.shoe_item {
-    display: flex;
     flex-direction: column;
-  
-   width: 20%;
-   text-align: center;
-   text-transform: capitalize;
-  align-items: center;
+    margin: 1em;
 }
 
-
-
-
-.shoe_item h4{
-    color: grey;
-    margin: 0.5em;
+.display_container h5 {
+    text-transform: uppercase;
 }
 
 img {
-    width: 75%;
-    height: 75%;
+    width: 20%;
 }
-
-#item_message {
-    color: rgb(151, 69, 69);
-}
-
-
 
 
 @media (max-width: 700px) {
@@ -98,7 +74,7 @@ img {
         font-size: 1rem;
     }
 
-    .shoe_item {
+    .display_container {
         
         align-items: center;
     }

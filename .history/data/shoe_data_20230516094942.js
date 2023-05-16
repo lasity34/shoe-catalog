@@ -10,7 +10,7 @@ export const shoe_data =
             name : "Nike Dunk Low Mica Green",
             brand : "Nike",
             size : 8,
-            price : 499.00,
+            price : 499,
             img : "./images/nike_dunk_low.jpg",
             in_stock : 8,
 
@@ -21,7 +21,7 @@ export const shoe_data =
             brand : "Nike",
             size : 7,
             price : 600,
-            img : "./images/nike_air_dunk.webp",
+            img : "images\nike_air_dunk.webp",
             in_stock : 6,
            
 

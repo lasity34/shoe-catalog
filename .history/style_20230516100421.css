@@ -17,7 +17,6 @@
 
 
 
-
 .category_value {
     display: flex;
     justify-content: center;
@@ -47,39 +46,26 @@
     background-color: #f0f0f0;
 }
 
-
-.display_container {
-    display: flex;
-
-    flex-wrap: wrap; 
-   
-}
-
 .shoe_item {
     display: flex;
     flex-direction: column;
-  
-   width: 20%;
+    margin: 1em;
+   width: 40%;
    text-align: center;
-   text-transform: capitalize;
-  align-items: center;
+   text-transform: uppercase;
+   text-align: center;
 }
 
 
 
 
-.shoe_item h4{
+.shoe_item h5{
     color: grey;
-    margin: 0.5em;
 }
 
 img {
-    width: 75%;
+    width: 50%;
     height: 75%;
-}
-
-#item_message {
-    color: rgb(151, 69, 69);
 }
 
 

@@ -2,12 +2,10 @@
 
 
 
-
 .title_container {
     display: flex;
     justify-content: center;
     margin: 0;
-    border-bottom: 1px solid;
 }
 
 .title {
@@ -17,13 +15,12 @@
 
 
 
-
 .category_value {
     display: flex;
     justify-content: center;
     margin: 0 auto;
     width: 40%;
-
+    padding: 0.4em;
     
 }
 
@@ -37,8 +34,9 @@
 .category_value select {
     width: 100%;
     padding: 0.5em ;
-
-   border: none;
+    margin-left: 0.2em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
     background-color: #fff;
     font-size: 1.5rem;
 }
@@ -47,40 +45,6 @@
     background-color: #f0f0f0;
 }
 
-
-.display_container {
-    display: flex;
-
-    flex-wrap: wrap; 
-   
-}
-
-.shoe_item {
-    display: flex;
-    flex-direction: column;
-  
-   width: 20%;
-   text-align: center;
-   text-transform: capitalize;
-  align-items: center;
-}
-
-
-
-
-.shoe_item h4{
-    color: grey;
-    margin: 0.5em;
-}
-
-img {
-    width: 75%;
-    height: 75%;
-}
-
-#item_message {
-    color: rgb(151, 69, 69);
-}
 
 
 
@@ -91,19 +55,11 @@ img {
     }
 
     .category_value {
-        width: 90%;
+        width: 80%;
     }
 
     .category_value select {
         font-size: 1rem;
     }
 
-    .shoe_item {
-        
-        align-items: center;
-    }
-
-    img {
-        width: 50%;
-    }
 }

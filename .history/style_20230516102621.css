@@ -47,10 +47,12 @@
     background-color: #f0f0f0;
 }
 
-
+.container {
+    display: flex;
+}
 .display_container {
     display: flex;
-
+    flex-direction: row;
     flex-wrap: wrap; 
    
 }
@@ -58,23 +60,22 @@
 .shoe_item {
     display: flex;
     flex-direction: column;
-  
-   width: 20%;
+    margin: 1em;
+   width: 30%;
    text-align: center;
-   text-transform: capitalize;
+   text-transform: uppercase;
   align-items: center;
 }
 
 
 
 
-.shoe_item h4{
+.shoe_item h5{
     color: grey;
-    margin: 0.5em;
 }
 
 img {
-    width: 75%;
+    width: 50%;
     height: 75%;
 }
 

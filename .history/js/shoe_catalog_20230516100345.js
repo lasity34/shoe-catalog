@@ -3,7 +3,7 @@ import { shoe_factory } from "./shoe_catalog._factory.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
-  const shoe_display = document.querySelector(".display_container");
+  const shoe_display = document.querySelector(".shoe_item");
 
   const shoeInstance = shoe_factory();
   initializeApp();

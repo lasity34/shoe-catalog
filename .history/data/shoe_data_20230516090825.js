@@ -6,13 +6,13 @@ export const shoe_data =
      
         {
             id: 2,
-            color : 'Grey',
-            name : "Nike Dunk Low Mica Green",
-            brand : "Nike",
+            color : 'Black',
+            brand : "pitbull",
             size : 8,
-            price : 499.00,
-            img : "./images/nike_dunk_low.jpg",
+            price : 500,
+            img : "./images/pitbull_men_hiker.webp",
             in_stock : 8,
+
 
         },
         {
@@ -21,9 +21,9 @@ export const shoe_data =
             brand : "Nike",
             size : 7,
             price : 600,
-            img : "./images/nike_air_dunk.webp",
+            img : "images\nike_air_dunk.webp",
             in_stock : 6,
-           
+
 
         },
         {

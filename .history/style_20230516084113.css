@@ -1,0 +1,56 @@
+
+
+
+
+.title_container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.title {
+    width: 300px;
+    
+}
+
+
+
+.category_value {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 40%;
+   
+    
+}
+
+.category_value div {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category_value select {
+    width: 100%;
+    padding: 0.5em 1em;
+    margin-left: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 1.5rem;
+}
+
+.category_value select:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+@media (max-width: 700px) {
+    .title {
+        width: 200px;
+    }
+}

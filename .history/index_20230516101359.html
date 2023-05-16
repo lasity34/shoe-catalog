@@ -39,12 +39,11 @@
     </script>
     <script type="text/x-template" id="shoeDisplayTemplate">
        {{#each shoes}}
-       <div class="shoe_item">
+       
         <img src="{{this.img}}" />
-            <h4>{{this.name}}</h4>
-            <h4>R{{this.price}}</h4>
-             <h4 id="item_message"> We have {{this.in_stock}} {{this.color}} in stock </h4>
-            </div>
+            <h5>{{this.name}}</h5>
+            <h5>R{{this.price}}</h5>
+             <h5 id="item_message"> We have {{this.in_stock}} {{this.color}} in stock </h5>
       {{/each}}
       
     </script>
@@ -56,7 +55,7 @@
 
     <section class="category_display"></section>
     <section class="display_container">
-    
+      <div class="shoe_item"></div>
     </section>
 
     <script type="module" src="./js/shoe_catalog.js"></script>
