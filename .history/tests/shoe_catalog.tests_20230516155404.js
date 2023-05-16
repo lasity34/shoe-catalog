@@ -122,7 +122,7 @@ describe("Testing if categories are filtered", function() {
 
         const shoe_instance = shoe_factory()
         
-        shoe_instance.filter_price(shoe_data, 5999.00)
+        shoe_instance.filter_price(shoe_data, 5999)
        
         assert.deepEqual([    {
             id: 2,
@@ -149,7 +149,7 @@ describe("Testing if categories are filtered", function() {
         }
     
     
-    ], shoe_instance.filter_price(shoe_data, 5999.00))
+    ], shoe_instance.filter_price(shoe_data, 5999))
     })
 
 } )

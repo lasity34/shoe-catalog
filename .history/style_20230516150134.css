@@ -11,7 +11,7 @@
 }
 
 .title {
-    width: 150px;
+    width: 200px;
     
 }
 
@@ -40,7 +40,7 @@
 
    border: none;
     background-color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .category_value select:hover {
@@ -92,7 +92,7 @@ img {
 
 @media (max-width: 700px) {
     .title {
-        width: 140px;
+        width: 200px;
     }
 
     .category_value {
