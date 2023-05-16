@@ -28,12 +28,11 @@ export const shoe_data =
         },
         {
             id: 3,
-            color : 'Red',
-            name : "Nike Dunk Low Satin",
+            color : 'Brown',
             brand : "Nike",
-            size : 5,
-            price : 599,
-            img : "./images/nike_dunk_low_satin.jpg",
+            size : 7,
+            price : 600,
+            img : "./images/nike_air_dunk.webp",
             in_stock : 6,
            
 

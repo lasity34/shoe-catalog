@@ -40,7 +40,7 @@ export function shoe_factory() {
    }
 
   function filter_price(shoe_data, price) {
-    return shoe_data.filter(shoe => shoe.price === Number(price))
+    return shoe_data.filter(shoe => shoe.price === price)
   }
 
 

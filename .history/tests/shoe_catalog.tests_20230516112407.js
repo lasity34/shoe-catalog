@@ -19,17 +19,7 @@ describe("Testing dropdown values", function() {
 
         shoe_instance.filter_shoe_categories(shoe_data, "size")
 
-        assert.deepEqual([ 7, 8, 9 ], shoe_instance.filter_shoe_categories(shoe_data, "size"))
-     
-    })
-
-    it("this should test the items that have been filtered with sizes in an array", function() {
-    
-        const shoe_instance = shoe_factory()
-
-        shoe_instance.filter_shoe_categories(shoe_data, "brand")
-
-        assert.deepEqual([ 'Addidas', 'Mike', 'Nike' ], shoe_instance.filter_shoe_categories(shoe_data, "brand"))
+        assert.deepEqual([ 'blue', 'Blue', 'Brown', 'Grey' ], shoe_instance.filter_shoe_categories(shoe_data, "size"))
      
     })
 })

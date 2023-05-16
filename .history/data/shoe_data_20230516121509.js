@@ -33,7 +33,7 @@ export const shoe_data =
             brand : "Nike",
             size : 5,
             price : 599,
-            img : "./images/nike_dunk_low_satin.jpg",
+            img : "./images/nike_air_dunk.webp",
             in_stock : 6,
            
 

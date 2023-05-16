@@ -39,10 +39,6 @@ export function shoe_factory() {
     return shoe_data.filter(shoe => shoe.brand === brand)
    }
 
-  function filter_price(shoe_data, price) {
-    return shoe_data.filter(shoe => shoe.price === Number(price))
-  }
-
 
 
   return {
@@ -50,7 +46,7 @@ export function shoe_factory() {
     filter_color,
     filter_size,
     filter_brand,
-    filter_price
+  
   };
 }
 

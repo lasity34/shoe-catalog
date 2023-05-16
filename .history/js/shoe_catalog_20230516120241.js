@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (selected_brand) {
       filtered_shoes = shoeInstance.filter_brand(filtered_shoes, selected_brand)
     } else if (selected_price) {
-      filtered_shoes = shoeInstance.filter_price(filtered_shoes, selected_price)
+      filtered_shoes = shoeInstance.filter_price(filter_price, selected_price)
     }
 
     DisplayShoeTemplate(filtered_shoes)

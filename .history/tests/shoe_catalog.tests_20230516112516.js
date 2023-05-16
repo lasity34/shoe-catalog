@@ -29,7 +29,7 @@ describe("Testing dropdown values", function() {
 
         shoe_instance.filter_shoe_categories(shoe_data, "brand")
 
-        assert.deepEqual([ 'Addidas', 'Mike', 'Nike' ], shoe_instance.filter_shoe_categories(shoe_data, "brand"))
+        assert.deepEqual([ 7, 8, 9 ], shoe_instance.filter_shoe_categories(shoe_data, "brand"))
      
     })
 })

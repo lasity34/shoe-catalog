@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_brand = document.querySelector("#brand_select").value;
     const selected_price = document.querySelector("#price_select").value;
 
-    let filtered_shoes = shoe_data
+    const filtered_shoes = shoe_data
 
     if (selected_color) {
       filtered_shoes = shoeInstance.filter_color(filtered_shoes, selected_color)
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (selected_brand) {
       filtered_shoes = shoeInstance.filter_brand(filtered_shoes, selected_brand)
     } else if (selected_price) {
-      filtered_shoes = shoeInstance.filter_price(filtered_shoes, selected_price)
+      filtered_shoes = shoeInstance.filter_price(filter_price, selected_price)
     }
 
     DisplayShoeTemplate(filtered_shoes)

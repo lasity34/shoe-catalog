@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // main function
   function initializeApp() {
     updateCategoryTemplate();
-   
+    DisplayShoeTemplate();
     const color_select = document.querySelector("#color_select");
     const size_select = document.querySelector("#size_select");
     const brand_select = document.querySelector("#brand_select");
@@ -45,47 +45,35 @@ document.addEventListener("DOMContentLoaded", function () {
       "#shoeDisplayTemplate"
     ).innerHTML;
     const shoeTemplate = Handlebars.compile(templateSource);
+
     const shoeData = { shoes: shoes };
+
     const userDataHTML = shoeTemplate(shoeData);
+
     shoe_display.innerHTML = userDataHTML;
   }
-
 // helper functions
-  function update_display() {
-    const selected_color = document.querySelector("#color_select").value;
-    const selected_size = document.querySelector("#size_select").value;
-    const selected_brand = document.querySelector("#brand_select").value;
-    const selected_price = document.querySelector("#price_select").value;
-
-    let filtered_shoes = shoe_data
-
-    if (selected_color) {
-      filtered_shoes = shoeInstance.filter_color(filtered_shoes, selected_color)
-    } else if (selected_size) {
-      filtered_shoes = shoeInstance.filter_size(filtered_shoes, selected_size)
-    } else if (selected_brand) {
-      filtered_shoes = shoeInstance.filter_brand(filtered_shoes, selected_brand)
-    } else if (selected_price) {
-      filtered_shoes = shoeInstance.filter_price(filtered_shoes, selected_price)
-    }
-
-    DisplayShoeTemplate(filtered_shoes)
-  }
-
-
   function color_display() {
-    update_display()
+    const selected_color = this.value;
+    const filtered_shoes = shoeInstance.filter_color(shoe_data, selected_color);
+    DisplayShoeTemplate(filtered_shoes);
   }
 
   function size_display() {
-    update_display()
+    const selected_size = this.value;
+    const filtered_size = shoeInstance.filter_size(shoe_data, selected_size);
+    DisplayShoeTemplate(filtered_size);
   }
 
   function brand_display() {
-    update_display()
+    const selected_brand = this.value;
+    const filtered_brand = shoeInstance.filter_brand(shoe_data, selected_brand);
+    DisplayShoeTemplate(filtered_brand);
   }
 
   function price_display() {
-    update_display()
+    const selected_price = this.value;
+    const filtered_price = shoeInstance.filter_price(shoe_data, selected_price);
+    DisplayShoeTemplate(filtered_price);
   }
 });
