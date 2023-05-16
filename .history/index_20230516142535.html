@@ -12,7 +12,7 @@
         <div class="input_container">
 
           <select id="color_select" name="color">
-            <option value=""  selected>Color</option>
+            <option value="" disabled selected>Color</option>
               {{#each colors}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}
@@ -20,7 +20,7 @@
         </div>
           <div>
           <select id="size_select" name="size">
-            <option value=""  selected>Size</option>
+            <option value="" disabled selected>Size</option>
               {{#each sizes}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}
@@ -29,7 +29,7 @@
         <div>
 
           <select id="brand_select" name="brand">
-            <option value=""  selected>Brand</option>
+            <option value="" disabled selected>Brand</option>
               {{#each brands}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}
@@ -38,7 +38,7 @@
         <div>
 
           <select id="price_select" name="price">
-            <option value=""  selected>Price</option>
+            <option value="" disabled selected>Price</option>
               {{#each prices}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}

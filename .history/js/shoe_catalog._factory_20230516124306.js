@@ -16,7 +16,11 @@ export function shoe_factory() {
   numbers.sort((a,b) => a - b)
 
   strings.sort((a, b) => {
-   
+    const aStartsWithS = a[0].toLowerCase() === "s";
+    const bStartWithS = b[0].toLowerCase() === "s";
+
+    if (aStartsWithS && !bStartWithS) return -1
+      if (!aStartsWithS && bStartWithS) return 1
       return a.localeCompare(b)
   })
 

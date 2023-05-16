@@ -9,7 +9,7 @@ export const shoe_data =
             name : "Jordan Retro Thunder",
             brand : "Jordan",
             size : 10,
-            price : parseFloat(7999).toFixed(2),
+            price : (7999).toFixed(2),
             img : "./images/jordan_retro_thunder.jpg",
             in_stock : 8,
 
@@ -52,7 +52,7 @@ export const shoe_data =
         },
         {
             id: 5,
-            color : 'Blue',
+            color : 'blue',
             name: 'Yeezy Boost 700 MNVN Bright Cyan',
             brand : "Yeezy",
             size : 10,

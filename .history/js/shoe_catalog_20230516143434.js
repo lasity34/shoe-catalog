@@ -61,24 +61,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selected_color) {
       filtered_shoes = shoeInstance.filter_color(filtered_shoes, selected_color)
-    }
-     if (selected_size) {
+    } else if (selected_size) {
       filtered_shoes = shoeInstance.filter_size(filtered_shoes, selected_size)
-    }
-     if (selected_brand) {
+    } else if (selected_brand) {
       filtered_shoes = shoeInstance.filter_brand(filtered_shoes, selected_brand)
-    }
-     if (selected_price) {
+    } else if (selected_price) {
       filtered_shoes = shoeInstance.filter_price(filtered_shoes, selected_price)
     }
 
     if (filtered_shoes.length === 0) {
-      shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
-    } else {
-
-      DisplayShoeTemplate(filtered_shoes)
+      shoe_display.innerHTML = "Sorry, no shoes found matching your selection."
     }
 
+    DisplayShoeTemplate(filtered_shoes)
   }
 
 

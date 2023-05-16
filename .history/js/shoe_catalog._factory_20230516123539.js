@@ -16,14 +16,16 @@ export function shoe_factory() {
   numbers.sort((a,b) => a - b)
 
   strings.sort((a, b) => {
-   
+    const aStartsWithS = a[0].toLowerCase() === "s";
+    const bStartWithS = b[0].toLowerCase() === "s";
+
+    if (aStartsWithS && !bStartWithS) return -1
+      if (!aStartsWithS && bStartWithS) return 1
       return a.localeCompare(b)
   })
 
   return [...strings, ...numbers]
   }
-
-  
 
   function filter_color(shoe_data ,color) {
    return shoe_data.filter(shoe => shoe.color === color)
@@ -37,9 +39,10 @@ export function shoe_factory() {
     return shoe_data.filter(shoe => shoe.brand === brand)
    }
 
-  function filter_price(shoe_data, price) {
-    return shoe_data.filter(shoe => shoe.price === Number(price))
+   function filter_price(shoe_data, price) {
+    return shoe_data.filter(shoe => Number(shoe.price.toFixed(2)) === Number(price))
   }
+  
 
 
 

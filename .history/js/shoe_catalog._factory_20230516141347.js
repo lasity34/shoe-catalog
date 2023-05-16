@@ -13,12 +13,7 @@ export function shoe_factory() {
   const strings = unique_category.filter(b => isNaN(b))
 
   // sort alphabetically
-  numbers.sort((a,b) => a - b)
-
-  strings.sort((a, b) => {
-   
-      return a.localeCompare(b)
-  })
+ 
 
   return [...strings, ...numbers]
   }

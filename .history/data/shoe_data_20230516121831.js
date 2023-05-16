@@ -9,7 +9,7 @@ export const shoe_data =
             name : "Jordan Retro Thunder",
             brand : "Jordan",
             size : 10,
-            price : parseFloat(7999).toFixed(2),
+            price : 799.00,
             img : "./images/jordan_retro_thunder.jpg",
             in_stock : 8,
 
@@ -21,7 +21,7 @@ export const shoe_data =
             name : "Nike Dunk Low Mica Green",
             brand : "Nike",
             size : 8,
-            price : 4999.00,
+            price : 499.00,
             img : "./images/nike_dunk_low.jpg",
             in_stock : 8,
 
@@ -32,7 +32,7 @@ export const shoe_data =
             name : "Nike Dunk Low Satin",
             brand : "Nike",
             size : 5,
-            price : 5999,
+            price : 599,
             img : "./images/nike_dunk_low_satin.jpg",
             in_stock : 6,
            
@@ -40,24 +40,23 @@ export const shoe_data =
         },
         {
             id: 4,
-            color : 'Green',
+            color : 'Blue',
             name: 'adidas Superstar Bape ABC',
-            brand : "Adidas",
+            brand : "Addidas",
             size : 9,
-            price : 4999,
-            img : "./images/adidas_superstar_bape.jpg",
+            price : 499,
+            img : "images\puma_blaze.webp",
             in_stock : 8,
 
 
         },
         {
             id: 5,
-            color : 'Blue',
-            name: 'Yeezy Boost 700 MNVN Bright Cyan',
-            brand : "Yeezy",
-            size : 10,
-            price : 5999,
-            img : "./images/yeezy_boost_700.jpg",
+            color : 'blue',
+            brand : "Addidas",
+            size : 7,
+            price : 400,
+            img : "images\puma_blaze.webp",
             in_stock : 5,
 
 

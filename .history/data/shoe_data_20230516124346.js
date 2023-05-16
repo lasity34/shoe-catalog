@@ -52,7 +52,7 @@ export const shoe_data =
         },
         {
             id: 5,
-            color : 'Blue',
+            color : 'blue',
             name: 'Yeezy Boost 700 MNVN Bright Cyan',
             brand : "Yeezy",
             size : 10,

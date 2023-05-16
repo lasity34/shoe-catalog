@@ -82,9 +82,8 @@ img {
     color: rgb(151, 69, 69);
 }
 
-.no-shoes {
-    margin: 0 auto;
-    font-size: 1.5rem;
+.display_container p {
+    text-align: center;
 }
 
 

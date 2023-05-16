@@ -73,12 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (filtered_shoes.length === 0) {
-      shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
-    } else {
-
-      DisplayShoeTemplate(filtered_shoes)
+      shoe_display.innerHTML = "Sorry, no shoes found matching your selection."
     }
 
+    DisplayShoeTemplate(filtered_shoes)
   }
 
 

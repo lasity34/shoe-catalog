@@ -16,14 +16,23 @@ export function shoe_factory() {
   numbers.sort((a,b) => a - b)
 
   strings.sort((a, b) => {
-   
+    const aStartsWithS = a[0].toLowerCase() === "s";
+    const bStartWithS = b[0].toLowerCase() === "s";
+
+    if (aStartsWithS && !bStartWithS) return -1
+      if (!aStartsWithS && bStartWithS) return 1
       return a.localeCompare(b)
   })
 
   return [...strings, ...numbers]
   }
 
-  
+  function format_price(shoe_data) {
+    return shoe_data.map(shoe => {
+      shoe.price = Number(shoe.price.toFixed(2))
+      return shoe
+    })
+  }
 
   function filter_color(shoe_data ,color) {
    return shoe_data.filter(shoe => shoe.color === color)
@@ -38,7 +47,8 @@ export function shoe_factory() {
    }
 
   function filter_price(shoe_data, price) {
-    return shoe_data.filter(shoe => shoe.price === Number(price))
+    let formatted_shoe_data = format_price(shoe_data)
+    return formatted_shoe_data.filter(shoe => shoe.price === Number(price))
   }
 
 
@@ -48,7 +58,8 @@ export function shoe_factory() {
     filter_color,
     filter_size,
     filter_brand,
-    filter_price
+    filter_price,
+    format_price
   };
 }
 
