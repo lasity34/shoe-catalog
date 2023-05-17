@@ -27,7 +27,7 @@
 }
 
 .category_value .select {
-  width: 110px;
+  width: 100px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
@@ -36,12 +36,14 @@
   border: none;
   background-color: #fff;
   font-size: 1.3rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .category_value .select:hover {
     background-color: #f0f0f0;
-    transform: scale(1.02); 
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Reduced shadow opacity */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transform: translateY(-3px); /* Reduced movement on hover */
 }
 
 .navbar-nav {

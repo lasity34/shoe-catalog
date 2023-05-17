@@ -27,21 +27,22 @@
 }
 
 .category_value .select {
-  width: 110px;
+  width: 100px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
-  margin-left: 1em;
+  margin-left: 2em;
   border-radius: 5px;
   border: none;
   background-color: #fff;
   font-size: 1.3rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .category_value .select:hover {
     background-color: #f0f0f0;
-    transform: scale(1.02); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .navbar-nav {

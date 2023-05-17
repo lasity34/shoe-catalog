@@ -1,0 +1,154 @@
+
+
+
+
+/*  title */
+.title_container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    border-bottom: 1px solid;
+}
+
+.title {
+    width: 150px;
+    
+}
+
+
+/* categories */
+
+.category_value {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+
+    
+}
+
+.category_value div {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category_value .select {
+    width: 100px;
+    text-align: start;
+   padding: 0.5em;
+margin-left: 2em;
+   border: none;
+    background-color: #fff;
+    font-size: 1.3rem;
+}
+
+.category_value .select:hover {
+    background-color: #f0f0f0;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+#navbarNavAltMarkup {
+    margin-top: 1em;
+}
+
+.navbar-toggler {
+transition:  opacity 0.3s ease;
+}
+
+#search_bar {
+    height: 40px;
+}
+
+/* shoe display */
+.display_container {
+    display: flex;
+    flex-wrap: wrap;
+    
+   
+}
+
+.shoe_item {
+    display: flex;
+    flex-direction: column;
+  
+   width: 20%;
+   text-align: center;
+   text-transform: capitalize;
+  align-items: center;
+}
+
+
+
+
+.shoe_item h4{
+    color: grey;
+    margin: 0.5em;
+    font-size: 1.2rem;
+}
+
+img {
+    width: 75%;
+    height: 75%;
+}
+
+#item_message {
+    color: rgb(151, 69, 69);
+}
+
+.no-shoes {
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+
+
+
+@media (max-width: 700px) {
+    /* title */
+    .title {
+        width: 140px;
+    }
+    /* categories */
+    .category_value {
+        width: 100%;
+        
+    }
+
+    .category_value .select{
+        font-size: 1rem;
+    }
+
+    #search_bar {
+        height: 30px;
+    }
+
+    /* display */
+    .display_container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .shoe_item {
+        width: 90%;
+        padding-bottom: 2em;
+        align-items: center;
+        border-bottom: 1px solid;
+    }
+
+    img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .shoe_item h4 {
+        font-size: 1rem;
+    }
+}

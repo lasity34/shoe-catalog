@@ -27,11 +27,11 @@
 }
 
 .category_value .select {
-  width: 110px;
+  width: 100px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
-  margin-left: 1em;
+  margin-left: 2em;
   border-radius: 5px;
   border: none;
   background-color: #fff;
