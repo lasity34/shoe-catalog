@@ -119,10 +119,6 @@ img {
     height: 30px;
   }
 
-  .navbar-nav {
-    flex-direction: column;
-  }
-
   /* display */
   .display_container {
     flex-direction: column;
