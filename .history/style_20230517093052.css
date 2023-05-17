@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 50%;
+    width: 40%;
 
     
 }
@@ -34,36 +34,28 @@
     align-items: center;
 }
 
-.category_value .select {
+.category_value select {
     width: 100%;
-   
-margin-left: 1em;
+    padding: 0.5em ;
+
    border: none;
     background-color: #fff;
     font-size: 1.3rem;
 }
 
-.category_value .nav-link:hover {
+.category_value select:hover {
     background-color: #f0f0f0;
 }
 
-.navbar-nav {
-    flex-direction: row;
-}
-
-#navbarNavAltMarkup {
-    margin-top: 1em;
-}
-
 #search_bar {
-    height: 40px;
+    height: 10px;
 }
 
 /* shoe display */
 .display_container {
     display: flex;
-    flex-wrap: wrap;
-    
+
+    flex-wrap: wrap; 
    
 }
 
@@ -83,7 +75,6 @@ margin-left: 1em;
 .shoe_item h4{
     color: grey;
     margin: 0.5em;
-    font-size: 1.2rem;
 }
 
 img {
@@ -104,46 +95,24 @@ img {
 
 
 @media (max-width: 700px) {
-    /* title */
     .title {
         width: 140px;
     }
-    /* categories */
+
     .category_value {
-        width: 100%;
-        
+        width: 90%;
     }
 
-    .category_value .select{
+    .category_value select {
         font-size: 1rem;
     }
 
-    #search_bar {
-        height: 30px;
-    }
-
-    /* display */
-    .display_container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
     .shoe_item {
-        width: 90%;
-        padding-bottom: 2em;
+        
         align-items: center;
-        border-bottom: 1px solid;
     }
 
     img {
         width: 50%;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .shoe_item h4 {
-        font-size: 1rem;
     }
 }

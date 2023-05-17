@@ -15,8 +15,6 @@
     <title>Lubas Shoes</title>
     <script type="text/x-template" id="categoryTemplate">
       <section class="navbar navbar-expand-lg  category_value">
-        <div class="container-fluid">
-        
         <input id="search_bar" type="text" placeholder="Search for shoes..." />
         <button
           class="navbar-toggler"
@@ -31,11 +29,10 @@
         </button>
        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          
           <div class="navbar-nav" id="color">
         <div>
 
-          <select id="color_select" class="select" name="color">
+          <select id="color_select" class="nav-link" name="color">
             <option value=""  selected>Color</option>
               {{#each colors}}
               <option  value={{this}}>{{this}}</option>
@@ -43,7 +40,7 @@
           </select>
         </div>
           <div>
-          <select id="size_select" class="select" name="size">
+          <select id="size_select" class="nav-link" name="size">
             <option value=""  selected>Size</option>
               {{#each sizes}}
               <option  value={{this}}>{{this}}</option>
@@ -52,25 +49,25 @@
         </div>
         <div>
 
-          <select id="brand_select" class="select" name="brand">
+          <select id="brand_select" class="nav-link" name="brand">
             <option value=""  selected>Brand</option>
               {{#each brands}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}
           </select>
         </div>
+      </div>
         <div>
 
-          <select id="price_select" class="select" name="price">
+          <select id="price_select" class="nav-link" name="price">
             <option value=""  selected>Price</option>
               {{#each prices}}
               <option  value={{this}}>{{this}}</option>
               {{/each}}
           </select>
         </div>
-      </div>  
-    </div>
-  </div>
+        </div>
+       
       </section>
     </script>
     <script type="text/x-template" id="shoeDisplayTemplate">

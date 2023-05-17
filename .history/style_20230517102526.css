@@ -36,8 +36,8 @@
 
 .category_value .select {
     width: 100%;
-   
-margin-left: 1em;
+    padding: 1em ;
+
    border: none;
     background-color: #fff;
     font-size: 1.3rem;

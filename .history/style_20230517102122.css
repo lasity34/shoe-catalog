@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 50%;
+    width: 40%;
 
     
 }
@@ -36,8 +36,8 @@
 
 .category_value .select {
     width: 100%;
-   
-margin-left: 1em;
+    padding: 0.5em ;
+
    border: none;
     background-color: #fff;
     font-size: 1.3rem;
@@ -131,19 +131,12 @@ img {
 
     .shoe_item {
         width: 90%;
-        padding-bottom: 2em;
+        
         align-items: center;
         border-bottom: 1px solid;
     }
 
     img {
         width: 50%;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .shoe_item h4 {
-        font-size: 1rem;
     }
 }
