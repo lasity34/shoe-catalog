@@ -47,22 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
   
-    function dropdownSelection(event) {
-      const dropdownContent = event.target.parentElement;
-      const dropdownButton = dropdownContent.previousElementSibling;
-      const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
-      
-      dropdownButton.textContent = event.target.textContent;
-      
-      // Move the dropdown content back to its original dropdown and hide it
-      originalDropdown.appendChild(dropdownContent);
-      dropdownContent.style.display = 'none';
-      
-      // Hide dropdown display area
-      document.getElementById('dropdown-display-area').style.display = 'none';
-      
-      update_display();
-    }
+  function dropdownSelection(event) {
+    const dropdownContent = event.target.parentElement;
+    const dropdownButton = dropdownContent.previousElementSibling;
+    const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
+    
+    dropdownButton.textContent = event.target.textContent;
+    
+    // Move the dropdown content back to its original dropdown and hide it
+    originalDropdown.appendChild(dropdownContent);
+    dropdownContent.style.display = 'none';
+    
+    update_display();
+  }
+  
 
   // templates
   function updateCategoryTemplate() {

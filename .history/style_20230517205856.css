@@ -129,12 +129,12 @@ img {
   padding: 1em 3em;
   text-decoration: none;
   display: block;
-  border: 1px solid #e0e0e0;
+  border: 1px solid;
   margin: 1em;
 }
 
 .dropdown-content li:hover {
-  border: 1px solid #111010;
+  background-color: #ddd;
 }
 
 #dropdown-display-area {

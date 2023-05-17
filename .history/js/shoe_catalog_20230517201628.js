@@ -17,52 +17,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach click event listener to each dropdown menu button
   
 
-    window.onclick = function(event) {
-      if (!event.target.matches('.dropdown-button')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.style.display === 'block') {
-            openDropdown.style.display = 'none';
-          }
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-button')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
         }
       }
     }
+  }
 
 
-    function dropdownDisplay(event) {
-      const dropdownContent = event.target.parentNode.querySelector('.dropdown-content').cloneNode(true);
-      const dropdownDisplayArea = document.getElementById('dropdown-display-area');
-      
-      // Clear any previous dropdown content
-      dropdownDisplayArea.innerHTML = '';
-      
-      // Show the new dropdown content
-      dropdownDisplayArea.appendChild(dropdownContent);
-      dropdownDisplayArea.style.display = 'block';
+  function dropdownDisplay(event) {
+    const dropdownContent = event.target.parentNode.querySelector('.dropdown-content');
+    const dropdownWrapper = document.getElementById('dropdown-wrapper');
+    console.log(dropdownContent)
+    // Move the dropdown content to the centralized wrapper and show it
+    dropdownWrapper.appendChild(dropdownContent);
+    dropdownContent.style.display = 'block';
     
-      // Add event listener to new dropdown content
-      dropdownContent.addEventListener('click', dropdownSelection);
-    }
-    
+    dropdownContent.addEventListener('click', dropdownSelection);
+  }
   
-    function dropdownSelection(event) {
-      const dropdownContent = event.target.parentElement;
-      const dropdownButton = dropdownContent.previousElementSibling;
-      const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
-      
-      dropdownButton.textContent = event.target.textContent;
-      
-      // Move the dropdown content back to its original dropdown and hide it
-      originalDropdown.appendChild(dropdownContent);
-      dropdownContent.style.display = 'none';
-      
-      // Hide dropdown display area
-      document.getElementById('dropdown-display-area').style.display = 'none';
-      
-      update_display();
-    }
+  function dropdownSelection(event) {
+    const dropdownContent = event.target.parentElement;
+    const dropdownButton = dropdownContent.previousElementSibling;
+    const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
+    
+    dropdownButton.textContent = event.target.textContent;
+    
+    // Move the dropdown content back to its original dropdown and hide it
+    originalDropdown.appendChild(dropdownContent);
+    dropdownContent.style.display = 'none';
+    
+    update_display();
+  }
+  
 
   // templates
   function updateCategoryTemplate() {

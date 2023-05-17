@@ -126,15 +126,15 @@ img {
 
 .dropdown-content li {
   color: black;
-  padding: 1em 3em;
+  padding: 1em;
   text-decoration: none;
   display: block;
-  border: 1px solid #e0e0e0;
-  margin: 1em;
+  border: 1px solid;
+
 }
 
 .dropdown-content li:hover {
-  border: 1px solid #111010;
+  background-color: #ddd;
 }
 
 #dropdown-display-area {
@@ -148,6 +148,8 @@ img {
 
 #dropdown-display-area .dropdown-content {
   display: flex;
+  
+  background-color: aqua;
 }
 
 .show {

@@ -23,20 +23,20 @@
       </div>
       <div>
         <nav class="category_value">
+          <div class="dropdown-wrapper">
           <div class="select-container">
             <div class="dropdown" id="color_dropdown">
               <button class="dropdown-button">Color</button>
-             
-              <ul id="dropdown-content-placeholder" class="dropdown-content">
+              <ul class="dropdown-content">
                 {{#each colors}}
                 <li class="color_option" data-color={{this}}>{{this}}</li>
                 {{/each}}
               </ul>
-            
+              <div>
             </div>
           </div>
           
-          
+          <div class="dropdown-wrapper">
             <div class="select-container">
               <div class="dropdown" id="size_dropdown">
                 <button class="dropdown-button">Size</button>
@@ -45,6 +45,7 @@
                   <li class="size_option" data-size={{this}}>{{this}}</li>
                   {{/each}}
                 </ul>
+              </div>
               </div>
             </div>
             <div class="select-container">
@@ -68,8 +69,6 @@
               </div>
             </div>
         </nav>
-       
-
       </div>
     </div>
   </script>
@@ -86,12 +85,11 @@
   </script>
 </head>
 <body>
- 
   <div class="title_container">
     <img class="title" src="./images/shoe_title_trans.png" />
   </div>
+
   <section class="category_display"></section>
-  <div id="dropdown-display-area" ></div>
   <section class="display_container"></section>
 
   <script type="module" src="./js/shoe_catalog.js"></script>

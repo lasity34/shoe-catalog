@@ -32,37 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function dropdownDisplay(event) {
-      const dropdownContent = event.target.parentNode.querySelector('.dropdown-content').cloneNode(true);
-      const dropdownDisplayArea = document.getElementById('dropdown-display-area');
-      
-      // Clear any previous dropdown content
-      dropdownDisplayArea.innerHTML = '';
-      
-      // Show the new dropdown content
-      dropdownDisplayArea.appendChild(dropdownContent);
-      dropdownDisplayArea.style.display = 'block';
-    
-      // Add event listener to new dropdown content
+      const dropdownContent = event.target.parentNode.querySelector('.dropdown-content');
+      if (dropdownContent.style.display === 'none' || !dropdownContent.style.display) {
+        dropdownContent.style.display = 'block';
+      } else {
+        dropdownContent.style.display = 'none';
+      }
       dropdownContent.addEventListener('click', dropdownSelection);
     }
-    
   
-    function dropdownSelection(event) {
-      const dropdownContent = event.target.parentElement;
-      const dropdownButton = dropdownContent.previousElementSibling;
-      const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
-      
-      dropdownButton.textContent = event.target.textContent;
-      
-      // Move the dropdown content back to its original dropdown and hide it
-      originalDropdown.appendChild(dropdownContent);
-      dropdownContent.style.display = 'none';
-      
-      // Hide dropdown display area
-      document.getElementById('dropdown-display-area').style.display = 'none';
-      
-      update_display();
-    }
+  function dropdownSelection(event) {
+    const dropdownContent = event.target.parentElement;
+    const dropdownButton = dropdownContent.previousElementSibling;
+    const originalDropdown = document.getElementById(dropdownButton.textContent.toLowerCase() + '_dropdown');
+    
+    dropdownButton.textContent = event.target.textContent;
+    
+    // Move the dropdown content back to its original dropdown and hide it
+    originalDropdown.appendChild(dropdownContent);
+    dropdownContent.style.display = 'none';
+    
+    update_display();
+  }
+  
 
   // templates
   function updateCategoryTemplate() {
