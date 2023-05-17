@@ -35,20 +35,24 @@
                   {{/each}}
               </select>
             
-          
+            <div>
             <select id="size_select" class="select" name="size">
               <option value=""  selected>Size</option>
                 {{#each sizes}}
                 <option  value={{this}}>{{this}}</option>
                 {{/each}}
             </select>
+            </div>
+            <div>
+
               <select id="brand_select" class="select" name="brand">
                 <option value=""  selected>Brand</option>
                   {{#each brands}}
                   <option  value={{this}}>{{this}}</option>
                   {{/each}}
               </select>
-            
+            </div>
+            <div>
 
             <select id="price_select" class="select" name="price">
               <option value=""  selected>Price</option>
@@ -56,7 +60,7 @@
                 <option  value={{this}}>{{this}}</option>
                 {{/each}}
             </select>
-         
+          </div>
       </div>  
     </div>
   </div>

@@ -27,7 +27,7 @@
 }
 
 .category_value .select {
-  width: 100%;
+  width: 110px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
@@ -118,13 +118,9 @@ img {
     width: 100%;
   }
 
-  .navbar-nav div, .navbar-nav {
-    width: 100%; /* ensure parent elements also stretch to full width */
-  }
-
   .category_value .select {
     padding: 0.5em; /* add some padding */
-    
+    border: 1px solid #ccc; /* add border */
     border-radius: 4px; /* round the corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* add subtle shadow */
   }

@@ -27,7 +27,7 @@
 }
 
 .category_value .select {
-  width: 100%;
+  width: 110px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
@@ -40,8 +40,8 @@
 }
 
 .category_value .select:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.02);
+    background-color: #f0f0f0;
+    transform: scale(1.02); 
 }
 
 .navbar-nav {
@@ -57,7 +57,7 @@
 }
 
 .search_container {
-  height: 10vh;
+    height: 10vh;
 }
 
 #search_bar {
@@ -110,23 +110,9 @@ img {
   .category_value {
     width: 100%;
   }
-  .category_value div {
-    margin-bottom: 0.2em;
-  }
-
-  .navbar-nav div {
-    width: 100%;
-  }
-
-  .navbar-nav div, .navbar-nav {
-    width: 100%; /* ensure parent elements also stretch to full width */
-  }
 
   .category_value .select {
-    padding: 0.5em; /* add some padding */
-    
-    border-radius: 4px; /* round the corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* add subtle shadow */
+    font-size: 1rem;
   }
 
   #search_bar {

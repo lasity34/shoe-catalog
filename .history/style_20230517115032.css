@@ -27,7 +27,7 @@
 }
 
 .category_value .select {
-  width: 100%;
+  width: 110px;
   text-align: start;
   padding: 0.5em;
   padding-right: 2em;
@@ -116,10 +116,6 @@ img {
 
   .navbar-nav div {
     width: 100%;
-  }
-
-  .navbar-nav div, .navbar-nav {
-    width: 100%; /* ensure parent elements also stretch to full width */
   }
 
   .category_value .select {
