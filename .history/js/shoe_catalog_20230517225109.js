@@ -16,7 +16,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Attach click event listener to each dropdown menu button
 
-   
+    window.onclick = function (event) {
+      if (!event.target.matches(".dropdown-button")) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+
+        for (let i = 0; i < dropdowns.length; i++) {
+          const openDropdown = dropdowns[i];
+          if (openDropdown.style.display === "block") {
+            openDropdown.style.display = "none";
+          }
+        }
+      }
+    };
+
+    function dropdownDisplay(event) {
+      const dropdownContent = event.target.parentNode
+        .querySelector(".dropdown-content")
+        .cloneNode(true);
+      const dropdownDisplayArea = document.getElementById(
+        "dropdown-display-area"
+      );
+
+      // Clear any previous dropdown content
+      dropdownDisplayArea.innerHTML = "";
+
+      // Show the new dropdown content
+      dropdownDisplayArea.appendChild(dropdownContent);
+      dropdownDisplayArea.style.display = "block";
+
+      // Add event listener to new dropdown content
+      dropdownContent.addEventListener("click", dropdownSelection);
+    }
+
+    function dropdownSelection(event) {
+      const dropdownContent = event.target.parentElement;
+      const dropdownId = dropdownContent.getAttribute("data-parent");
+      const dropdownButton = document
+        .getElementById(dropdownId)
+        .querySelector(".dropdown-button");
+
+      dropdownButton.textContent = event.target.textContent;
+
+      const color = event.target.getAttribute("data-color");
+      const size = event.target.getAttribute("data-size");
+      const brand = event.target.getAttribute("data-brand");
+      const price = event.target.getAttribute("data-price");
+
+      if (color) dropdownButton.setAttribute("data-color", color);
+      if (size) dropdownButton.setAttribute("data-size", size);
+      if (brand) dropdownButton.setAttribute("data-brand", brand);
+      if (price) dropdownButton.setAttribute("data-price", price);
+
+      // Define originalDropdown here
+      const originalDropdown = document.getElementById(dropdownId);
+
+      // Move the dropdown content back to its original dropdown and hide it
+      originalDropdown.appendChild(dropdownContent);
+      dropdownContent.style.display = "none";
+
+      // Hide dropdown display area
+      document.getElementById("dropdown-display-area").style.display = "none";
+
+      update_display();
+    }
 
     // templates
     function updateCategoryTemplate() {
@@ -52,72 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // helper functions
-  // loads all dropdowns
-  window.onclick = function (event) {
-    if (!event.target.matches(".dropdown-button")) {
-      const dropdowns = document.getElementsByClassName("dropdown-content");
-
-      for (let i = 0; i < dropdowns.length; i++) {
-        const openDropdown = dropdowns[i];
-        if (openDropdown.style.display === "block") {
-          openDropdown.style.display = "none";
-        }
-      }
-    }
-  };
-
-  function dropdownDisplay(event) {
-    const dropdownContent = event.target.parentNode
-      .querySelector(".dropdown-content")
-      .cloneNode(true);
-    const dropdownDisplayArea = document.getElementById(
-      "dropdown-display-area"
-    );
-
-    // Clear any previous dropdown content
-    dropdownDisplayArea.innerHTML = "";
-
-    // Show the new dropdown content
-    dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "block";
-
-    // Add event listener to new dropdown content
-    dropdownContent.addEventListener("click", dropdownSelection);
-  }
-
-  function dropdownSelection(event) {
-    const dropdownContent = event.target.parentElement;
-    const dropdownId = dropdownContent.getAttribute("data-parent");
-    const dropdownButton = document
-      .getElementById(dropdownId)
-      .querySelector(".dropdown-button");
-
-    dropdownButton.textContent = event.target.textContent;
-
-    const color = event.target.getAttribute("data-color");
-    const size = event.target.getAttribute("data-size");
-    const brand = event.target.getAttribute("data-brand");
-    const price = event.target.getAttribute("data-price");
-
-    if (color) dropdownButton.setAttribute("data-color", color);
-    if (size) dropdownButton.setAttribute("data-size", size);
-    if (brand) dropdownButton.setAttribute("data-brand", brand);
-    if (price) dropdownButton.setAttribute("data-price", price);
-
-    // Define originalDropdown here
-    const originalDropdown = document.getElementById(dropdownId);
-
-    // Move the dropdown content back to its original dropdown and hide it
-    originalDropdown.appendChild(dropdownContent);
-    dropdownContent.style.display = "none";
-
-    // Hide dropdown display area
-    document.getElementById("dropdown-display-area").style.display = "none";
-
-    update_display();
-  }
-
-
   function update_display() {
     const selected_color = document
       .querySelector("#color_dropdown .dropdown-button")

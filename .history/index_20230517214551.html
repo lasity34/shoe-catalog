@@ -40,7 +40,7 @@
             <div class="select-container">
               <div class="dropdown" id="size_dropdown">
                 <button class="dropdown-button">Size</button>
-                <ul class="dropdown-content" data-parent="size_dropdown">
+                <ul class="dropdown-content" data-parent="color_dropdown">
                   {{#each sizes}}
                   <li class="size_option" data-size={{this}}>{{this}}</li>
                   {{/each}}
@@ -50,7 +50,7 @@
             <div class="select-container">
               <div class="dropdown" id="brand_dropdown">
                 <button class="dropdown-button">Brand</button>
-                <ul class="dropdown-content" data-parent="brand_dropdown">
+                <ul class="dropdown-content" data-parent="color_dropdown">
                   {{#each brands}}
                   <li class="brand_option" data-brand={{this}}>{{this}}</li>
                   {{/each}}
@@ -60,7 +60,7 @@
             <div class="select-container">
               <div class="dropdown" id="price_dropdown">
                 <button class="dropdown-button">Price</button>
-                <ul class="dropdown-content" data-parent="price_dropdown">
+                <ul class="dropdown-content" data-parent="color_dropdown">
                   {{#each prices}}
                   <li class="price_option" data-price={{this}}>{{this}}</li>
                   {{/each}}
