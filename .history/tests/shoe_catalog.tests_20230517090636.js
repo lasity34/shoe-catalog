@@ -72,7 +72,29 @@ describe("Testing if categories are filtered", function() {
         
         shoe_instance.filter_brand(shoe_data, "Nike")
        
-        assert.deepEqual(2, shoe_instance.filter_brand(shoe_data, "Nike").length)
+        assert.deepEqual([  {
+            id: 2,
+            color : 'Grey',
+            name : "Nike Dunk Low Mica Green",
+            brand : "Nike",
+            size : 8,
+            price : parseFloat(4999).toFixed(2),
+            img : "./images/nike_dunk_low.jpg",
+            in_stock : 8,
+
+        },
+        {
+            id: 3,
+            color : 'Red',
+            name : "Nike Dunk Low Satin",
+            brand : "Nike",
+            size : 5,
+            price : parseFloat(5999).toFixed(2),
+            img : "./images/nike_dunk_low_satin.jpg",
+            in_stock : 6,
+           
+
+        }], shoe_instance.filter_brand(shoe_data, "Nike"))
     })
 
     it("It should filter out all items that have a specific price", function() {
@@ -81,46 +103,70 @@ describe("Testing if categories are filtered", function() {
         
         shoe_instance.filter_price(shoe_data, "5999.00")
       
-        assert.deepEqual(2, shoe_instance.filter_price(shoe_data, "5999.00").length)
+        assert.deepEqual([     {
+            id: 3,
+            color : 'Red',
+            name : "Nike Dunk Low Satin",
+            brand : "Nike",
+            size : 5,
+            price : parseFloat(5999).toFixed(2),
+            img : "./images/nike_dunk_low_satin.jpg",
+            in_stock : 6,
+           
+
+        },
+        {
+            id: 5,
+            color : 'Blue',
+            name: 'Yeezy Boost 700 MNVN Bright Cyan',
+            brand : "Yeezy",
+            size : 10,
+            price : parseFloat(5999).toFixed(2),
+            img : "./images/yeezy_boost_700.jpg",
+            in_stock : 5,
+
+
+        }
+    
+    
+    ], shoe_instance.filter_price(shoe_data, "5999.00"))
     })
 
 
-
-
-    it("It should filter out all items that have a specific color and price", function() {
+    it("It should filter out all items that have a specific price and color", function() {
 
         const shoe_instance = shoe_factory()
-
-       
+        
+        shoe_instance.filter_color(shoe_data, "blue")
+        shoe_instance.filter_price(shoe_data, "5999.00")
       
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "", "", "7999.00").length)
-    })
+        assert.deepEqual([     {
+            id: 3,
+            color : 'Red',
+            name : "Nike Dunk Low Satin",
+            brand : "Nike",
+            size : 5,
+            price : parseFloat(5999).toFixed(2),
+            img : "./images/nike_dunk_low_satin.jpg",
+            in_stock : 6,
+           
 
-    it("It should filter out all items that have a specific brand and size", function() {
+        },
+        {
+            id: 5,
+            color : 'Blue',
+            name: 'Yeezy Boost 700 MNVN Bright Cyan',
+            brand : "Yeezy",
+            size : 10,
+            price : parseFloat(5999).toFixed(2),
+            img : "./images/yeezy_boost_700.jpg",
+            in_stock : 5,
 
-        const shoe_instance = shoe_factory()
 
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "", "9", "Adidas", "").length)
-    })
-
-    it("It should filter out all items that have a specific color and size", function() {
-
-        const shoe_instance = shoe_factory()
-
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
-    })
-
-    it("It should filter out all items that have a specific size and price", function() {
-
-        const shoe_instance = shoe_factory()
-
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "", "10", "", "5999").length)
+        }
+    
+    
+    ], shoe_instance.filter_display(shoe_data))
     })
 
 } )

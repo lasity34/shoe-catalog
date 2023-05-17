@@ -66,12 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
       selected_price
     );
 
-    DisplayShoeTemplate(filtered_shoes);
-
     if (filtered_shoes.length === 0) {
       shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
     }
 
+    DisplayShoeTemplate(filtered_shoes);
   }
 
   function color_display() {

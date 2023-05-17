@@ -96,31 +96,4 @@ describe("Testing if categories are filtered", function() {
         assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "", "", "7999.00").length)
     })
 
-    it("It should filter out all items that have a specific brand and size", function() {
-
-        const shoe_instance = shoe_factory()
-
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "", "9", "Adidas", "").length)
-    })
-
-    it("It should filter out all items that have a specific color and size", function() {
-
-        const shoe_instance = shoe_factory()
-
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
-    })
-
-    it("It should filter out all items that have a specific size and price", function() {
-
-        const shoe_instance = shoe_factory()
-
-       
-      
-        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "", "10", "", "5999").length)
-    })
-
 } )

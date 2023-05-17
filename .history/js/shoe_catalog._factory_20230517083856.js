@@ -42,7 +42,7 @@ export function shoe_factory() {
   }
 
   function filter_display(shoeData, selected_color, selected_size, selected_brand, selected_price) {
-    let filtered_shoes = shoeData
+    const filtered_shoes = shoeData
 
     if (selected_color) {
       filtered_shoes = filter_color(filtered_shoes, selected_color)
@@ -57,8 +57,9 @@ export function shoe_factory() {
       filtered_shoes = filter_price(filtered_shoes, selected_price)
     }
   
-    return filtered_shoes
-  
+    if (filtered_shoes.length === 0) {
+      shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
+    }
   }
 
 

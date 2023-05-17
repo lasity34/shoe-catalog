@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     DisplayShoeTemplate(filtered_shoes);
-
+    console.log(filtered_shoes.length)
     if (filtered_shoes.length === 0) {
       shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
     }

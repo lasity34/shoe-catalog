@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // main function
   function initializeApp() {
     updateCategoryTemplate();
-    DisplayShoeTemplate(shoe_data);
+    DisplayShoeTemplate(shoe_data)
     const color_select = document.querySelector("#color_select");
     const size_select = document.querySelector("#size_select");
     const brand_select = document.querySelector("#brand_select");
@@ -56,22 +56,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_brand = document.querySelector("#brand_select").value;
     const selected_price = document.querySelector("#price_select").value;
 
+    let filtered_shoes = shoe_data;
 
-
-  const filtered_shoes =  shoeInstance.filter_display(
-      shoe_data,
-      selected_color,
-      selected_size,
-      selected_brand,
-      selected_price
-    );
-
-    DisplayShoeTemplate(filtered_shoes);
-
-    if (filtered_shoes.length === 0) {
-      shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
+    if (DisplayShoeTemplate(filtered_shoes)) {
+      DisplayShoeTemplate(filtered_shoes);
+    } else {
+      shoeInstance.filter_display(
+        shoe_data,
+        selected_color,
+        selected_size,
+        selected_brand,
+        selected_price
+      );
     }
-
   }
 
   function color_display() {

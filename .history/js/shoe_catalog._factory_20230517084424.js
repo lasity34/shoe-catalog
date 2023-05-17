@@ -57,8 +57,9 @@ export function shoe_factory() {
       filtered_shoes = filter_price(filtered_shoes, selected_price)
     }
   
-    return filtered_shoes
-  
+    if (filtered_shoes.length === 0) {
+      shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
+    }
   }
 
 
