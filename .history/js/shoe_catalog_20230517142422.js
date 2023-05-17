@@ -8,44 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const shoeInstance = shoe_factory();
   initializeApp();
 
+
+
   // main function
   function initializeApp() {
     updateCategoryTemplate();
-    attachHamburgerEventListener();
+    attachHamburgerEventListener()
     DisplayShoeTemplate(shoe_data);
+    const color_select = document.querySelector("#color_select");
+    const size_select = document.querySelector("#size_select");
+    const brand_select = document.querySelector("#brand_select");
+    const price_select = document.querySelector("#price_select");
 
-    // Attach click event listener to each dropdown menu button
-  
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-button')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
+    color_select.addEventListener("change", color_display);
+    size_select.addEventListener("change", size_display);
+    brand_select.addEventListener("change", brand_display);
+    price_select.addEventListener("change", price_display);
   }
-
-
-  function dropdownDisplay(event) {
-    const dropdownContent = event.target.parentNode.querySelector('.dropdown-content');
-    dropdownContent.classList.toggle('show');
-    dropdownContent.addEventListener('click', dropdownSelection);
-  }
-  
-
-  function dropdownSelection(event) {
-    const dropdownContent = event.target.parentElement;
-    const dropdownButton = dropdownContent.previousElementSibling;
-    dropdownButton.textContent = event.target.textContent;
-    dropdownContent.classList.toggle('show');
-    update_display();
-  }
-
   // templates
   function updateCategoryTemplate() {
     const templateSource =
@@ -61,12 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const userDataHTML = shoeTemplate(shoeData);
 
     category_display.innerHTML = userDataHTML;
-
-    const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    dropdownButtons.forEach(button => {
-      button.addEventListener('click', dropdownDisplay);
-    });
-  }
   }
 
   function DisplayShoeTemplate(shoes) {
@@ -81,12 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // helper functions
   function update_display() {
-    const selected_color = document.querySelector("#color_dropdown .dropdown-button").textContent;
-    const selected_size = document.querySelector("#size_dropdown .dropdown-button").textContent;
-    const selected_brand = document.querySelector("#brand_dropdown .dropdown-button").textContent;
-    const selected_price = document.querySelector("#price_dropdown .dropdown-button").textContent;
-console.log(selected_color)
-    const filtered_shoes = shoeInstance.filter_display(
+    const selected_color = document.querySelector("#color_select").value;
+    const selected_size = document.querySelector("#size_select").value;
+    const selected_brand = document.querySelector("#brand_select").value;
+    const selected_price = document.querySelector("#price_select").value;
+
+
+
+  const filtered_shoes =  shoeInstance.filter_display(
       shoe_data,
       selected_color,
       selected_size,
@@ -99,12 +74,29 @@ console.log(selected_color)
     if (filtered_shoes.length === 0) {
       shoe_display.innerHTML = '<p class="no-shoes">Sorry, no shoes found matching your selection.</p>'
     }
+
+  }
+
+  function color_display() {
+    update_display();
+  }
+
+  function size_display() {
+    update_display();
+  }
+
+  function brand_display() {
+    update_display();
+  }
+
+  function price_display() {
+    update_display();
   }
 
   function attachHamburgerEventListener() {
     const hamburger = document.querySelector(".hamburger-menu");
     const select_options = document.querySelector(".category_value");
-
+  
     hamburger.addEventListener("click", function() {
       select_options.classList.toggle("nav-open");
     });

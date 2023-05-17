@@ -24,11 +24,11 @@
       <div>
         <nav class="category_value">
           <div class="select-container">
-            <div class="dropdown" id="color_dropdown">
+            <div class="dropdown" id="size_dropdown">
               <button class="dropdown-button">Color</button>
               <ul class="dropdown-content">
                 {{#each colors}}
-                <li class="color_option" data-color={{this}}>{{this}}</li>
+                <li class="color_option" data-size={{this}}>{{this}}</li>
                 {{/each}}
               </ul>
             </div>
@@ -39,32 +39,30 @@
               <div class="dropdown" id="size_dropdown">
                 <button class="dropdown-button">Size</button>
                 <ul class="dropdown-content">
-                  {{#each sizes}}
+                  {{#each size}}
                   <li class="size_option" data-size={{this}}>{{this}}</li>
                   {{/each}}
                 </ul>
               </div>
             </div>
             <div class="select-container">
-              <div class="dropdown" id="brand_dropdown">
+              <div class="dropdown" id="size_dropdown">
                 <button class="dropdown-button">Brand</button>
                 <ul class="dropdown-content">
-                  {{#each brands}}
-                  <li class="brand_option" data-brand={{this}}>{{this}}</li>
+                  {{#each brand}}
+                  <li class="size_option" data-size={{this}}>{{this}}</li>
                   {{/each}}
                 </ul>
               </div>
             </div>
-            <div class="select-container">
-              <div class="dropdown" id="price_dropdown">
-                <button class="dropdown-button">Price</button>
-                <ul class="dropdown-content">
-                  {{#each prices}}
-                  <li class="price_option" data-price={{this}}>{{this}}</li>
-                  {{/each}}
-                </ul>
-              </div>
-            </div>
+          <div class="select-container">
+        
+            <ul id="price_list">
+              {{#each prices}}
+              <li class="price_option" data-price={{this}}>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
         </nav>
       </div>
     </div>

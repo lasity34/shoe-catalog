@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_size = document.querySelector("#size_dropdown .dropdown-button").textContent;
     const selected_brand = document.querySelector("#brand_dropdown .dropdown-button").textContent;
     const selected_price = document.querySelector("#price_dropdown .dropdown-button").textContent;
-console.log(selected_color)
+
     const filtered_shoes = shoeInstance.filter_display(
       shoe_data,
       selected_color,

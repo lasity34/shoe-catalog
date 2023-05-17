@@ -91,23 +91,21 @@ img {
 .dropdown {
   position: relative;
   display: inline-block;
-  
 }
 
 .dropdown-button {
   position: relative;
  background-color: white;
  border: none;
- padding: 1em;
- padding-right: 40px; 
- font-size: 1.2rem;
+  padding-right: 20px; /* Add space for the arrow */
+  padding: 1em;
 }
 
 .dropdown-button::after {
   content: "";
   position: absolute;
   top: 50%;
-  right:10px;
+  right:20px;
   transform: translateY(-50%);
   width: 0;
   height: 0;
@@ -192,10 +190,6 @@ img {
 
   .filter_container {
     flex-direction: column;
-  }
-
-  .dropdown-button {
-    font-size: 1rem;
   }
 
   .category_value .select {

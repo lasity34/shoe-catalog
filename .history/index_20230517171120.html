@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <title>Lubas Shoes</title>
+
+  <script type="text/x-template" id="categoryTemplate">
+    <div class="filter_container">
+      <div class="flex_menu">
+        <div class="search_container">
+          <input id="search_bar" type="text" placeholder="Search for shoes..." />
+        </div>
+        <div class="hamburger-menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div>
+        <nav class="category_value">
+          <div class="select-container">
+            <h3>Color</h3>
+            <ul id="size_list">
+              {{#each colors}}
+              <li class="color_option" data-size={{this}}>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="select-container">
+            <h3>Size</h3>
+            <ul id="size_list">
+              {{#each sizes}}
+              <li class="size_option" data-size={{this}}>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="select-container">
+            <h3>Brand</h3>
+            <ul id="brand_list">
+              {{#each brands}}
+              <li class="size_option" data-size={{this}}>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="select-container">
+            <h3>Price</h3>
+            <ul id="price_list">
+              {{#each prices}}
+              <li class="price_option" data-price={{this}}>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </script>
+  
+  <script type="text/x-template" id="shoeDisplayTemplate">
+    {{#each shoes}}
+    <div class="shoe_item">
+      <img src="{{this.img}}" />
+      <h4>{{this.name}}</h4>
+      <h4>R{{this.price}}</h4>
+      <h4 id="item_message">We have {{this.in_stock}} {{this.color}} pairs in stock</h4>
+    </div>
+    {{/each}}
+  </script>
+</head>
+<body>
+  <div class="title_container">
+    <img class="title" src="./images/shoe_title_trans.png" />
+  </div>
+
+  <section class="category_display"></section>
+  <section class="display_container"></section>
+
+  <script type="module" src="./js/shoe_catalog.js"></script>
+</body>
+</html>

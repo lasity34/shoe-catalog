@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <title>Lubas Shoes</title>
+    <script type="text/x-template" id="categoryTemplate">
+      <nav class="navbar navbar-expand-lg  category_value">
+        <div class="container-fluid">
+          <div class="search_container">
+        <input id="search_bar" type="text" placeholder="Search for shoes..." />
+      </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav" id="color">
+           
+
+            <div class="select-container">
+              <select id="size_select" class="select" name="size">
+                <option value=""  selected>Size</option>
+                  {{#each sizes}}
+                  <option  value={{this}}>{{this}}</option>
+                  {{/each}}
+              </select>
+            </div>
+            <div class="select-container">
+              <select id="brand_select" class="select" name="brand">
+                <option value=""  selected>Brand</option>
+                  {{#each brands}}
+                  <option  value={{this}}>{{this}}</option>
+                  {{/each}}
+              </select>
+            </div>
+            <div class="select-container">
+              <select id="price_select" class="select" name="price">
+                <option value=""  selected>Price</option>
+                  {{#each prices}}
+                  <option  value={{this}}>{{this}}</option>
+                  {{/each}}
+              </select>
+         
+      </div>  
+    </div>
+  </div>
+</nav>
+    </script>
+    <script type="text/x-template" id="shoeDisplayTemplate">
+       {{#each shoes}}
+       <div class="shoe_item">
+        <img src="{{this.img}}" />
+            <h4>{{this.name}}</h4>
+            <h4>R{{this.price}}</h4>
+             <h4 id="item_message"> We have {{this.in_stock}} {{this.color}} pairs in stock </h4>
+            </div>
+      {{/each}}
+    </script>
+  </head>
+  <body>
+    <div class="title_container">
+      <img class="title" src="./images/shoe_title_trans.png" />
+    </div>
+
+    <section class="category_display"></section>
+    <section class="display_container"></section>
+
+    <script type="module" src="./js/shoe_catalog.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

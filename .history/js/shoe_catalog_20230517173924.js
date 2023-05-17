@@ -15,34 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
 
     // Attach click event listener to each dropdown menu button
-  
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-button')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
+    const dropdownButtons = document.querySelectorAll('.dropdown-button');
+    dropdownButtons.forEach(button => {
+      button.addEventListener('click', dropdownDisplay);
+    });
   }
 
-
   function dropdownDisplay(event) {
-    const dropdownContent = event.target.parentNode.querySelector('.dropdown-content');
+    const dropdownContent = event.target.nextElementSibling;
     dropdownContent.classList.toggle('show');
     dropdownContent.addEventListener('click', dropdownSelection);
   }
-  
 
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
     const dropdownButton = dropdownContent.previousElementSibling;
     dropdownButton.textContent = event.target.textContent;
-    dropdownContent.classList.toggle('show');
+    dropdownContent.classList.remove('show');
     update_display();
   }
 
@@ -61,12 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const userDataHTML = shoeTemplate(shoeData);
 
     category_display.innerHTML = userDataHTML;
-
-    const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    dropdownButtons.forEach(button => {
-      button.addEventListener('click', dropdownDisplay);
-    });
-  }
   }
 
   function DisplayShoeTemplate(shoes) {
@@ -85,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_size = document.querySelector("#size_dropdown .dropdown-button").textContent;
     const selected_brand = document.querySelector("#brand_dropdown .dropdown-button").textContent;
     const selected_price = document.querySelector("#price_dropdown .dropdown-button").textContent;
-console.log(selected_color)
+
     const filtered_shoes = shoeInstance.filter_display(
       shoe_data,
       selected_color,

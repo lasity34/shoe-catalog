@@ -85,14 +85,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_size = document.querySelector("#size_dropdown .dropdown-button").textContent;
     const selected_brand = document.querySelector("#brand_dropdown .dropdown-button").textContent;
     const selected_price = document.querySelector("#price_dropdown .dropdown-button").textContent;
-console.log(selected_color)
-    const filtered_shoes = shoeInstance.filter_display(
-      shoe_data,
-      selected_color,
-      selected_size,
-      selected_brand,
-      selected_price
-    );
+
+    if (selected_color !== 'Color') {
+      filtered_shoes = shoeInstance.filter_color(filtered_shoes, selected_color);
+    }
+    if (selected_size !== 'Size') {
+      filtered_shoes = shoeInstance.filter_size(filtered_shoes, selected_size);
+    }
+    if (selected_brand !== 'Brand') {
+      filtered_shoes = shoeInstance.filter_brand(filtered_shoes, selected_brand);
+    }
+    if (selected_price !== 'Price') {
+      filtered_shoes = shoeInstance.filter_price(filtered_shoes, selected_price);
+    }
 
     DisplayShoeTemplate(filtered_shoes);
 
