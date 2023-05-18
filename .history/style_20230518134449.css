@@ -40,12 +40,8 @@ html {
 }
 
 #autocomplete-dropdown div:hover {
-  background-color: lightblue;
+  background-color: lightblue
   cursor: pointer;
-}
-
-.active {
-  background-color: #ccc;
 }
 
 /* categories */

@@ -58,19 +58,13 @@ export function shoe_factory() {
     return filtered_shoes
   }
 
-  // search filter
-  function search_shoes(shoe_data, query) {
-    return shoe_data.filter(shoe => shoe.name.toLowerCase().includes(query.toLowerCase()))
-  }
-
   return {
     filter_shoe_categories,
     filter_color,
     filter_size,
     filter_brand,
     filter_price,
-    filter_display,
-    search_shoes
+    filter_display
   };
 }
 

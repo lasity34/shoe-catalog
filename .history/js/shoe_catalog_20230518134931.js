@@ -208,13 +208,6 @@ search_bar.addEventListener("keydown", function(event) {
     }
   }
 });
-
-search_bar.addEventListener("blur", function(event) {
-  setTimeout(() => {
-    const dropDown = document.getElementById("autocomplete-dropdown")
-    dropDown.innerHTML = "";
-  }, 200);
-});
   }
 
   function attachHamburgerEventListener() {

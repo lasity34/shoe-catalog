@@ -23,7 +23,6 @@ html {
 
 
 #search_button {
-  cursor: pointer;
   border: none;
   background-color: white;
 }
@@ -39,14 +38,7 @@ html {
   outline: none;
 }
 
-#autocomplete-dropdown div:hover {
-  background-color: lightblue;
-  cursor: pointer;
-}
 
-.active {
-  background-color: #ccc;
-}
 
 /* categories */
 

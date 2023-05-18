@@ -39,13 +39,9 @@ html {
   outline: none;
 }
 
-#autocomplete-dropdown div:hover {
-  background-color: lightblue;
+3autocomplete-dropdown div:hover {
+  background-color: yellow;
   cursor: pointer;
-}
-
-.active {
-  background-color: #ccc;
 }
 
 /* categories */

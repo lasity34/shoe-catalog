@@ -39,14 +39,7 @@ html {
   outline: none;
 }
 
-#autocomplete-dropdown div:hover {
-  background-color: lightblue;
-  cursor: pointer;
-}
 
-.active {
-  background-color: #ccc;
-}
 
 /* categories */
 

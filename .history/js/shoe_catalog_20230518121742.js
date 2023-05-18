@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function initializeApp() {
     updateCategoryTemplate();
     attachHamburgerEventListener();
-    shoe_search();
     DisplayShoeTemplate(shoe_data);
+    shoe_search()
+    // templates
+    
   }
 
-  // templates
   function updateCategoryTemplate() {
     const templateSource =
       document.querySelector("#categoryTemplate").innerHTML;
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       prices: shoeInstance.filter_shoe_categories(shoe_data, "price"),
     };
 
-    category_display.innerHTML = shoeTemplate(shoeData);
+    category_display.innerHTML =   shoeTemplate(shoeData);
 
     const dropdownButtons = document.querySelectorAll(".dropdown-button");
     dropdownButtons.forEach((button) => {
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "#shoeDisplayTemplate"
     ).innerHTML;
     const shoeTemplate = Handlebars.compile(templateSource);
-    shoe_display.innerHTML = shoeTemplate({ shoes: shoes });
+    shoe_display.innerHTML =  shoeTemplate({ shoes: shoes });
   }
 
   // helper functions
@@ -84,10 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dropdownButton.textContent = event.target.textContent;
 
-    ["color", "size", "brand", "price"].forEach((type) => {
-      const data = event.target.getAttribute(`data-${type}`);
-      if (data) dropdownButton.setAttribute(`data-${type}`, data);
-    });
+    ['color', 'size', 'brand', 'price'].forEach(type => {
+      const data = event.target.getAttribute(`data-${type}`)
+      if (data) dropdownButton.setAttribute(`data-${type}`, data)
+    })
 
     const originalDropdown = document.getElementById(dropdownId);
     originalDropdown.appendChild(dropdownContent);
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selected_price = document
       .querySelector("#price_dropdown .dropdown-button")
       .getAttribute("data-price");
-
+    
     const filtered_shoes = shoeInstance.filter_display(
       shoe_data,
       selected_color,
@@ -120,101 +121,24 @@ document.addEventListener("DOMContentLoaded", function () {
       selected_price
     );
 
+    // search function
+    function shoe_search() {
+      const search_button = document.getElementById('search_button');
+      const search_bar = document.getElementById('search_bar')
+
+      search_button.addEventListener("click", function() {
+        const search_query = search_bar.value;
+        const search_results = shoeInstance.search_shoes(shoe_data, search_query)
+        DisplayShoeTemplate(search_results)
+      })
+    }
+
     DisplayShoeTemplate(filtered_shoes);
 
     if (filtered_shoes.length === 0) {
       shoe_display.innerHTML =
         '<div class="no_shoes_container"> <img class="error_img" src="images/no_shoes.png" /> <p class="no-shoes">Sorry, no shoes found matching your selection.</p></div>';
     }
-  }
-
-  // search function
-  function shoe_search() {
-    const search_button = document.getElementById("search_button");
-    const search_bar = document.getElementById("search_bar");
-
-    function searchFunction() {
-      const search_query = search_bar.value;
-      const search_results = shoeInstance.search_shoes(shoe_data, search_query);
-      DisplayShoeTemplate(search_results);
-    }
-
-    search_button.addEventListener("click", searchFunction);
-
-    search_bar.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        searchFunction();
-      }
-    });
-
-    search_bar.addEventListener("input", function () {
-      const search_query = search_bar.value;
-
-      const filtered_names = shoeInstance.search_shoes(shoe_data, search_query);
-
-      const dropDown = document.getElementById("autocomplete-dropdown");
-      dropDown.innerHTML = "";
-
-      filtered_names.forEach((name) => {
-        const option = document.createElement("div");
-        option.textContent = name.name;
-        option.addEventListener("click", function () {
-          search_bar.value = name.name;
-          searchFunction();
-        });
-
-        dropDown.appendChild(option);
-      });
-    });
-
-    let activeOptionIndex = -1;
-
-search_bar.addEventListener("keydown", function(event) {
-  const dropDown = document.getElementById("autocomplete-dropdown")
-  const options = Array.from(dropDown.children);
-  
-  if (event.key === "ArrowDown") {
-    event.preventDefault();
-
-    if (activeOptionIndex !== -1) {
-      options[activeOptionIndex].classList.remove('active');
-    }
-
-    activeOptionIndex = (activeOptionIndex + 1) % options.length;
-
-    options[activeOptionIndex].classList.add('active');
-
-  } else if (event.key === "ArrowUp") {
-    event.preventDefault();
-
-    if (activeOptionIndex !== -1) {
-      options[activeOptionIndex].classList.remove('active');
-    }
-
-    activeOptionIndex = (activeOptionIndex - 1 + options.length) % options.length;
-
-    options[activeOptionIndex].classList.add('active');
-
-  } else if (event.key === "Enter") {
-    event.preventDefault();
-
-    if (activeOptionIndex !== -1) {
-      options[activeOptionIndex].click();
-      dropDown.innerHTML = "";
-      activeOptionIndex = -1;
-    } else {
-      searchFunction();
-    }
-  }
-});
-
-search_bar.addEventListener("blur", function(event) {
-  setTimeout(() => {
-    const dropDown = document.getElementById("autocomplete-dropdown")
-    dropDown.innerHTML = "";
-  }, 200);
-});
   }
 
   function attachHamburgerEventListener() {
