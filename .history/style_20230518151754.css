@@ -72,11 +72,8 @@
 #reset_button {
   position: relative;
   background-color: rgb(255, 247, 247);
-  border: 1px solid #d6d3d3;
-  text-align: center;
+ border: none;
  padding: 0.5em;
- font-weight: 500;
- margin-right: 0.5em;
  padding-right: 40px; 
  font-size: 1.2rem;
  border-radius: 2px;

@@ -19,7 +19,7 @@ describe("Testing dropdown values", function() {
 
         shoe_instance.filter_shoe_categories(shoe_data, "size")
 
-        assert.deepEqual(7, shoe_instance.filter_shoe_categories(shoe_data, "size").length)
+        assert.deepEqual([ 5, 8, 9, 10 ], shoe_instance.filter_shoe_categories(shoe_data, "size"))
      
     })
 
@@ -29,7 +29,7 @@ describe("Testing dropdown values", function() {
 
         shoe_instance.filter_shoe_categories(shoe_data, "brand")
 
-        assert.deepEqual(8, shoe_instance.filter_shoe_categories(shoe_data, "brand").length)
+        assert.deepEqual([ 'Adidas', 'Jordan', 'Nike', 'Yeezy' ], shoe_instance.filter_shoe_categories(shoe_data, "brand"))
      
     })
 
@@ -39,7 +39,7 @@ describe("Testing dropdown values", function() {
 
         shoe_instance.filter_shoe_categories(shoe_data, "price")
 
-        assert.deepEqual(12, shoe_instance.filter_shoe_categories(shoe_data, "price").length)
+        assert.deepEqual([ '4999.00', '5999.00', '7999.00' ], shoe_instance.filter_shoe_categories(shoe_data, "price"))
      
     })
 })
@@ -53,7 +53,7 @@ describe("Testing if categories are filtered", function() {
 
         shoe_instance.filter_color(shoe_data, "Black").length
 
-        assert.deepEqual(3, shoe_instance.filter_color(shoe_data, "Black").length)
+        assert.deepEqual(1, shoe_instance.filter_color(shoe_data, "Black").length)
     })
 
     it("It should filter out all items that have a specific size", function() {
@@ -81,7 +81,7 @@ describe("Testing if categories are filtered", function() {
         
         shoe_instance.filter_price(shoe_data, "5999.00")
       
-        assert.deepEqual(5, shoe_instance.filter_price(shoe_data, "5999.00").length)
+        assert.deepEqual(2, shoe_instance.filter_price(shoe_data, "5999.00").length)
     })
 
 
@@ -111,7 +111,7 @@ describe("Testing if categories are filtered", function() {
 
        
       
-        assert.deepEqual(2, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
+        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
     })
 
     it("It should filter out all items that have a specific size and price", function() {

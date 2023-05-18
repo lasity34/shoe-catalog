@@ -111,7 +111,7 @@ describe("Testing if categories are filtered", function() {
 
        
       
-        assert.deepEqual(2, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
+        assert.deepEqual(1, shoe_instance.filter_display(shoe_data, "Black", "10", "", "").length)
     })
 
     it("It should filter out all items that have a specific size and price", function() {
