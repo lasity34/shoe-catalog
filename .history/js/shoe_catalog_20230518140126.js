@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
-
-
   const shoeInstance = shoe_factory();
   initializeApp();
 
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     attachHamburgerEventListener();
     shoe_search();
     DisplayShoeTemplate(shoe_data);
-    resetButtonValues();
   }
 
   // templates
@@ -33,9 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     category_display.innerHTML = shoeTemplate(shoeData);
-
-    const resetButton = document.getElementById("reset_button");
-    resetButton.addEventListener("click", resetAllFilters);
 
     const dropdownButtons = document.querySelectorAll(".dropdown-button");
     dropdownButtons.forEach((button) => {
@@ -134,33 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function resetButtonValues() {
-    const dropdownButtons = document.querySelectorAll(".dropdown-button");
-
-    dropdownButtons.forEach((button) => {
-      // Set default button texts
-      if (button.parentNode.id === "color_dropdown") {
-        button.textContent = "Color";
-      } else if (button.parentNode.id === "size_dropdown") {
-        button.textContent = "Size";
-      } else if (button.parentNode.id === "brand_dropdown") {
-        button.textContent = "Brand";
-      } else if (button.parentNode.id === "price_dropdown") {
-        button.textContent = "Price";
-      }
-
-      // Remove all data attributes
-      button.removeAttribute("data-color");
-      button.removeAttribute("data-size");
-      button.removeAttribute("data-brand");
-      button.removeAttribute("data-price");
-    });
-  }
-
-  function resetAllFilters() {
-    resetButtonValues();
-    DisplayShoeTemplate(shoe_data);
-  }
+  
 
 
 

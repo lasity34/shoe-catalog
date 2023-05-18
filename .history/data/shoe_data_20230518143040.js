@@ -98,30 +98,6 @@ export const shoe_data =
 
 
         },
-        {
-            id: 8,
-            color : 'Black',
-            name: 'Puma x Shelflife Suede Low ',
-            brand : "Puma",
-            size : 10,
-            price : 1999,
-            img : "./images/puma_vaughn_bode.jpg",
-            in_stock : 5,
-
-
-        },
-        {
-            id: 9,
-            color : 'Black',
-            name: 'Converse Chuck Taylor All-Star ',
-            brand : "Converse",
-            size : 10,
-            price : 3799,
-            img : "./images/converse_chuck_taylor.jpg",
-            in_stock : 5,
-
-
-        },
         
        
         

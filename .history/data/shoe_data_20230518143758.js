@@ -117,7 +117,7 @@ export const shoe_data =
             brand : "Converse",
             size : 10,
             price : 3799,
-            img : "./images/converse_chuck_taylor.jpg",
+            img : "./images/puma_vaughn_bode.jpg",
             in_stock : 5,
 
 

@@ -27,7 +27,7 @@
       </div>
       <div>
         <nav class="category_value">
-          <button id="reset_button">All Shoes</button>
+          <button id="reset_button">Reset</button>
           <div class="select-container">
             <div class="dropdown" id="color_dropdown">
               <button class="dropdown-button">Color</button>
@@ -67,7 +67,7 @@
                 <button class="dropdown-button">Price</button>
                 <ul class="dropdown-content" data-parent="price_dropdown">
                   {{#each prices}}
-                  <li class="price_option" data-price={{this}}>R{{this}}</li>
+                  <li class="price_option" data-price={{this}}>{{this}}</li>
                   {{/each}}
                 </ul>
               </div>

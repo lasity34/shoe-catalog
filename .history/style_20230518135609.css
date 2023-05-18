@@ -1,4 +1,7 @@
 
+html {
+  font-family: 'Cormorant Garamond', serif;
+}
 
 /*  title */
 .title_container {
@@ -69,15 +72,36 @@
   margin-right: 20px;
 }
 
-#reset_button {
-  position: relative;
-  background-color: rgb(255, 247, 247);
- border: none;
- padding: 0.5em;
- padding-right: 40px; 
- font-size: 1.2rem;
- border-radius: 2px;
- cursor: pointer;
+
+
+/* shoe display */
+.display_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shoe_item {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  text-align: center;
+  text-transform: capitalize;
+  align-items: center;
+}
+
+.shoe_item h4 {
+  color: grey;
+  margin: 0.5em;
+  font-size: 1.2rem;
+}
+
+img {
+  width: 75%;
+  height: 75%;
+}
+
+#item_message {
+  color: rgb(151, 69, 69);
 }
 
 
@@ -161,40 +185,6 @@
   justify-content: center;
   align-content: center;
 }
-
-
-
-/* shoe display */
-.display_container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.shoe_item {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  text-align: center;
-  text-transform: capitalize;
-  align-items: center;
-}
-
-.shoe_item h4 {
-  color: grey;
-  margin: 0.5em;
-  font-size: 1.2rem;
-}
-
-img {
-  width: 75%;
-  height: 75%;
-}
-
-#item_message {
-  color: rgb(151, 69, 69);
-}
-
-
 
 /* message display */ 
 .no_shoes_container {

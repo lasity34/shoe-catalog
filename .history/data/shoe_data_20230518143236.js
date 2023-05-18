@@ -110,18 +110,6 @@ export const shoe_data =
 
 
         },
-        {
-            id: 9,
-            color : 'Black',
-            name: 'Converse Chuck Taylor All-Star ',
-            brand : "Converse",
-            size : 10,
-            price : 3799,
-            img : "./images/converse_chuck_taylor.jpg",
-            in_stock : 5,
-
-
-        },
         
        
         

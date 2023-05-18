@@ -116,8 +116,8 @@ export const shoe_data =
             name: 'Converse Chuck Taylor All-Star ',
             brand : "Converse",
             size : 10,
-            price : 3799,
-            img : "./images/converse_chuck_taylor.jpg",
+            price : 1999,
+            img : "./images/puma_vaughn_bode.jpg",
             in_stock : 5,
 
 

@@ -11,7 +11,7 @@ export const shoe_data =
             size : 10,
             price : 7999,
             img : "./images/jordan_retro_thunder.jpg",
-            in_stock : 4,
+            in_stock : 8,
 
         },
      
@@ -23,7 +23,7 @@ export const shoe_data =
             size : 8,
             price : 7999,
             img : "./images/nike_dunk_low.jpg",
-            in_stock : 3,
+            in_stock : 8,
 
         },
         {
@@ -65,59 +65,11 @@ export const shoe_data =
         {
             id: 5,
             color : 'Light Blue',
-            name: 'Puma Blaze Of Glory Blue',
+            name: 'Puma Blaze Of Glory',
             brand : "Puma",
             size : 9,
             price : 5999,
             img : "./images/puma_blaze_of_glory.jpg",
-            in_stock : 9,
-
-
-        },
-        {
-            id: 6,
-            color : 'Grey',
-            name: 'Puma Blaze Of Glory Grey',
-            brand : "Puma",
-            size : 9,
-            price : 5999,
-            img : "./images/blaze_of_glory_grey.jpg",
-            in_stock : 10,
-
-
-        },
-        {
-            id: 7,
-            color : 'Green',
-            name: 'Puma x Vaughn Bode',
-            brand : "Puma",
-            size : 7,
-            price : 1899,
-            img : "./images/puma_vaughn_bode.jpg",
-            in_stock : 4,
-
-
-        },
-        {
-            id: 8,
-            color : 'Black',
-            name: 'Puma x Shelflife Suede Low ',
-            brand : "Puma",
-            size : 10,
-            price : 1999,
-            img : "./images/puma_vaughn_bode.jpg",
-            in_stock : 5,
-
-
-        },
-        {
-            id: 9,
-            color : 'Black',
-            name: 'Converse Chuck Taylor All-Star ',
-            brand : "Converse",
-            size : 10,
-            price : 3799,
-            img : "./images/converse_chuck_taylor.jpg",
             in_stock : 5,
 
 

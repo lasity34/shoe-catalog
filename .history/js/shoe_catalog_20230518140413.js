@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
-
+  const resetButton = document.getElementById("reset_button");
+  resetButton.addEventListener("click", resetAllFilters);
 
   const shoeInstance = shoe_factory();
   initializeApp();
@@ -33,9 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     category_display.innerHTML = shoeTemplate(shoeData);
-
-    const resetButton = document.getElementById("reset_button");
-    resetButton.addEventListener("click", resetAllFilters);
 
     const dropdownButtons = document.querySelectorAll(".dropdown-button");
     dropdownButtons.forEach((button) => {
