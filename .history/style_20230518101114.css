@@ -134,7 +134,7 @@ img {
   padding: 1em 3em;
   text-decoration: none;
   display: block;
-  border: 1px solid #d6d3d3;
+  border: 1px solid #e0e0e0;
   margin: 1em;
   font-size: 1.1rem;
 }
@@ -206,7 +206,6 @@ img {
 
   .dropdown-content li {
     font-size: 0.9rem;
-    padding: 0.5em 1.5em;
   }
 
   .category_value .select {

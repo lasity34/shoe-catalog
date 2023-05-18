@@ -62,13 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function dropdownDisplay(event) {
     const dropdownContent = event.target.parentNode
       .querySelector(".dropdown-content")
-      .cloneNode(true);
+      
 
     const dropdownDisplayArea = document.getElementById(
       "dropdown-display-area"
     );
 
-    
+    const clonedDropDownContent = dropdownContent.cloneNode(true);
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
     dropdownDisplayArea.style.display = "block";

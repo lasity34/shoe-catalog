@@ -62,19 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
   function dropdownDisplay(event) {
     const dropdownContent = event.target.parentNode
       .querySelector(".dropdown-content")
-      .cloneNode(true);
+     
 
     const dropdownDisplayArea = document.getElementById(
       "dropdown-display-area"
     );
 
-    
-    dropdownDisplayArea.innerHTML = "";
-    dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "block";
-    dropdownContent.addEventListener("click", dropdownSelection);
+    if (dropdownContent.style.display === 'block') {
+      dropdownContent.style.display = 'none';
+      dropdownDisplayArea.innerHTML = "";
+    } else {
+      // Show the dropdown
+      const clonedDropdownContent = dropdownContent.cloneNode(true);
+      dropdownDisplayArea.innerHTML = ""; // Clear any previous dropdown content
+      dropdownDisplayArea.appendChild(clonedDropdownContent); // Show the new dropdown content
+      dropdownDisplayArea.style.display = "block"; // Add event listener to new dropdown content
+      clonedDropdownContent.addEventListener("click", dropdownSelection);
+    }
   }
-
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
     const dropdownId = dropdownContent.getAttribute("data-parent");
