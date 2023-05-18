@@ -198,26 +198,6 @@ export const shoe_data =
             img : "./images/reebok_classic_brain.jpg",
             in_stock : 10,
         },
-        {
-            id: 19,
-            color : 'Brown',
-            name: 'Reebok Club C END',
-            brand : "Reebok",
-            size : 9,
-            price : 3999,
-            img : "./images/reebok_club.jpg",
-            in_stock : 7,
-        },
-        {
-            id: 18,
-            color : 'Brown',
-            name: 'Reebok Daytona DMX',
-            brand : "Reebok",
-            size : 9,
-            price : 899,
-            img : "./images/reebok_daytona.jpg",
-            in_stock : 13,
-        },
         
         
 ]

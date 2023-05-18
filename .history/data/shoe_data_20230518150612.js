@@ -211,12 +211,12 @@ export const shoe_data =
         {
             id: 18,
             color : 'Brown',
-            name: 'Reebok Daytona DMX',
+            name: 'Reebok Classic X Brain Dead',
             brand : "Reebok",
-            size : 9,
-            price : 899,
-            img : "./images/reebok_daytona.jpg",
-            in_stock : 13,
+            size : 7,
+            price : 3299,
+            img : "./images/reebok_classic_brain.jpg",
+            in_stock : 10,
         },
         
         

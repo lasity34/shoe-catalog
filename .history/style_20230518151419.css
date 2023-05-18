@@ -260,8 +260,8 @@ img {
     height: 30px;
   }
 
-  #reset_button {
-    font-size: 1rem;
+  .reset_button {
+    font-size: 0.9rem;
   }
 
 

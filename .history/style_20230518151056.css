@@ -154,7 +154,6 @@
 
 #dropdown-display-area .dropdown-content {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .show {
@@ -260,10 +259,6 @@ img {
     height: 30px;
   }
 
-  #reset_button {
-    font-size: 1rem;
-  }
-
 
   /* display */
   .display_container {
@@ -273,7 +268,7 @@ img {
   }
 
   .display_container img {
-    width: 50%;
+    width: 30%;
   }
 
   .display_container p  {

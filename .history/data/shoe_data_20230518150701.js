@@ -215,7 +215,7 @@ export const shoe_data =
             brand : "Reebok",
             size : 9,
             price : 899,
-            img : "./images/reebok_daytona.jpg",
+            img : "./images/reebok_classic_brain.jpg",
             in_stock : 13,
         },
         

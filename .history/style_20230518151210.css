@@ -154,7 +154,6 @@
 
 #dropdown-display-area .dropdown-content {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .show {
@@ -258,10 +257,6 @@ img {
 
   #search_bar {
     height: 30px;
-  }
-
-  #reset_button {
-    font-size: 1rem;
   }
 
 
