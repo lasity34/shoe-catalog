@@ -15,32 +15,11 @@ html {
   width: 150px;
 }
 
-/* search bar */
-.search_container {
-  border: 1px solid black;
-}
-
-
-#search_button {
-  border: none;
-  background-color: white;
-}
-
-#search_bar {
-  height: 30px;
-  width: 160px;
-  margin-right: 5em;
-  border: none;
-}
-
-#search_bar:focus {
-  outline: none;
-}
-
-
-
 /* categories */
-
+#search_bar {
+  height: 40px;
+  margin-right: 5em;
+}
 
 .filter_container {
   display: flex;
@@ -107,7 +86,7 @@ img {
   position: relative;
   background-color: rgb(255, 247, 247);
  border: none;
- padding: 0.5em;
+ padding: 1em;
  padding-right: 40px; 
  font-size: 1.2rem;
  border-radius: 2px;
@@ -182,8 +161,7 @@ img {
   display: flex;
   flex-direction: column;
  
- margin: 0 auto;
- margin-top: 5em;
+ margin: 1em auto;
 }
 
 .display_container .error_img {
@@ -274,8 +252,8 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     margin: 2em;
   }

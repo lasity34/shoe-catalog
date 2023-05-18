@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // helper functions
-  // menu items
+  // loads all dropdowns
   window.onclick = function (event) {
     if (!event.target.matches(".dropdown-button")) {
       const dropdowns = document.getElementsByClassName("dropdown-content");
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "dropdown-display-area"
     );
 
+    
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
     dropdownDisplayArea.style.display = "block";
@@ -88,13 +89,20 @@ document.addEventListener("DOMContentLoaded", function () {
       if (data) dropdownButton.setAttribute(`data-${type}`, data)
     })
 
+
+    // Define originalDropdown here
     const originalDropdown = document.getElementById(dropdownId);
+
+    // Move the dropdown content back to its original dropdown and hide it
     originalDropdown.appendChild(dropdownContent);
     dropdownContent.style.display = "none";
+
+    // Hide dropdown display area
     document.getElementById("dropdown-display-area").style.display = "none";
 
     update_display();
   }
+
 
   function update_display() {
     const selected_color = document
@@ -118,9 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
       selected_brand,
       selected_price
     );
-
-    // search function
-    
 
     DisplayShoeTemplate(filtered_shoes);
 
