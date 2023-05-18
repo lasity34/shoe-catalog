@@ -262,7 +262,7 @@ img {
 
   .select-container {
     display: none;
-    margin-right: 0.2em;
+    margin-right: 5px;
   }
   
   /* Display the dropdowns when the nav is open */

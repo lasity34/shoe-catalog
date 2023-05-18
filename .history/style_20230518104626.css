@@ -128,7 +128,7 @@ img {
 
 .dropdown-content li {
   color: black;
-  padding: 1em 3em;
+
   text-decoration: none;
   display: block;
   border: 1px solid #d6d3d3;
@@ -198,12 +198,10 @@ img {
   }
 
   .dropdown-button {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
- .dropdown-content {
-  margin-right: 2em;
- }
+ 
 
   .dropdown-content li {
     font-size: 0.9rem;
@@ -262,7 +260,6 @@ img {
 
   .select-container {
     display: none;
-    margin-right: 0.2em;
   }
   
   /* Display the dropdowns when the nav is open */

@@ -44,6 +44,9 @@ html {
 
 
 
+
+
+
 /* shoe display */
 .display_container {
   display: flex;
@@ -118,12 +121,13 @@ img {
   display: none;
   justify-content: center;
   z-index: 1;
+ width: 100%;
  margin: 0 auto;
 }
 
 .dropdown-content.show {
   display: flex;
-
+ 
 }
 
 .dropdown-content li {
@@ -132,7 +136,7 @@ img {
   text-decoration: none;
   display: block;
   border: 1px solid #d6d3d3;
-  margin: 0.5em;
+  margin: 1em;
   font-size: 1.1rem;
 }
 
@@ -145,7 +149,7 @@ img {
   justify-content: center;
   margin: 0 auto;
   background-color: white; /* So that the dropdown content is visible */
-  width: 100%;
+  width: 80%;
  
 }
 
@@ -198,12 +202,13 @@ img {
   }
 
   .dropdown-button {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
- .dropdown-content {
-  margin-right: 2em;
- }
+  .dropdown-content {
+    justify-content: flex-start;
+  
+  }
 
   .dropdown-content li {
     font-size: 0.9rem;
@@ -262,7 +267,6 @@ img {
 
   .select-container {
     display: none;
-    margin-right: 0.2em;
   }
   
   /* Display the dropdowns when the nav is open */
