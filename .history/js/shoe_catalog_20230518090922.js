@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
     attachHamburgerEventListener();
     DisplayShoeTemplate(shoe_data);
 
+    // Attach click event listener to each dropdown menu button
+
+   
+
     // templates
     function updateCategoryTemplate() {
       const templateSource =
@@ -26,8 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
         brands: shoeInstance.filter_shoe_categories(shoe_data, "brand"),
         prices: shoeInstance.filter_shoe_categories(shoe_data, "price"),
       };
- 
-      category_display.innerHTML =   shoeTemplate(shoeData);
+      const userDataHTML = shoeTemplate(shoeData);
+
+      category_display.innerHTML = userDataHTML;
 
       const dropdownButtons = document.querySelectorAll(".dropdown-button");
       dropdownButtons.forEach((button) => {
@@ -41,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "#shoeDisplayTemplate"
     ).innerHTML;
     const shoeTemplate = Handlebars.compile(templateSource);
-    shoe_display.innerHTML =  shoeTemplate({ shoes: shoes });
+    const shoeData = { shoes: shoes };
+    const userDataHTML = shoeTemplate(shoeData);
+    shoe_display.innerHTML = userDataHTML;
   }
 
   // helper functions
@@ -63,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = event.target.parentNode
       .querySelector(".dropdown-content")
       .cloneNode(true);
-      
     const dropdownDisplayArea = document.getElementById(
       "dropdown-display-area"
     );
@@ -88,11 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dropdownButton.textContent = event.target.textContent;
 
-    ['color', 'size', 'brand', 'price'].forEach(type => {
-      const data = event.target.getAttribute(`data-${type}`)
-      if (data) dropdownButton.setAttribute(`data-${type}`, data)
-    })
+    const color = event.target.getAttribute("data-color");
+    const size = event.target.getAttribute("data-size");
+    const brand = event.target.getAttribute("data-brand");
+    const price = event.target.getAttribute("data-price");
 
+    if (color) dropdownButton.setAttribute("data-color", color);
+    if (size) dropdownButton.setAttribute("data-size", size);
+    if (brand) dropdownButton.setAttribute("data-brand", brand);
+    if (price) dropdownButton.setAttribute("data-price", price);
 
     // Define originalDropdown here
     const originalDropdown = document.getElementById(dropdownId);

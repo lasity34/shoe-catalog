@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = event.target.parentNode
       .querySelector(".dropdown-content")
       .cloneNode(true);
-      
     const dropdownDisplayArea = document.getElementById(
       "dropdown-display-area"
     );
@@ -90,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ['color', 'size', 'brand', 'price'].forEach(type => {
       const data = event.target.getAttribute(`data-${type}`)
-      if (data) dropdownButton.setAttribute(`data-${type}`, data)
+      if (data) dropdownButton.target.setAttribute(`data-${type}`, data)
     })
 
-
+   
     // Define originalDropdown here
     const originalDropdown = document.getElementById(dropdownId);
 

@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = event.target.parentNode
       .querySelector(".dropdown-content")
       .cloneNode(true);
-      
     const dropdownDisplayArea = document.getElementById(
       "dropdown-display-area"
     );

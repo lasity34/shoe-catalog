@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
     attachHamburgerEventListener();
     DisplayShoeTemplate(shoe_data);
 
+    // Attach click event listener to each dropdown menu button
+
+   
+
     // templates
     function updateCategoryTemplate() {
       const templateSource =
@@ -26,8 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
         brands: shoeInstance.filter_shoe_categories(shoe_data, "brand"),
         prices: shoeInstance.filter_shoe_categories(shoe_data, "price"),
       };
- 
-      category_display.innerHTML =   shoeTemplate(shoeData);
+      const userDataHTML = shoeTemplate(shoeData);
+
+      category_display.innerHTML = userDataHTML;
 
       const dropdownButtons = document.querySelectorAll(".dropdown-button");
       dropdownButtons.forEach((button) => {
@@ -41,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
       "#shoeDisplayTemplate"
     ).innerHTML;
     const shoeTemplate = Handlebars.compile(templateSource);
-    shoe_display.innerHTML =  shoeTemplate({ shoes: shoes });
+    const shoeData = { shoes: shoes };
+    const userDataHTML = shoeTemplate(shoeData);
+    shoe_display.innerHTML = userDataHTML;
   }
 
   // helper functions
@@ -60,52 +67,28 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   function dropdownDisplay(event) {
-    const dropdownContent = event.target.parentNode
-      .querySelector(".dropdown-content")
-      .cloneNode(true);
-      
-    const dropdownDisplayArea = document.getElementById(
-      "dropdown-display-area"
-    );
-
-    // Clear any previous dropdown content
-    dropdownDisplayArea.innerHTML = "";
-
-    // Show the new dropdown content
-    dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "block";
-
-    // Add event listener to new dropdown content
+    const dropdownContent = event.target.parentNode.querySelector(".dropdown-content");
+    dropdownContent.style.display = "block";
     dropdownContent.addEventListener("click", dropdownSelection);
   }
 
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
     const dropdownId = dropdownContent.getAttribute("data-parent");
-    const dropdownButton = document
-      .getElementById(dropdownId)
-      .querySelector(".dropdown-button");
+    const dropdownButton = document.getElementById(dropdownId).querySelector(".dropdown-button");
 
     dropdownButton.textContent = event.target.textContent;
 
-    ['color', 'size', 'brand', 'price'].forEach(type => {
-      const data = event.target.getAttribute(`data-${type}`)
-      if (data) dropdownButton.setAttribute(`data-${type}`, data)
-    })
+    const attributes = ["color", "size", "brand", "price"];
+    attributes.forEach(attr => {
+      const value = event.target.getAttribute(`data-${attr}`);
+      if (value) dropdownButton.setAttribute(`data-${attr}`, value);
+    });
 
-
-    // Define originalDropdown here
-    const originalDropdown = document.getElementById(dropdownId);
-
-    // Move the dropdown content back to its original dropdown and hide it
-    originalDropdown.appendChild(dropdownContent);
     dropdownContent.style.display = "none";
-
-    // Hide dropdown display area
-    document.getElementById("dropdown-display-area").style.display = "none";
-
     update_display();
   }
+
 
 
   function update_display() {
