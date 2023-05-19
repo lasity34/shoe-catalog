@@ -226,7 +226,7 @@ if (shoe_form) {
       brand: shoeBrand,
       price: parseInt(shoePrice),
       in_stock: parseInt(shoeStock),
-      img: shoeImage,
+      image: shoeImage,
     };
 
     shoe_data.push(newShoe);
@@ -236,15 +236,6 @@ if (shoe_form) {
 }
 if (localStorage.getItem("shoeData")) {
   shoe_data = JSON.parse(localStorage.getItem("shoeData"));
-}
-
-const clearButton = document.getElementById("clearLocalStorage");
-
-if (clearButton) {
-  clearButton.addEventListener("click", function() {
-    localStorage.clear();
-    console.log('Local storage cleared');
-  });
 }
 
 console.log(shoe_data);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
+    <title>Add Shoes Form</title>
+  </head>
+  <body>
+    <a href="./index.html">Home</a>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <form id="shoeForm">
+          <label for="shoeName">Shoe Name:</label><br />
+          <input type="text" id="shoeName" name="shoeName" /><br />
+          <label for="shoeColor">Color:</label><br />
+          <input type="text" id="shoeColor" name="shoeColor" /><br />
+          <label for="shoeSize">Size:</label><br />
+          <input type="number" id="shoeSize" name="shoeSize" /><br />
+          <label for="shoeBrand">Brand:</label><br />
+          <input type="text" id="shoeBrand" name="shoeBrand" /><br />
+          <label for="shoePrice">Price:</label><br />
+          <input type="number" id="shoePrice" name="shoePrice" /><br />
+          <label for="shoePrice">Stock:</label><br />
+          <input type="number" id="shoeStock" name="shoeStock" /><br />
+          <input type="submit" value="Submit" />
+          <label for="shoeImage">Shoe Image:</label><br />
+          <input
+            type="file"
+            id="shoeImage"
+            name="shoeImage"
+            accept="image/*"
+          /><br />
+        </form>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./data/shoe_data.js"></script>
+</html>

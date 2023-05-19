@@ -238,13 +238,4 @@ if (localStorage.getItem("shoeData")) {
   shoe_data = JSON.parse(localStorage.getItem("shoeData"));
 }
 
-const clearButton = document.getElementById("clearLocalStorage");
-
-if (clearButton) {
-  clearButton.addEventListener("click", function() {
-    localStorage.clear();
-    console.log('Local storage cleared');
-  });
-}
-
 console.log(shoe_data);
