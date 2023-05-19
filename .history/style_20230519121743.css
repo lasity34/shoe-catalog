@@ -13,20 +13,20 @@ header {
 }
 
 .title {
-  width: 250px;
-  height: 150px;
+  width: 150px;
 }
 
 /* search bar */
 .search_flex {
   width: 30%;
-  align-self: center;
+
 
 }
 
 .search_container {
   position: relative;
   display: flex;
+  align-content: center;
   flex-direction: column;
   border: 1px solid #d6d3d3;
   width: 50%;
@@ -70,22 +70,8 @@ header {
 }
 
 .support {
-  display: flex;
-  padding: 2em;
-  align-content: center;
   text-decoration: none;
   color: #111010;
-  margin-left: 2em;
-  
-}
-
-#question {
-  width: 10%;
-  margin-right: 0.5em;
-}
-
-.support span:hover {
-  text-decoration: underline;
 }
 
 /* categories */
