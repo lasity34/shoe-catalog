@@ -185,8 +185,75 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
- 
-   
+    search_bar.addEventListener("input", function () {
+      const search_query = search_bar.value;
+
+      const filtered_names = shoeInstance.search_shoes(shoe_data, search_query);
+
+      const dropDown = document.getElementById("autocomplete-dropdown");
+      dropDown.innerHTML = "";
+
+      filtered_names.forEach((name) => {
+        const option = document.createElement("div");
+        option.textContent = name.name;
+        option.addEventListener("click", function () {
+          search_bar.value = name.name;
+          searchFunction();
+        });
+
+        dropDown.appendChild(option);
+      });
+    });
+
+    let activeOptionIndex = -1;
+
+search_bar.addEventListener("keydown", function(event) {
+  console.log("keydown event for autocomplete triggered");
+  const dropDown = document.getElementById("autocomplete-dropdown")
+  const options = Array.from(dropDown.children);
+  
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+
+    if (activeOptionIndex !== -1) {
+      options[activeOptionIndex].classList.remove('active');
+    }
+
+    activeOptionIndex = (activeOptionIndex + 1) % options.length;
+
+    options[activeOptionIndex].classList.add('active');
+
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault();
+
+    if (activeOptionIndex !== -1) {
+      options[activeOptionIndex].classList.remove('active');
+    }
+
+    activeOptionIndex = (activeOptionIndex - 1 + options.length) % options.length;
+
+    options[activeOptionIndex].classList.add('active');
+
+  } else if (event.key === "Enter") {
+    console.log("keydown event triggered");
+    event.preventDefault();
+
+    if (activeOptionIndex !== -1) {
+      options[activeOptionIndex].click();
+      dropDown.innerHTML = "";
+      activeOptionIndex = -1;
+    } else {
+      searchFunction();
+    }
+  }
+});
+
+search_bar.addEventListener("blur", function(event) {
+  setTimeout(() => {
+    const dropDown = document.getElementById("autocomplete-dropdown")
+    dropDown.innerHTML = "";
+  }, 200);
+});
   }
 
   function attachHamburgerEventListener() {

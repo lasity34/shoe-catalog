@@ -1,9 +1,11 @@
+
+
 /*  title */
 header {
   border-bottom: 1px solid;
   display: flex;
   justify-content: space-evenly;
-
+  padding: 1em;
 }
 
 .title_container {
@@ -11,11 +13,14 @@ header {
   justify-content: center;
   margin: 0;
   width: 30%;
+  
 }
 
 .title {
   width: 150px;
 }
+
+
 
 /* search bar */
 .search_flex {
@@ -24,22 +29,17 @@ header {
 }
 
 .search_container {
-  position: relative;
   display: flex;
-  flex-direction: column;
   border: 1px solid #d6d3d3;
   width: 50%;
   height: 40%;
 }
 
+
 #search_button {
   cursor: pointer;
   border: none;
   background-color: white;
-}
-
-.search_button_flex {
-  display: flex;
 }
 
 #search_bar {
@@ -53,18 +53,9 @@ header {
   outline: none;
 }
 
-#autocomplete-dropdown {
+#autocomplete-dropdown{
   position: absolute;
-  top: 100%;
-  width: 100%;  /* Update this to match the width of the search bar */
-  z-index: 1000;  /* Ensure dropdown appears over other content */
-  border: 1px solid #d6d3d3;
- 
-}
-
-#autocomplete-dropdown div {
-  background-color: white;
-  padding-left: 0.9em;
+  bottom: 10px;
 }
 
 #autocomplete-dropdown div:hover {
@@ -78,31 +69,17 @@ header {
 
 /* add shoes */
 .add_shoes_container {
-  display: flex;
   width: 30%;
-  
   align-self: center;
-  justify-content: center;
-
 }
 
 .add_shoes {
-  padding: 1em;
   width: 50%;
   background-color: white;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-
-
-.add_shoes span:hover {
-  text-decoration: underline;
-  
 }
 
 /* categories */
+
 
 .filter_container {
   display: flex;
@@ -120,6 +97,7 @@ header {
   width: 100%;
 }
 
+
 .select-container {
   margin-right: 20px;
 }
@@ -129,14 +107,15 @@ header {
   background-color: rgb(255, 247, 247);
   border: 1px solid #d6d3d3;
   text-align: center;
-  padding: 0.5em;
-  font-weight: 500;
-  margin-right: 0.5em;
-  padding-right: 40px;
-  font-size: 1.2rem;
-  border-radius: 2px;
-  cursor: pointer;
+ padding: 0.5em;
+ font-weight: 500;
+ margin-right: 0.5em;
+ padding-right: 40px; 
+ font-size: 1.2rem;
+ border-radius: 2px;
+ cursor: pointer;
 }
+
 
 /* dropdown styles */
 .dropdown {
@@ -148,18 +127,18 @@ header {
 .dropdown-button {
   position: relative;
   background-color: rgb(255, 247, 247);
-  border: none;
-  padding: 0.5em;
-  padding-right: 40px;
-  font-size: 1.2rem;
-  border-radius: 2px;
+ border: none;
+ padding: 0.5em;
+ padding-right: 40px; 
+ font-size: 1.2rem;
+ border-radius: 2px;
 }
 
 .dropdown-button::after {
   content: "";
   position: absolute;
   top: 50%;
-  right: 10px;
+  right:10px;
   transform: translateY(-50%);
   width: 0;
   height: 0;
@@ -169,18 +148,20 @@ header {
 }
 
 .dropdown-button:hover {
-  cursor: pointer;
+ cursor: pointer;
+ 
 }
 
 .dropdown-content {
   display: none;
   justify-content: center;
   z-index: 1;
-  margin: 0 auto;
+ margin: 0 auto;
 }
 
 .dropdown-content.show {
   display: flex;
+
 }
 
 .dropdown-content li {
@@ -199,11 +180,12 @@ header {
 }
 
 #dropdown-display-area {
-  display: flex;
+  display: flex; 
   justify-content: center;
   margin: 0 auto;
   background-color: white; /* So that the dropdown content is visible */
   width: 100%;
+ 
 }
 
 #dropdown-display-area .dropdown-content {
@@ -217,9 +199,7 @@ header {
   align-content: center;
 }
 
-.active {
-  background-color: aqua;
-}
+
 
 /* shoe display */
 .display_container {
@@ -251,13 +231,15 @@ img {
   color: rgb(151, 69, 69);
 }
 
-/* message display */
+
+
+/* message display */ 
 .no_shoes_container {
   display: flex;
   flex-direction: column;
-
-  margin: 0 auto;
-  margin-top: 5em;
+ 
+ margin: 0 auto;
+ margin-top: 5em;
 }
 
 .display_container .error_img {
@@ -273,9 +255,11 @@ img {
 
 /* media queries */
 @media (max-width: 700px) {
+
   .search_flex {
     width: 20%;
   }
+
 
   .title {
     width: 140px;
@@ -283,10 +267,13 @@ img {
 
   .category_value {
     width: 100%;
+    
   }
   .category_value div {
     margin-bottom: 0.2em;
   }
+
+
 
   .filter_container {
     flex-direction: column;
@@ -296,9 +283,9 @@ img {
     font-size: 0.8rem;
   }
 
-  .dropdown-content {
-    margin-right: 2em;
-  }
+ .dropdown-content {
+  margin-right: 2em;
+ }
 
   .dropdown-content li {
     font-size: 0.9rem;
@@ -319,6 +306,7 @@ img {
     font-size: 0.8rem;
   }
 
+
   /* display */
   .display_container {
     flex-direction: column;
@@ -330,9 +318,11 @@ img {
     width: 50%;
   }
 
-  .display_container p {
-    font-size: 1.2rem;
+  .display_container p  {
+    font-size: 1.2rem ;
   }
+
+  
 
   .shoe_item {
     width: 90%;
@@ -370,7 +360,7 @@ img {
     display: none;
     margin-right: 0.2em;
   }
-
+  
   /* Display the dropdowns when the nav is open */
   .nav-open .select-container {
     display: block;
@@ -379,5 +369,10 @@ img {
   .flex_menu {
     display: flex;
     align-items: center;
+
+    
   }
+
+
 }
+

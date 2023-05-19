@@ -91,27 +91,26 @@
   </head>
   <body>
     <header>
-      <div class="search_flex">
+      <div>
         <div class="search_container">
-          <div class="search_button_flex">
-            <button type="button" id="search_button" aria-label="search_button">
-              🔍
-            </button>
-            <input
-              id="search_bar"
-              type="text"
-              placeholder="  Search for shoes..."
-            />
-          </div>
-        
+          <button type="button" id="search_button" aria-label="search_button">
+            🔍
+          </button>
+          <input
+            id="search_bar"
+            type="text"
+            placeholder="  Search for shoes..."
+          />
+          <div id="autocomplete-dropdown"></div>
         </div>
       </div>
-
+      
       <div class="title_container">
         <img class="title" src="./images/shoe_title_trans.png" />
       </div>
       <div class="add_shoes_container">
-        <button class="add_shoes">➕<span>   Add Footwear</span> </button>
+
+        <button class="add_shoes">Add Footwear</button>
       </div>
     </header>
     <section class="category_display"></section>

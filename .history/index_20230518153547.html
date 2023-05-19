@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <title>Lubas Shoes</title>
+
+  <script type="text/x-template" id="categoryTemplate">
+    <div class="filter_container">
+      <div class="flex_menu">
+        
+        <div class="hamburger-menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div>
+        <nav class="category_value">
+          <button id="reset_button">All Footwear</button>
+          <div class="select-container">
+            <div class="dropdown" id="color_dropdown">
+              <button class="dropdown-button">Color</button>
+             
+              <ul id="dropdown-content-placeholder" class="dropdown-content" data-parent="color_dropdown">
+                {{#each colors}}
+                <li class="color_option" data-color={{this}}>{{this}}</li>
+                {{/each}}
+              </ul>
+            
+            </div>
+          </div>
+          
+          
+            <div class="select-container">
+              <div class="dropdown" id="size_dropdown">
+                <button class="dropdown-button">Size</button>
+                <ul class="dropdown-content" data-parent="size_dropdown">
+                  {{#each sizes}}
+                  <li class="size_option" data-size={{this}}>{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+            <div class="select-container">
+              <div class="dropdown" id="brand_dropdown">
+                <button class="dropdown-button">Brand</button>
+                <ul class="dropdown-content" data-parent="brand_dropdown">
+                  {{#each brands}}
+                  <li class="brand_option" data-brand={{this}}>{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+            <div class="select-container">
+              <div class="dropdown" id="price_dropdown">
+                <button class="dropdown-button">Price</button>
+                <ul class="dropdown-content" data-parent="price_dropdown">
+                  {{#each prices}}
+                  <li class="price_option" data-price={{this}}>R{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+        </nav>
+       
+
+      </div>
+    </div>
+  </script>
+  
+  <script type="text/x-template" id="shoeDisplayTemplate">
+    {{#each shoes}}
+    <div class="shoe_item">
+      <img src="{{this.img}}" />
+      <h4>{{this.name}}</h4>
+      <h4>R{{this.price}}</h4>
+      <h4 id="item_message">We have {{this.in_stock}} {{this.color}} pairs in stock</h4>
+    </div>
+    {{/each}}
+  </script>
+</head>
+<body>
+  <div class="search_container">
+    <button type="button" id="search_button" aria-label="search_button">🔍</button>
+    <input id="search_bar" type="text" placeholder="  Search for shoes..." />
+    <div id="autocomplete-dropdown"></div>
+  </div>
+  <div class="title_container">
+    <img class="title" src="./images/shoe_title_trans.png" />
+  </div>
+  <section class="category_display"></section>
+  <div id="dropdown-display-area" ></div>
+  <section class="display_container"></section>
+
+  <script type="module" src="./js/shoe_catalog.js"></script>
+</body>
+</html>

@@ -92,14 +92,10 @@ header {
   background-color: white;
   border: none;
   font-size: 1rem;
-  cursor: pointer;
 }
-
-
 
 .add_shoes span:hover {
   text-decoration: underline;
-  
 }
 
 /* categories */

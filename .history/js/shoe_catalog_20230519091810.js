@@ -185,9 +185,27 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
- 
-   
-  }
+    search_bar.addEventListener("input", function () {
+      const search_query = search_bar.value;
+
+      const filtered_names = shoeInstance.search_shoes(shoe_data, search_query);
+
+      const dropDown = document.getElementById("autocomplete-dropdown");
+      dropDown.innerHTML = "";
+
+      filtered_names.forEach((name) => {
+        const option = document.createElement("div");
+        option.textContent = name.name;
+        option.addEventListener("click", function () {
+          search_bar.value = name.name;
+          searchFunction();
+        });
+
+        dropDown.appendChild(option);
+      });
+    });
+
+  
 
   function attachHamburgerEventListener() {
     const hamburger = document.querySelector(".hamburger-menu");

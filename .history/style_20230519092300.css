@@ -3,7 +3,7 @@ header {
   border-bottom: 1px solid;
   display: flex;
   justify-content: space-evenly;
-
+  padding: 1em;
 }
 
 .title_container {
@@ -88,18 +88,9 @@ header {
 
 .add_shoes {
   padding: 1em;
-  width: 50%;
+  width: 30%;
   background-color: white;
   border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-
-
-.add_shoes span:hover {
-  text-decoration: underline;
-  
 }
 
 /* categories */

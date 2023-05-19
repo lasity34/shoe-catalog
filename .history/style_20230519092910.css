@@ -79,7 +79,7 @@ header {
 /* add shoes */
 .add_shoes_container {
   display: flex;
-  width: 30%;
+  width: 50%;
   
   align-self: center;
   justify-content: center;
@@ -88,18 +88,14 @@ header {
 
 .add_shoes {
   padding: 1em;
-  width: 50%;
+  width: 30%;
   background-color: white;
   border: none;
   font-size: 1rem;
-  cursor: pointer;
 }
-
-
 
 .add_shoes span:hover {
   text-decoration: underline;
-  
 }
 
 /* categories */
