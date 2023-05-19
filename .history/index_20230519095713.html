@@ -111,10 +111,22 @@
         <img class="title" src="./images/shoe_title_trans.png" />
       </div>
       <div class="add_shoes_container">
-        <div><a class="support" href="./add_shoes.html">Support</a></div>
+        <button class="add_shoes">➕<span>   Add Footwear</span> </button>
       </div>
     </header>
-    
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+          <form id="shoeForm">
+              <label for="shoeName">Shoe Name:</label><br>
+              <input type="text" id="shoeName" name="shoeName"><br>
+              <label for="shoeStock">New Stock:</label><br>
+              <input type="number" id="shoeStock" name="shoeStock"><br>
+              <input type="submit" value="Submit">
+          </form>
+      </div>
+  </div>
     <section class="category_display"></section>
     <div id="dropdown-display-area"></div>
     <section class="display_container"></section>

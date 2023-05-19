@@ -163,6 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
   }
 
+
+
   // search function
   function shoe_search() {
     const search_button = document.getElementById("search_button");
@@ -182,6 +184,9 @@ document.addEventListener("DOMContentLoaded", function () {
         searchFunction();
       }
     });
+
+ 
+   
   }
 
   function attachHamburgerEventListener() {
@@ -194,4 +199,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+const modal = document.getElementById("myModal");
+const add_shoe_btn = document.getElementById("add_shoes")
+const close = document.getElementsByClassName("close")
 
+add_shoe_btn.onclick = function() {
+  modal.style.display = "block"
+}
+
+close.onclick = function() {
+  modal.style.display
+}
+
+const form = document.getElementById("shoeForm");
+form.onsubmit = function(event) {
+  event.preventDefault()
+
+  const name = document.getElementById("shoeName")
+  const shoeStock = document.getElementById("")
+}

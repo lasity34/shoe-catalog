@@ -163,6 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
   }
 
+
+
   // search function
   function shoe_search() {
     const search_button = document.getElementById("search_button");
@@ -182,6 +184,9 @@ document.addEventListener("DOMContentLoaded", function () {
         searchFunction();
       }
     });
+
+ 
+   
   }
 
   function attachHamburgerEventListener() {

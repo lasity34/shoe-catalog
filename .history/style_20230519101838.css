@@ -55,6 +55,25 @@ header {
   outline: none;
 }
 
+#autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  width: 100%;  /* Update this to match the width of the search bar */
+  z-index: 1000;  /* Ensure dropdown appears over other content */
+  border: 1px solid #d6d3d3;
+ 
+}
+
+#autocomplete-dropdown div {
+  background-color: white;
+  padding-left: 0.9em;
+}
+
+#autocomplete-dropdown div:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
 .active {
   background-color: #ccc;
 }
@@ -69,9 +88,20 @@ header {
 
 }
 
-.support {
-  text-decoration: none;
-  color: #111010;
+.add_shoes {
+  padding: 1em;
+  width: 50%;
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+.add_shoes span:hover {
+  text-decoration: underline;
+  
 }
 
 /* categories */
