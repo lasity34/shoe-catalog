@@ -205,6 +205,18 @@ document.addEventListener("DOMContentLoaded", function () {
  
   }
 
+  // function addToCart(event) {
+  //   const id = event.target.getAttribute('data-id');
+  //   const item = shoe_data.find(item => item.id == id);
+    
+  //   // Load the current cart from localStorage (or start with an empty array if it doesn't exist)
+  //   const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+  //   // Add the item to the cart and save it back to localStorage
+  //   cart.push(item);
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  // }
+
   const addToCartButtons = document.querySelectorAll('add-to-cart-button');
   addToCartButtons.forEach(button => {
     button.addEventListener('click', addToCart)

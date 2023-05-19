@@ -77,7 +77,7 @@ header {
 }
 
 #question {
-  width: 20px;
+  width: 20%;
   margin-right: 0.5em;
 }
 
@@ -88,8 +88,6 @@ header {
 .cart_container {
   display: flex;
   align-self: center;
-  padding: 2em;
-  cursor: pointer;
 }
 
 .cart_container a {
@@ -98,12 +96,9 @@ header {
 }
 
 .cart_img {
-  width: 25px;
-  margin-left: 1em;
-}
-
-.cart_container a span {
-  margin-left: 1em;
+  width: 30px;
+  align-self: ce
+  ;
 }
 
 /* categories */
@@ -213,7 +208,6 @@ header {
 #dropdown-display-area .dropdown-content {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2em;
 }
 
 .show {
@@ -235,7 +229,7 @@ header {
 .shoe_item {
   display: flex;
   flex-direction: column;
-
+  margin-top: 3em;
   width: 20%;
   text-align: center;
   text-transform: capitalize;

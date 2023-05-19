@@ -80,13 +80,13 @@
     <script type="text/x-template" id="shoeDisplayTemplate">
       {{#each shoes}}
       <div class="shoe_item">
-
+        
         <img src="{{this.img}}" />
         <h4>{{this.name}}</h4>
         <h4>R{{this.price}}</h4>
         <h4 id="item_message">We have {{this.in_stock}} {{this.color}} pairs in stock</h4>
         <div class="shoe_header">
-          <button class="add-to-cart-button" data-id="{{this.id}}">Add to Cart</button>
+          <button class="add-to-cart-button">Add to Cart</button>
         </div>
       </div>
       {{/each}}
@@ -115,15 +115,8 @@
       <div class="add_shoes_container">
         <div>
           <a class="support" href="./add_shoes.html"
-            ><img id="question" src="./images/question.png" />
+            ><img id="question" src="./images/question.png"  />
             <span>Support</span>
-          </a>
-        </div>
-        <div class="cart_container">
-          <a
-            ><img class="cart_img" src="./images/shopping-cart.png" /><span
-              >Cart</span
-            >
           </a>
         </div>
       </div>

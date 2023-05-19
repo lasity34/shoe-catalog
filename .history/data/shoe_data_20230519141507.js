@@ -221,7 +221,9 @@ if (shoe_form) {
     if (existingShoe) {
       existingShoe.in_stock += parseInt(shoeStock);
       localStorage.setItem("shoeData", JSON.stringify(shoe_data));
-    } else {
+    } 
+    
+     
       const newShoe = {
         id: shoe_data.length + 1,
         name: shoeName,
@@ -234,12 +236,13 @@ if (shoe_form) {
       };
 
       shoe_data.push(newShoe);
-
-      localStorage.setItem("shoeData", JSON.stringify(shoe_data));
-    }
+    
+      if (localStorage.getItem("shoeData")) {
+        shoe_data = JSON.parse(localStorage.getItem("shoeData"));
+      }
+      
   });
 }
-
 if (localStorage.getItem("shoeData")) {
   shoe_data = JSON.parse(localStorage.getItem("shoeData"));
 }

@@ -62,7 +62,7 @@ header {
 .add_shoes_container {
   display: flex;
   width: 30%;
-  align-content: center;
+
   align-self: center;
   justify-content: center;
 }
@@ -76,8 +76,8 @@ header {
   margin-left: 2em;
 }
 
-#question {
-  width: 20px;
+#question{
+  width: 10%;
   margin-right: 0.5em;
 }
 
@@ -85,25 +85,9 @@ header {
   text-decoration: underline;
 }
 
-.cart_container {
-  display: flex;
-  align-self: center;
-  padding: 2em;
-  cursor: pointer;
-}
-
-.cart_container a {
-  display: flex;
-
-}
-
-.cart_img {
-  width: 25px;
-  margin-left: 1em;
-}
-
-.cart_container a span {
-  margin-left: 1em;
+.cart {
+  width: 10%;
+  height: 20%;
 }
 
 /* categories */
@@ -213,7 +197,6 @@ header {
 #dropdown-display-area .dropdown-content {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2em;
 }
 
 .show {
@@ -235,7 +218,7 @@ header {
 .shoe_item {
   display: flex;
   flex-direction: column;
-
+  margin-top: 3em;
   width: 20%;
   text-align: center;
   text-transform: capitalize;
@@ -279,6 +262,8 @@ img {
 .add-to-cart-button:hover {
   background-color: #ff6347; /* Slightly lighter shade for hover effect */
 }
+
+
 
 /* message display */
 .no_shoes_container {

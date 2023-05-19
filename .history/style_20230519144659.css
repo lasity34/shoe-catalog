@@ -21,6 +21,7 @@ header {
 .search_flex {
   width: 30%;
   align-self: center;
+
 }
 
 .search_container {
@@ -62,9 +63,10 @@ header {
 .add_shoes_container {
   display: flex;
   width: 30%;
-  align-content: center;
+  
   align-self: center;
   justify-content: center;
+
 }
 
 .support {
@@ -74,36 +76,16 @@ header {
   text-decoration: none;
   color: #111010;
   margin-left: 2em;
+  
 }
 
 #question {
-  width: 20px;
+  width: 10%;
   margin-right: 0.5em;
 }
 
 .support span:hover {
   text-decoration: underline;
-}
-
-.cart_container {
-  display: flex;
-  align-self: center;
-  padding: 2em;
-  cursor: pointer;
-}
-
-.cart_container a {
-  display: flex;
-
-}
-
-.cart_img {
-  width: 25px;
-  margin-left: 1em;
-}
-
-.cart_container a span {
-  margin-left: 1em;
 }
 
 /* categories */
@@ -213,7 +195,6 @@ header {
 #dropdown-display-area .dropdown-content {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2em;
 }
 
 .show {
@@ -235,7 +216,6 @@ header {
 .shoe_item {
   display: flex;
   flex-direction: column;
-
   width: 20%;
   text-align: center;
   text-transform: capitalize;
@@ -258,17 +238,16 @@ img {
 }
 
 .shoe_header {
-  width: 70%;
-
+  width: 80%;
+  display: flex;
   justify-content: flex-end;
   margin-top: 1em;
 }
 
 .add-to-cart-button {
-  padding: 0.5em 1em;
-  width: 50%;
+  padding: 10px 20px;
   border: none;
-  background-color: rgb(151, 69, 69); /* You can use any color you prefer */
+  background-color: #FF4500;  /* You can use any color you prefer */
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -277,7 +256,7 @@ img {
 }
 
 .add-to-cart-button:hover {
-  background-color: #ff6347; /* Slightly lighter shade for hover effect */
+  background-color: #FF6347;  /* Slightly lighter shade for hover effect */
 }
 
 /* message display */

@@ -213,7 +213,6 @@ header {
 #dropdown-display-area .dropdown-content {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2em;
 }
 
 .show {
@@ -235,7 +234,7 @@ header {
 .shoe_item {
   display: flex;
   flex-direction: column;
-
+  margin-top: 3em;
   width: 20%;
   text-align: center;
   text-transform: capitalize;

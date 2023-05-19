@@ -214,13 +214,13 @@ if (shoe_form) {
     const shoeBrand = document.getElementById("shoeBrand").value;
     const shoePrice = document.getElementById("shoePrice").value;
     const shoeStock = document.getElementById("shoeStock").value;
-    const shoeImage = document.getElementById("shoeImage").value;
+    const shoeImage = document.getElementById("shoeImage").value
 
-    const existingShoe = shoe_data.find((shoe) => shoe.name === shoeName);
+  
+    const existingShoe = shoe_data.find(shoe => shoe.name)
 
     if (existingShoe) {
-      existingShoe.in_stock += parseInt(shoeStock);
-      localStorage.setItem("shoeData", JSON.stringify(shoe_data));
+      existingShoe.in_stock += parseInt(shoeStock)
     } else {
       const newShoe = {
         id: shoe_data.length + 1,
@@ -235,11 +235,14 @@ if (shoe_form) {
 
       shoe_data.push(newShoe);
 
-      localStorage.setItem("shoeData", JSON.stringify(shoe_data));
+    localStorage.setItem("shoeData", JSON.stringify(shoe_data));
     }
+
+   
+
+    
   });
 }
-
 if (localStorage.getItem("shoeData")) {
   shoe_data = JSON.parse(localStorage.getItem("shoeData"));
 }
@@ -247,10 +250,10 @@ if (localStorage.getItem("shoeData")) {
 const clearButton = document.getElementById("clearLocalStorage");
 
 if (clearButton) {
-  clearButton.addEventListener("click", function () {
+  clearButton.addEventListener("click", function() {
     localStorage.clear();
-    console.log("Local storage cleared");
+    console.log('Local storage cleared');
   });
 }
 
-console.log(shoe_data);
+console.log(shoe_data)
