@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
   const shoeInstance = shoe_factory();
   initializeApp();
@@ -196,10 +197,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // cart
-  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
   
-  let cartTemplate = Handlebars.compile(document.getElementById('cart-template').innerHTML)
-
+ let cartTemplate = Handlebars.compile(document.getElementById('cart-template').innerHTML)
 
   function addToCart(e) {
     if(e.target && e.target.className == 'add-to-cart-button') {
@@ -217,14 +217,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cartLink = document.querySelector('.cart_container');
   let cartTab = document.querySelector('#cart-tab');
-  const checkOut_btn = document.querySelector(".checkOut")
 
   let openCart = function(e) {
     e.preventDefault();
     cartTab.style.right = "0";
   }
 
-  
+  cartLink.addEventListener('click', openCart);
+
+
   document.addEventListener('click', function(e) {
     if (!cartLink.contains(e.target) &&  !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
@@ -240,6 +241,9 @@ function updateCart() {
 
 document.addEventListener('click',addToCart)
 
+});
+
+const checkOut_btn = document.querySelector(".checkOut")
 
 
 
@@ -250,13 +254,4 @@ function checkOut() {
   updateCart();
 }
 
-cartLink.addEventListener('click', openCart);
-
-
 checkOut_btn.addEventListener('click', checkOut)
-
-});
-
-
-
-

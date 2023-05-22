@@ -94,10 +94,12 @@ header {
 
 .cart_container a {
   display: flex;
+
 }
 
 .cart_img {
   width: 25px;
+
 }
 
 .cart_container a {
@@ -105,7 +107,7 @@ header {
   color: #111010;
 }
 
-.cart_container span {
+.cart_container  span {
   margin-left: 1em;
 }
 
@@ -123,6 +125,7 @@ header {
   z-index: 1;
 }
 
+
 .cart-item {
   display: flex;
   list-style: none;
@@ -134,55 +137,10 @@ header {
 
 #cart-item-info {
   display: flex;
-  flex-direction: column;
-  color: grey;
-  width: 50%;
-  padding: 1em;
-}
-
-#cart-item-info h4 {
-  margin: 0;
-}
-
-#cart-item-name-price {
-  display: flex;
   justify-content: space-around;
-  width: 64%;
-
-}
-
-#cart_size {
+  width: 60%;
   color: grey;
-  font-size: 0.9rem;
-  padding: 0.2em 0;
 }
-
-#cart_stock {
-  color: #338406;
-  font-size: 0.8rem;
-}
-
-.checkOut {
-  background-color: #151615; /* Set the background color */
-  color: white; /* Set the text color */
-  padding: 10px 20px; /* Set the padding */
-  font-size: 16px; /* Set the font size */
-  border: none; /* Remove the button border */
-  border-radius: 4px; /* Add border radius */
-  cursor: pointer; /* Add a cursor hover effect */
-  align-self: center; /* Center the button horizontally */
-}
-
-/* Add hover effect */
-.checkOut:hover {
-  background-color: #45a049;
-}
-
-/* Add active effect */
-.checkOut:active {
-  background-color: #3e8e41;
-}
-
 
 
 /* categories */

@@ -217,14 +217,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cartLink = document.querySelector('.cart_container');
   let cartTab = document.querySelector('#cart-tab');
-  const checkOut_btn = document.querySelector(".checkOut")
 
   let openCart = function(e) {
     e.preventDefault();
     cartTab.style.right = "0";
   }
 
-  
+  cartLink.addEventListener('click', openCart);
+
+
   document.addEventListener('click', function(e) {
     if (!cartLink.contains(e.target) &&  !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
@@ -240,6 +241,9 @@ function updateCart() {
 
 document.addEventListener('click',addToCart)
 
+});
+
+const checkOut_btn = document.querySelector(".checkOut")
 
 
 
@@ -250,13 +254,4 @@ function checkOut() {
   updateCart();
 }
 
-cartLink.addEventListener('click', openCart);
-
-
 checkOut_btn.addEventListener('click', checkOut)
-
-});
-
-
-
-

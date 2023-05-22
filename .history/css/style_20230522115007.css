@@ -163,14 +163,13 @@ header {
 }
 
 .checkOut {
-  background-color: #151615; /* Set the background color */
+  background-color: #4CAF50; /* Set the background color */
   color: white; /* Set the text color */
   padding: 10px 20px; /* Set the padding */
   font-size: 16px; /* Set the font size */
   border: none; /* Remove the button border */
   border-radius: 4px; /* Add border radius */
   cursor: pointer; /* Add a cursor hover effect */
-  align-self: center; /* Center the button horizontally */
 }
 
 /* Add hover effect */

@@ -6,19 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const shoe_display = document.querySelector(".display_container");
 
 
+
   const shoeInstance = shoe_factory();
   initializeApp();
 
   // main function
   function initializeApp() {
-    
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
     DisplayShoeTemplate(shoe_data);
     resetButtonValues();
-
-  
   }
 
   // templates
@@ -196,20 +194,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // cart
-  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  
-  let cartTemplate = Handlebars.compile(document.getElementById('cart-template').innerHTML)
 
+  let cartItems = [];
+
+ let cartTemplate = Handlebars.compile(document.getElementById('cart-template'))
 
   function addToCart(e) {
     if(e.target && e.target.className == 'add-to-cart-button') {
 
-      let product = shoe_data.find(shoe => shoe.id === parseInt(e.target.dataset.id));
-    
+      let product = shoe_data.find(shoe => shoe.id === e.target.dataset.id)
       cartItems.push(product)
-
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-     
       updateCart()
     }
   }
@@ -217,46 +211,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cartLink = document.querySelector('.cart_container');
   let cartTab = document.querySelector('#cart-tab');
-  const checkOut_btn = document.querySelector(".checkOut")
 
   let openCart = function(e) {
     e.preventDefault();
     cartTab.style.right = "0";
   }
 
-  
+  cartLink.addEventListener('click', openCart);
+
+
   document.addEventListener('click', function(e) {
     if (!cartLink.contains(e.target) &&  !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
     }
 });
 
-
-
 function updateCart() {
   let html = cartTemplate({cartItems: cartItems})
   document.getElementById('cart-list').innerHTML = html
 }
 
-document.addEventListener('click',addToCart)
-
-
-
-
-function checkOut() {
-
-  cartItems = [];
-  localStorage.removeItem('cartItems');
-  updateCart();
-}
-
-cartLink.addEventListener('click', openCart);
-
-
-checkOut_btn.addEventListener('click', checkOut)
+document.addEventListener('click',addToCart )
 
 });
-
-
 
 
