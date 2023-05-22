@@ -232,10 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
         this.style.display = "none";
       }
     });
-
-    document.querySelector('.shoe-form-tab').addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
     
     // opening modal
     document.querySelector('.support').addEventListener('click', function(event) {
@@ -286,8 +282,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
-
-  // closing and opening cart modal
 
   let cartLink = document.querySelector(".cart_container");
   let cartTab = document.querySelector("#cart-tab");

@@ -211,41 +211,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
     // adding shoes
-
-
-    // closing modal
-    document.querySelector('.shoe_cancel').addEventListener('click', function(event) {
+    document.addEventListener('click', function(event) {
       var shoeFormModal = document.querySelector('.shoe-form-tab');
       var overlay = document.querySelector('.overlay');
+      var isClickInside = shoeFormModal.contains(event.target);
     
-      if (shoeFormModal.classList.contains('visible')) {
+      if (!isClickInside && shoeFormModal.classList.contains('visible')) {
         shoeFormModal.classList.remove('visible');
-        overlay.style.display = "none";
+        overlay.classList.remove('active');
       }
     });
-
-    document.querySelector('.overlay').addEventListener('click', function(event) {
-      var shoeFormModal = document.querySelector('.shoe-form-tab');
     
-      if (shoeFormModal.classList.contains('visible')) {
-        shoeFormModal.classList.remove('visible');
-        this.style.display = "none";
-      }
-    });
-
-    document.querySelector('.shoe-form-tab').addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
-    
-    // opening modal
     document.querySelector('.support').addEventListener('click', function(event) {
-      event.stopPropagation();  
+      event.stopPropagation();  // This prevents the document click listener from firing
+    
       event.preventDefault();
     
       var shoeFormModal = document.querySelector('.shoe-form-tab');
-      var overlay = document.querySelector('.overlay');
-      shoeFormModal.classList.toggle('visible');
-      overlay.style.display = "block";  
+      shoeFormModal.classList.toggle('visible');  // This adds the 'visible' class if it's not there, or removes it if it is
     });
     
   
@@ -287,8 +270,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // closing and opening cart modal
-
   let cartLink = document.querySelector(".cart_container");
   let cartTab = document.querySelector("#cart-tab");
   const checkOut_btn = document.querySelector(".checkOut");
@@ -300,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.display = "block"
   };
 
-  document.querySelector('.cart-close').addEventListener("click", function (e) {
+  document.addEventListener("click", function (e) {
     if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
       overlay.style.display = "none";

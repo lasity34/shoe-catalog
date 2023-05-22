@@ -309,24 +309,21 @@ header {
 }
 
 .close {
+ 
   color: #000;
   font-size: 35px;
   font-weight: bold;
 }
 
-.shoe_cancel, .cart-close {
+.shoe_cancel {
   display: flex;
   justify-content: end;
   background-color: white;
   border: none;;
 }
 
-.shoe_cancel:hover {
-  cursor: pointer;
-}
-
 .shoe_cancel img{
-  width: 10%;
+  width: 20%;
 }
 
 /* Add hover effect */

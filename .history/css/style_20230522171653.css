@@ -309,12 +309,13 @@ header {
 }
 
 .close {
+ 
   color: #000;
   font-size: 35px;
   font-weight: bold;
 }
 
-.shoe_cancel, .cart-close {
+.shoe_cancel {
   display: flex;
   justify-content: end;
   background-color: white;

@@ -287,8 +287,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // closing and opening cart modal
-
   let cartLink = document.querySelector(".cart_container");
   let cartTab = document.querySelector("#cart-tab");
   const checkOut_btn = document.querySelector(".checkOut");

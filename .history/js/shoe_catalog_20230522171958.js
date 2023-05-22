@@ -211,33 +211,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
     // adding shoes
-
-
-    // closing modal
-    document.querySelector('.shoe_cancel').addEventListener('click', function(event) {
+    document.querySelector('.close').addEventListener('click', function(event) {
       var shoeFormModal = document.querySelector('.shoe-form-tab');
       var overlay = document.querySelector('.overlay');
+      var isClickInside = shoeFormModal.contains(event.target);
     
-      if (shoeFormModal.classList.contains('visible')) {
+      if (!isClickInside && shoeFormModal.classList.contains('visible')) {
         shoeFormModal.classList.remove('visible');
-        overlay.style.display = "none";
+        overlay.style.display = "none"
       }
     });
-
-    document.querySelector('.overlay').addEventListener('click', function(event) {
-      var shoeFormModal = document.querySelector('.shoe-form-tab');
     
-      if (shoeFormModal.classList.contains('visible')) {
-        shoeFormModal.classList.remove('visible');
-        this.style.display = "none";
-      }
-    });
-
-    document.querySelector('.shoe-form-tab').addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
-    
-    // opening modal
     document.querySelector('.support').addEventListener('click', function(event) {
       event.stopPropagation();  
       event.preventDefault();
@@ -286,8 +270,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
-
-  // closing and opening cart modal
 
   let cartLink = document.querySelector(".cart_container");
   let cartTab = document.querySelector("#cart-tab");
