@@ -84,7 +84,6 @@ header {
 .support span:hover {
   text-decoration: underline;
 }
-/* cart */
 
 .cart_container {
   display: flex;
@@ -113,24 +112,18 @@ header {
 #cart-tab {
   display: flex;
   flex-direction: column;
- justify-content: space-between;
+  align-content: space-between;
   position: fixed;
   right: -100%;
   top: 0;
   width: 500px;
-  height: 100vh;
+  height: 100%;
   background-color: white;
   transition: 0.5s;
   overflow-x: hidden;
   padding: 20px;
   text-decoration: none;
   z-index: 1;
-}
-
-.cart-content {
-  display: flex;
-  flex-direction: column;
- 
 }
 
 .cart-item {
@@ -154,12 +147,6 @@ header {
   margin: 0;
 }
 
-#cart-list {
-  overflow: scroll;
-  height: 400px;
-  border-bottom: 1px solid grey;
-}
-
 #cart-item-name-price {
   display: flex;
   justify-content: space-around;
@@ -178,23 +165,19 @@ header {
   font-size: 0.8rem;
 }
 
-.extra-info_container {
-  width: 100%;
-}
-
 .checkOut {
-  position: relative;
-  background-color: #1a1b1a;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 3em;
-  width: 100%;
-}
 
+  position: fixed; /* Set the button position to fixed */
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  right: 200px; /* Adjust the distance from the right as needed */
+  background-color: #4CAF50; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 10px 20px; /* Set the padding */
+  font-size: 16px; /* Set the font size */
+  border: none; /* Remove the button border */
+  border-radius: 4px; /* Add border radius */
+  cursor: pointer; /* Add a cursor hover effect */
+}
 
 /* Add hover effect */
 .checkOut:hover {

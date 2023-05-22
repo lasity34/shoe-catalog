@@ -156,8 +156,6 @@ header {
 
 #cart-list {
   overflow: scroll;
-  height: 400px;
-  border-bottom: 1px solid grey;
 }
 
 #cart-item-name-price {
