@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
-        product.count = 1
         cartItems.push(product);
         currentStockLevels[product.id]--;
 
@@ -267,10 +266,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function calculateSubtotal() {
     let subtotal = 0;
     for (let i = 0; i < cartItems.length; i++) {
-      subtotal += cartItems[i].price * (cartItems[i].count || 1);
+      subtotal += cartItems[i].price;
     }
     return subtotal;
-}
+  }
+
   function updateCart() {
     let html = cartTemplate({ cartItems: cartItems });
     document.getElementById("cart-list").innerHTML = html;
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "R" + calculateSubtotal() + ".00";
      
       document.querySelector(".cart_added_number").textContent = cartItems.reduce((total, item) => total + (item.count || 0), 0);
-    cartItems.forEach(item => updateCartCountDisplay(item.id, item.count || 0));
+      cartItems.forEach(item => updateCartCountDisplay(item.id, item.count || 0));
   }
 
   function checkOut() {

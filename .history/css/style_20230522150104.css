@@ -449,11 +449,8 @@ img {
 
 /* media queries */
 @media (max-width: 700px) {
-  html {
-    font-size: 12px;
-  }
   .search_flex {
-    width: 30%;
+    width: 20%;
   }
 
   .search_container {
@@ -463,28 +460,11 @@ img {
 
   .title {
     width: 140px;
-    height: 90px;
-  }
-
-  .add_shoes_container span {
-    display: none;
-  }
-
-  .support {
-    padding: 0;
-    padding-top: 2em;
-  }
-
-  .cart_container {
-    padding: 2em 1em;
   }
 
   #cart-tab {
-    right: -150%;
-    width: 100%;
+    right: -100%;
   }
-
-
 
   .category_value {
     width: 100%;

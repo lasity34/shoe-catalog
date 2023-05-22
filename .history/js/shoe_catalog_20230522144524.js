@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
-        product.count = 1
         cartItems.push(product);
         currentStockLevels[product.id]--;
 

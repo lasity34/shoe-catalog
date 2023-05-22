@@ -453,7 +453,7 @@ img {
     font-size: 12px;
   }
   .search_flex {
-    width: 30%;
+    width: 20%;
   }
 
   .search_container {
@@ -466,25 +466,10 @@ img {
     height: 90px;
   }
 
-  .add_shoes_container span {
-    display: none;
-  }
-
-  .support {
-    padding: 0;
-    padding-top: 2em;
-  }
-
-  .cart_container {
-    padding: 2em 1em;
-  }
-
   #cart-tab {
-    right: -150%;
+    right: -110%;
     width: 100%;
   }
-
-
 
   .category_value {
     width: 100%;

@@ -6,16 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap"
       rel="stylesheet"
@@ -48,6 +38,8 @@
 
               </div>
             </div>
+
+
               <div class="select-container">
                 <div class="dropdown" id="size_dropdown">
                   <button class="dropdown-button">Size</button>
@@ -104,27 +96,19 @@
         <li class="cart-item">
           <img src="{{this.img}}" alt="{{this.name}}" />
           <div id="cart-item-info">
-            <div class="name-price">
+            <div >
 
               <h4>{{this.name}}</h4>
               <h4>R{{this.price}}.00</h4>
             </div>
             <span id="cart_size">Size: UK {{this.size}}</span>
             <span id="cart_stock">{{this.in_stock}} in stock</span>
-
-            <div class="cart_count">
-              <span class="cart_count_dec" data-id="{{this.id}}">-</span>
-              <span class="cart_count_num" data-id="{{this.id}}">1</span>
-              <span class="cart_count_inc" data-id="{{this.id}}">+</span>
-            </div>
-            
           </div>
         </li>
       {{/each}}
     </script>
   </head>
   <body>
-    <div class="overlay"></div>
     <header>
       <div class="search_flex">
         <div class="search_container">
@@ -160,13 +144,11 @@
     </header>
     <div id="cart-tab">
       <div class="cart-content">
-        <h2>Shopping Cart (<span class="cart_added_number"></span>)</h2>
+        <h2>Shopping Cart (<span class="cart_added_number">)</span></h2>
         <div id="cart-list"></div>
       </div>
       <div class="extra-info">
-        <h2 class="sub_item">
-          <span>Subtotal:</span><span class="subtotal"></span>
-        </h2>
+        <h2 class="sub_item"><span>Subtotal:</span><span class="subtotal"></span> </h2>
         <button class="checkOut">Checkout</button>
       </div>
     </div>

@@ -453,7 +453,7 @@ img {
     font-size: 12px;
   }
   .search_flex {
-    width: 30%;
+    width: 20%;
   }
 
   .search_container {
@@ -480,7 +480,7 @@ img {
   }
 
   #cart-tab {
-    right: -150%;
+    right: -110%;
     width: 100%;
   }
 
