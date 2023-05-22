@@ -197,19 +197,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cartLink = document.querySelector('.cart_container');
   let cartTab = document.querySelector('#cart-tab');
+  let cartImg = document.querySelector('.cart_img');
+  let cartSpan = document.querySelector('.cart_container span');
 
   let openCart = function(e) {
     e.preventDefault();
     cartTab.style.right = "0";
-  }
+}
 
-  cartLink.addEventListener('click', openCart);
+cartLink.addEventListener('click', openCart);
+cartImg.addEventListener('click', openCart);
+cartSpan.addEventListener('click', openCart);
 
 
-  document.addEventListener('click', function(e) {
-    if (!cartLink.contains(e.target) && e.target !== cartTab && !cartTab.contains(e.target)) {
+document.addEventListener('click', function(e) {
+  if (e.target !== cartLink && e.target !== cartTab && !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
-    }
+  }
 });
 
 

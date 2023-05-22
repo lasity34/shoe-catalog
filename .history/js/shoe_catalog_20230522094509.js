@@ -206,10 +206,10 @@ document.addEventListener("DOMContentLoaded", function () {
   cartLink.addEventListener('click', openCart);
 
 
-  document.addEventListener('click', function(e) {
-    if (!cartLink.contains(e.target) && e.target !== cartTab && !cartTab.contains(e.target)) {
+document.addEventListener('click', function(e) {
+  if (e.target !== cartLink && e.target !== cartTab && !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
-    }
+  }
 });
 
 

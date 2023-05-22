@@ -102,9 +102,27 @@ header {
   margin-left: 1em;
 }
 
+.cart_container a {
+  text-decoration: none;
+  color: #111010;
+}
+
 .cart_container a span {
   margin-left: 1em;
 }
+
+#cart-tab {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f1f1f1;
+  transition: 0.5s;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
 
 /* categories */
 

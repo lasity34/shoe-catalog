@@ -195,24 +195,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // cart
 
-  let cartLink = document.querySelector('.cart_container');
-  let cartTab = document.querySelector('#cart-tab');
+  let cartLink = document.querySelector('.cart_container a');
+let cartTab = document.querySelector('#cart-tab');
 
-  let openCart = function(e) {
-    e.preventDefault();
-    cartTab.style.right = "0";
-  }
+cartLink.addEventListener('click', function(e) {
+    e.preventDefault(); // prevent the default action of the link
+    // Change the transform property of the tab to slide it in
+    cartTab.style.transform = "translateX(0)";
+});
 
-  cartLink.addEventListener('click', openCart);
-
-
-  document.addEventListener('click', function(e) {
-    if (!cartLink.contains(e.target) && e.target !== cartTab && !cartTab.contains(e.target)) {
-      cartTab.style.right = "-100%";
+// Add an event listener to the body so when it's clicked and the cart tab is open, the cart tab slides back out
+document.addEventListener('click', function(e) {
+    if (e.target !== cartLink && e.target !== cartTab && !cartTab.contains(e.target)) {
+        cartTab.style.transform = "translateX(100%)";
     }
 });
 
+  function addToCart(event) {
+    const id = event.target.getAttribute('data-id')
+    const item = shoe_data.find(item => item.id === id)
 
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+
+    cart.push(item)
+    localStorage.setItem('cart', JSON.stringify(cart))
+
+ 
+  }
+
+  const addToCartButtons = document.querySelectorAll('add-to-cart-button');
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', addToCart)
+    
+  })
 
 });
 

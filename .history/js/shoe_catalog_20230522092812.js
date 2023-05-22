@@ -195,24 +195,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // cart
 
-  let cartLink = document.querySelector('.cart_container');
-  let cartTab = document.querySelector('#cart-tab');
-
-  let openCart = function(e) {
-    e.preventDefault();
+  cartLink.addEventListener('click', function(e) {
+    e.preventDefault(); 
+   
     cartTab.style.right = "0";
-  }
-
-  cartLink.addEventListener('click', openCart);
-
-
-  document.addEventListener('click', function(e) {
-    if (!cartLink.contains(e.target) && e.target !== cartTab && !cartTab.contains(e.target)) {
-      cartTab.style.right = "-100%";
-    }
 });
 
 
+document.addEventListener('click', function(e) {
+    if (e.target !== cartLink && e.target !== cartTab && !cartTab.contains(e.target)) {
+        cartTab.style.right = "-100%";
+    }
+});
 
 });
 

@@ -1,0 +1,432 @@
+/*  title */
+header {
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  width: 30%;
+}
+
+.title {
+  width: 250px;
+  height: 150px;
+}
+
+/* search bar */
+.search_flex {
+  width: 30%;
+  align-self: center;
+}
+
+.search_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d6d3d3;
+  width: 50%;
+  height: 40%;
+}
+
+#search_button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.search_button_flex {
+  display: flex;
+  justify-content: center;
+}
+
+#search_bar {
+  height: 30px;
+  width: 100%;
+  margin-right: 5em;
+  border: none;
+}
+
+#search_bar:focus {
+  outline: none;
+}
+
+.active {
+  background-color: #ccc;
+}
+
+/* add shoes */
+.add_shoes_container {
+  display: flex;
+  width: 30%;
+  align-content: center;
+  align-self: center;
+  justify-content: center;
+}
+
+.support {
+  display: flex;
+  padding: 2em;
+  align-content: center;
+  text-decoration: none;
+  color: #111010;
+  margin-left: 2em;
+}
+
+#question {
+  width: 20px;
+  margin-right: 0.5em;
+}
+
+.support span:hover {
+  text-decoration: underline;
+}
+
+.cart_container {
+  display: flex;
+  align-self: center;
+  padding: 2em;
+  cursor: pointer;
+}
+
+.cart_container a {
+  display: flex;
+
+}
+
+.cart_img {
+  width: 25px;
+  margin-left: 1em;
+}
+
+.cart_container a {
+  text-decoration: none;
+  color: #111010;
+}
+
+.cart_container a span {
+  margin-left: 1em;
+}
+
+#cart-tab {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px; /* adjust as needed */
+  height: 100%;
+  background-color: white; /* or any other color */
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 60px 10px 10px 10px; 
+  box-sizing: border-box;
+  z-index: 1000;
+  transform: translateX(100%);
+}
+
+/* categories */
+
+.filter_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.category_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.select-container {
+  margin-right: 20px;
+}
+
+#reset_button {
+  position: relative;
+  background-color: rgb(255, 247, 247);
+  border: 1px solid #d6d3d3;
+  text-align: center;
+  padding: 0.5em;
+  font-weight: 500;
+  margin-right: 0.5em;
+  padding-right: 40px;
+  font-size: 1.2rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* dropdown styles */
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-button {
+  position: relative;
+  background-color: rgb(255, 247, 247);
+  border: none;
+  padding: 0.5em;
+  padding-right: 40px;
+  font-size: 1.2rem;
+  border-radius: 2px;
+}
+
+.dropdown-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid black;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.dropdown-button:hover {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  justify-content: center;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.dropdown-content.show {
+  display: flex;
+}
+
+.dropdown-content li {
+  color: black;
+  padding: 1em 3em;
+  text-decoration: none;
+  display: block;
+  border: 1px solid #d6d3d3;
+  margin: 0.5em;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.dropdown-content li:hover {
+  border: 1px solid #111010;
+}
+
+#dropdown-display-area {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: white; /* So that the dropdown content is visible */
+  width: 100%;
+}
+
+#dropdown-display-area .dropdown-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.active {
+  background-color: aqua;
+}
+
+/* shoe display */
+.display_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shoe_item {
+  display: flex;
+  flex-direction: column;
+
+  width: 20%;
+  text-align: center;
+  text-transform: capitalize;
+  align-items: center;
+}
+
+.shoe_item h4 {
+  color: grey;
+  margin: 0.5em;
+  font-size: 1.2rem;
+}
+
+img {
+  width: 75%;
+  height: 75%;
+}
+
+#item_message {
+  color: rgb(151, 69, 69);
+}
+
+.shoe_header {
+  width: 70%;
+
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+
+.add-to-cart-button {
+  padding: 0.5em 1em;
+  width: 50%;
+  border: none;
+  background-color: rgb(151, 69, 69); /* You can use any color you prefer */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #ff6347; /* Slightly lighter shade for hover effect */
+}
+
+/* message display */
+.no_shoes_container {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  margin-top: 5em;
+}
+
+.display_container .error_img {
+  width: 20%;
+  align-self: center;
+}
+
+.display_container p {
+  margin-top: 1em;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* media queries */
+@media (max-width: 700px) {
+  .search_flex {
+    width: 20%;
+  }
+
+  .title {
+    width: 140px;
+  }
+
+  .category_value {
+    width: 100%;
+  }
+  .category_value div {
+    margin-bottom: 0.2em;
+  }
+
+  .filter_container {
+    flex-direction: column;
+  }
+
+  .dropdown-button {
+    font-size: 0.8rem;
+  }
+
+  .dropdown-content {
+    margin-right: 2em;
+  }
+
+  .dropdown-content li {
+    font-size: 0.9rem;
+    padding: 0.5em 1.5em;
+  }
+
+  .category_value .select {
+    padding: 0.5em;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #search_bar {
+    height: 30px;
+  }
+
+  #reset_button {
+    font-size: 0.8rem;
+  }
+
+  /* display */
+  .display_container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .display_container img {
+    width: 50%;
+  }
+
+  .display_container p {
+    font-size: 1.2rem;
+  }
+
+  .shoe_item {
+    width: 90%;
+    padding-bottom: 2em;
+    align-items: center;
+    border-bottom: 1px solid;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  /* hamburger menu */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin: 2em;
+  }
+
+  .hamburger-menu div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #333;
+  }
+
+  .nav-open {
+    display: flex;
+  }
+
+  .select-container {
+    display: none;
+    margin-right: 0.2em;
+  }
+
+  /* Display the dropdowns when the nav is open */
+  .nav-open .select-container {
+    display: block;
+  }
+
+  .flex_menu {
+    display: flex;
+    align-items: center;
+  }
+}
