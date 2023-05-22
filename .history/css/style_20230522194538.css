@@ -338,7 +338,7 @@ header {
   height: 100%;
 }
 
-#cart_icon_count {
+.cart_icon_count {
   position: absolute;
   top: 59px;
   padding: 0.1em 0.3em;
@@ -575,12 +575,8 @@ img {
     display: none;
   }
 
-
-
-  #cart_icon_count {
+  .cart_icon_count {
     display: flex;
-    top: 30px;
-
   }
   .support {
     padding: 0;
@@ -595,6 +591,8 @@ img {
     right: -120%;
     width: 90%;
   }
+
+
 
   .category_value {
     width: 100%;

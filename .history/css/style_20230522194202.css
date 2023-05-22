@@ -335,13 +335,12 @@ header {
 }
 .cart-close img {
   width: 60%;
-  height: 100%;
 }
 
-#cart_icon_count {
+.cart_icon_count {
   position: absolute;
-  top: 59px;
-  padding: 0.1em 0.3em;
+  top: 5px;
+  padding: 0.3em;
   border-radius: 50%;
   background-color: #000;
   color: white;
@@ -575,13 +574,6 @@ img {
     display: none;
   }
 
-
-
-  #cart_icon_count {
-    display: flex;
-    top: 30px;
-
-  }
   .support {
     padding: 0;
     padding-top: 2em;
@@ -595,6 +587,8 @@ img {
     right: -120%;
     width: 90%;
   }
+
+
 
   .category_value {
     width: 100%;

@@ -578,9 +578,7 @@ img {
 
 
   #cart_icon_count {
-    display: flex;
-    top: 30px;
-
+    display: block;
   }
   .support {
     padding: 0;
@@ -595,6 +593,8 @@ img {
     right: -120%;
     width: 90%;
   }
+
+
 
   .category_value {
     width: 100%;

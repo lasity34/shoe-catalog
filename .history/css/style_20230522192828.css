@@ -321,31 +321,17 @@ header {
   border: none;;
   cursor: pointer;
   width: 10%;
- 
-  margin-left: auto;
+  justify-content: flex-end;
 }
 
 .shoe_cancel:hover {
   cursor: pointer;
 }
 
-.shoe_cancel img {
-  width: 80%;
-  height: 100%;
-}
-.cart-close img {
-  width: 60%;
-  height: 100%;
+.shoe_cancel img{
+  width: 10%;
 }
 
-#cart_icon_count {
-  position: absolute;
-  top: 59px;
-  padding: 0.1em 0.3em;
-  border-radius: 50%;
-  background-color: #000;
-  color: white;
-}
 /* Add hover effect */
 .checkOut:hover {
   background-color: #45a049;
@@ -575,13 +561,6 @@ img {
     display: none;
   }
 
-
-
-  #cart_icon_count {
-    display: flex;
-    top: 30px;
-
-  }
   .support {
     padding: 0;
     padding-top: 2em;
@@ -595,6 +574,8 @@ img {
     right: -120%;
     width: 90%;
   }
+
+
 
   .category_value {
     width: 100%;

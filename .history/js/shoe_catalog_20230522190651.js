@@ -312,8 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelector('.cart-close').addEventListener('click', function() {
-    cartTab.style.right = "-100%";
-    overlay.style.display = "none";
+
   })
 
 
