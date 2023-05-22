@@ -257,7 +257,7 @@ header {
   flex-direction: column;
 
   position: fixed;
-  right: -140%;
+  right: -100%;
   top: 0;
   width: 400px;
   height: 100vh;
