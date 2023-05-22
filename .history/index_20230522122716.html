@@ -99,7 +99,7 @@
             <div >
 
               <h4>{{this.name}}</h4>
-              <h4>R{{this.price}}.00</h4>
+              <h4 class="cart_price">R{{this.price}}.00</h4>
             </div>
             <span id="cart_size">Size: UK {{this.size}}</span>
             <span id="cart_stock">{{this.in_stock}} in stock</span>
@@ -147,8 +147,8 @@
         <h2>Shopping Cart</h2>
         <div id="cart-list"></div>
       </div>
-      <div class="extra-info">
-        <h2 class="sub_item"><span>Subtotal:</span><span class="subtotal"></span> </h2>
+      <div class="extra-info_container">
+        <h2>Subtotal:<span class="subtotal"></span> </h2>
         <button class="checkOut">Checkout</button>
       </div>
     </div>

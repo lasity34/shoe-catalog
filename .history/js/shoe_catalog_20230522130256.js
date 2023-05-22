@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
-    initializeStockLevels()
   }
 
   // templates
@@ -273,9 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkOut() {
-    cartItems.forEach(item => {
-      currentStockLevels[item.id]--;
-  });
     cartItems = [];
     localStorage.removeItem("cartItems");
     updateCart();

@@ -273,9 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkOut() {
-    cartItems.forEach(item => {
-      currentStockLevels[item.id]--;
-  });
     cartItems = [];
     localStorage.removeItem("cartItems");
     updateCart();

@@ -9,15 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cart-template").innerHTML
   );
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let stockLevels = {};
-  let currentStockLevels = {};
-
-
-  const currentStockLevelsLocalStorage =
-    localStorage.getItem("currentStockLevels");
-  if (currentStockLevelsLocalStorage) {
-    currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
-  }
 
   const shoeInstance = shoe_factory();
   initializeApp();
@@ -30,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
-    initializeStockLevels()
   }
 
   // templates
@@ -62,11 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "#shoeDisplayTemplate"
     ).innerHTML;
     const shoeTemplate = Handlebars.compile(templateSource);
-    const shoesWithCurrentStock = shoes.map((shoe) => ({
-      ...shoe,
-      in_stock: currentStockLevels[shoe.id],
-    }));
-    shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
+    shoe_display.innerHTML = shoeTemplate({ shoes: shoes });
   }
 
   // helper functions
@@ -212,12 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // cart
 
-  function initializeStockLevels() {
-    shoe_data.forEach((shoe) => {
-      stockLevels[shoe.id] = shoe.in_stock;
-      currentStockLevels[shoe.id] = shoe.in_stock;
-    });
-  }
 
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
@@ -225,20 +205,11 @@ document.addEventListener("DOMContentLoaded", function () {
         (shoe) => shoe.id === parseInt(e.target.dataset.id)
       );
 
-      if (currentStockLevels[product.id] > 0) {
-        cartItems.push(product);
-        currentStockLevels[product.id]--;
+      cartItems.push(product);
 
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        localStorage.setItem(
-          "currentStockLevels",
-          JSON.stringify(currentStockLevels)
-        );
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-        updateCart();
-      } else {
-        ("Item is out of stock");
-      }
+      updateCart();
     }
   }
 
@@ -272,17 +243,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "R" + calculateSubtotal() + ".00";
   }
 
+  document.addEventListener("click", addToCart);
+
   function checkOut() {
-    cartItems.forEach(item => {
-      currentStockLevels[item.id]--;
-  });
     cartItems = [];
     localStorage.removeItem("cartItems");
     updateCart();
-    DisplayShoeTemplate(shoe_data);
   }
 
-  document.addEventListener("click", addToCart);
   cartLink.addEventListener("click", openCart);
+
   checkOut_btn.addEventListener("click", checkOut);
 });

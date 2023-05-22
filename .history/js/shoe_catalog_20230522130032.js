@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cart-template").innerHTML
   );
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let stockLevels = {};
-  let currentStockLevels = {};
-
 
   const currentStockLevelsLocalStorage =
     localStorage.getItem("currentStockLevels");
@@ -30,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
-    initializeStockLevels()
   }
 
   // templates
@@ -211,6 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // cart
+  let stockLevels = {};
+  let currentStockLevels = {};
 
   function initializeStockLevels() {
     shoe_data.forEach((shoe) => {
@@ -273,9 +271,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkOut() {
-    cartItems.forEach(item => {
-      currentStockLevels[item.id]--;
-  });
     cartItems = [];
     localStorage.removeItem("cartItems");
     updateCart();
