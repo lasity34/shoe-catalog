@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let product = shoe_data.find(
         (shoe) => shoe.id === parseInt(e.target.dataset.id)
       );
-        console.log(e.target.dataset.id)
+
       const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (item && item.count > 0) {
       currentStockLevels[item.id]++;
       item.count--;
-      if (item.count === 0) {
+      id (item.count === 0) {
         cartItems = cartItems.filter(cartItem => cartItem.id !== parseInt(id))
       }
       updateCartCountDisplay(id, item.count);

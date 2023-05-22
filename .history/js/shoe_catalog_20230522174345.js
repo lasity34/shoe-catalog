@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let product = shoe_data.find(
         (shoe) => shoe.id === parseInt(e.target.dataset.id)
       );
-        console.log(e.target.dataset.id)
+
       const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
@@ -294,7 +294,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkOut_btn = document.querySelector(".checkOut");
   let overlay = document.querySelector(".overlay");
 
- 
+  // document.querySelector('.support').addEventListener('click', function(event) {
+  //   event.stopPropagation();  
+  //   event.preventDefault();
+  
+  //   var shoeFormModal = document.querySelector('.shoe-form-tab');
+  //   var overlay = document.querySelector('.overlay');
+  //   shoeFormModal.classList.toggle('visible');
+  //   overlay.style.display = "block";  
+  // });
+  
 
   let openCart = function (e) {
     e.preventDefault();
@@ -303,19 +312,12 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.display = "block"
   };
 
-  document.addEventListener("click", function (e) {
-    var overlay = document.querySelector('.overlay');
+  document.querySelector('.cart-close').addEventListener("click", function (e) {
     if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
       overlay.style.display = "none";
     }
   });
-
-  document.querySelector('.cart-close').addEventListener('click', function() {
-
-  })
-
-
 
   function calculateSubtotal() {
     let subtotal = 0;
@@ -359,18 +361,12 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCart();
     }
   }
-
-
   
   function decrementCartCount(id) {
     const item = cartItems.find(item => item.id === parseInt(id));
-   
     if (item && item.count > 0) {
       currentStockLevels[item.id]++;
       item.count--;
-      if (item.count === 0) {
-        cartItems = cartItems.filter(cartItem => cartItem.id !== parseInt(id))
-      }
       updateCartCountDisplay(id, item.count);
       localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
       updateCart();

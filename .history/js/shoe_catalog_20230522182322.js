@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let product = shoe_data.find(
         (shoe) => shoe.id === parseInt(e.target.dataset.id)
       );
-        console.log(e.target.dataset.id)
+
       const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
@@ -296,24 +296,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 
-  let openCart = function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    cartTab.style.right = "0";
-    overlay.style.display = "block"
-  };
+  // Opening the cart when the cart link is clicked
+document.querySelector('.cart_container').addEventListener('click', function(event) {
+  event.preventDefault();
+  
+  var cartTab = document.querySelector('#cart-tab');
+  var overlay = document.querySelector('.overlay');
+  cartTab.style.right = "0";
+  overlay.style.display = "block";
+});
 
-  document.addEventListener("click", function (e) {
-    var overlay = document.querySelector('.overlay');
-    if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
-      cartTab.style.right = "-100%";
-      overlay.style.display = "none";
-    }
-  });
+// Closing the cart when the close button is clicked
+document.querySelector('.cart-close').addEventListener('click', function(event) {
+  var cartTab = document.querySelector('#cart-tab');
+  var overlay = document.querySelector('.overlay');
 
-  document.querySelector('.cart-close').addEventListener('click', function() {
+  cartTab.style.right = "-100%";
+  overlay.style.display = "none";
+});
 
-  })
+// Closing the cart when you click outside of it
+document.querySelector('.overlay').addEventListener('click', function(event) {
+  var cartTab = document.querySelector('#cart-tab');
+
+  cartTab.style.right = "-100%";
+  this.style.display = "none";
+});
+
+// Prevent clicks inside the cart from propagating to the overlay
+document.querySelector('#cart-tab').addEventListener('click', function(event) {
+  event.stopPropagation();
+});
+
 
 
 
@@ -359,18 +373,12 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCart();
     }
   }
-
-
   
   function decrementCartCount(id) {
     const item = cartItems.find(item => item.id === parseInt(id));
-   
     if (item && item.count > 0) {
       currentStockLevels[item.id]++;
       item.count--;
-      if (item.count === 0) {
-        cartItems = cartItems.filter(cartItem => cartItem.id !== parseInt(id))
-      }
       updateCartCountDisplay(id, item.count);
       localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
       updateCart();

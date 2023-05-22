@@ -611,7 +611,7 @@ img {
   #reset_button {
     font-size: 0.8rem;
     padding: 0.9em;
-
+    border: none;
   }
 
   /* display */
