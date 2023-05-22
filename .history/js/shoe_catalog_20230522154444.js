@@ -211,26 +211,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
     // adding shoes
-    document.addEventListener('click', function(event) {
+
+    document.querySelector('.support').addEventListener('click', function(event) {
+      event.preventDefault();
       var shoeFormModal = document.querySelector('.shoe-form-tab');
-      var isClickInside = shoeFormModal.contains(event.target);
-    
-      if (!isClickInside && shoeFormModal.classList.contains('visible')) {
-        shoeFormModal.classList.remove('visible');
+      if (shoeFormModal.style.right === '-100%') {
+        shoeFormModal.style.right = '0';
+      } else {
+        shoeFormModal.style.right = '-100%';
       }
     });
-    
-    document.querySelector('.support').addEventListener('click', function(event) {
-      event.stopPropagation();  // This prevents the document click listener from firing
-    
-      event.preventDefault();
-    
-      var shoeFormModal = document.querySelector('.shoe-form-tab');
-      shoeFormModal.classList.toggle('visible');  // This adds the 'visible' class if it's not there, or removes it if it is
-    });
-    
-  
-    
 
   // cart
 

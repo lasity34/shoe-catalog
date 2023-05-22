@@ -210,28 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-    // adding shoes
-    document.addEventListener('click', function(event) {
-      var shoeFormModal = document.querySelector('.shoe-form-tab');
-      var isClickInside = shoeFormModal.contains(event.target);
-    
-      if (!isClickInside && shoeFormModal.classList.contains('visible')) {
-        shoeFormModal.classList.remove('visible');
-      }
-    });
-    
-    document.querySelector('.support').addEventListener('click', function(event) {
-      event.stopPropagation();  // This prevents the document click listener from firing
-    
-      event.preventDefault();
-    
-      var shoeFormModal = document.querySelector('.shoe-form-tab');
-      shoeFormModal.classList.toggle('visible');  // This adds the 'visible' class if it's not there, or removes it if it is
-    });
-    
-  
-    
-
   // cart
 
   function initializeStockLevels() {
@@ -348,7 +326,17 @@ document.addEventListener("DOMContentLoaded", function () {
   cartLink.addEventListener("click", openCart);
   checkOut_btn.addEventListener("click", checkOut);
 
+  // adding shoes
 
+  document.querySelector('.support').addEventListener('click', function(event) {
+    event.preventDefault();
+    var shoeFormModal = document.querySelector('.shoe-form-tab');
+    if (shoeFormModal.style.right === '-100%') {
+      shoeFormModal.style.right = '0';
+    } else {
+      shoeFormModal.style.right = '-100%';
+    }
+  });
 
 
 });

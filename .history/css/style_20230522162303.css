@@ -259,7 +259,7 @@ header {
   position: fixed;
   right: -100%;
   top: 0;
-  width: 400px;
+  width: 500px;
   height: 100vh;
   background-color: white;
   transition: 0.5s;
@@ -272,18 +272,17 @@ header {
 #shoeForm {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+ align-content: center;
 }
 
 #shoeForm label {
   font-weight: bold;
-
   ;
 }
 
 #shoeForm input[type=text], #shoeForm input[type=number] {
   margin-bottom: 1em;
-  margin-top: 1em;
   padding: 0.5em;
   width: 100%;
   max-width: 400px;

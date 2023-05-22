@@ -95,19 +95,17 @@ header {
 }
 
 #question {
-  width: 15px;
-  height: 15px;
+  width: 20px;
   margin-right: 0.5em;
-  cursor: pointer;
 }
 
-
+.support span {
+  align-self: center;
+}
 
 .support span:hover {
   text-decoration: underline;
 }
-
-
 /* cart */
 
 .cart_container {
@@ -115,8 +113,6 @@ header {
   align-self: center;
   padding: 2em;
   cursor: pointer;
-  background-color: white;
-  border: none;
 }
 
 .cart_container a {
@@ -255,11 +251,11 @@ header {
 .shoe-form-tab {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between;
   position: fixed;
   right: -100%;
   top: 0;
-  width: 400px;
+  width: 500px;
   height: 100vh;
   background-color: white;
   transition: 0.5s;
@@ -267,46 +263,6 @@ header {
   padding: 2em;
   text-decoration: none;
   z-index: 10;
-}
-
-#shoeForm {
-  display: flex;
-  flex-direction: column;
-
-}
-
-#shoeForm label {
-  font-weight: bold;
-
-  ;
-}
-
-#shoeForm input[type=text], #shoeForm input[type=number] {
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding: 0.5em;
-  width: 100%;
-  max-width: 400px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-}
-
-#shoeForm input[type=submit] {
-  margin-top: 1em;
-  padding: 0.5em 1em;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#shoeForm input[type=submit]:hover {
-  background-color: #0056b3;
-}
-
-.shoe-form-tab.visible {
-  right: 0;  /* Visible state */
 }
 
 /* Add hover effect */

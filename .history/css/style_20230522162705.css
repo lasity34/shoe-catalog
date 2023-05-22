@@ -259,7 +259,7 @@ header {
   position: fixed;
   right: -100%;
   top: 0;
-  width: 400px;
+  width: 500px;
   height: 100vh;
   background-color: white;
   transition: 0.5s;

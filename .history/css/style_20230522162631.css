@@ -259,8 +259,8 @@ header {
   position: fixed;
   right: -100%;
   top: 0;
-  width: 400px;
-  height: 100vh;
+  width: 500px;
+  height: 150vh;
   background-color: white;
   transition: 0.5s;
   overflow-x: hidden;
@@ -282,7 +282,7 @@ header {
 }
 
 #shoeForm input[type=text], #shoeForm input[type=number] {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   margin-top: 1em;
   padding: 0.5em;
   width: 100%;
