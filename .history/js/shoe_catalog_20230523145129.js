@@ -1,10 +1,7 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
-console.log(shoe_data)
 document.addEventListener("DOMContentLoaded", function () {
-
-
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
@@ -14,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let stockLevels = {};
   let currentStockLevels = {};
+
   const shoeInstance = shoe_factory();
   initializeApp();
-
- 
 
   // main function
   function initializeApp() {
@@ -28,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resetButtonValues();
     updateCart();
  
+    DisplayShoeTemplate(shoe_data);
   }
 
   // templates
@@ -61,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shoeTemplate = Handlebars.compile(templateSource);
     const shoesWithCurrentStock = shoes.map((shoe) => ({
       ...shoe,
-      in_stock: currentStockLevels[shoe.id]
+     
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
   }
@@ -261,20 +258,18 @@ if (shoeFormModal.classList.contains("visible")) {
   function initializeStockLevels() {
     const currentStockLevelsLocalStorage =
       localStorage.getItem("currentStockLevels");
-    console.log(currentStockLevelsLocalStorage)
+
     // If there is a saved state of currentStockLevels in localStorage, load it
-    if (currentStockLevelsLocalStorage &&
-      Object.keys(JSON.parse(currentStockLevelsLocalStorage)).length > 0) {
+    if (currentStockLevelsLocalStorage) {
       currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
     } else {
       // Else, set currentStockLevels to its initial state
-      console.log(shoe_data)
+      
       shoe_data.forEach((shoe) => {
         stockLevels[shoe.id] = shoe.in_stock;
         currentStockLevels[shoe.id] = shoe.in_stock;
       });
       // And save it to localStorage
-      console.log(currentStockLevels)
       localStorage.setItem(
         "currentStockLevels",
         JSON.stringify(currentStockLevels)
@@ -284,6 +279,14 @@ if (shoeFormModal.classList.contains("visible")) {
     DisplayShoeTemplate(shoe_data);
   }
 
+  function updateShoeDataStockLevels() {
+  
+  shoe_data.forEach(shoe => {
+    if (currentStockLevels.hasOwnProperty(shoe.id)) {
+      shoe.in_stock = currentStockLevels[shoe.id];
+    }
+  });
+}
 
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {

@@ -1,10 +1,7 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
-console.log(shoe_data)
 document.addEventListener("DOMContentLoaded", function () {
-
-
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
@@ -14,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let stockLevels = {};
   let currentStockLevels = {};
+
   const shoeInstance = shoe_factory();
   initializeApp();
-
- 
 
   // main function
   function initializeApp() {
@@ -27,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     shoe_search();
     resetButtonValues();
     updateCart();
- 
   }
 
   // templates
@@ -61,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shoeTemplate = Handlebars.compile(templateSource);
     const shoesWithCurrentStock = shoes.map((shoe) => ({
       ...shoe,
-      in_stock: currentStockLevels[shoe.id]
+      in_stock: currentStockLevels[shoe.id],
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
   }
@@ -210,71 +205,59 @@ document.addEventListener("DOMContentLoaded", function () {
   // adding shoes
 
   // opening modal
-document
-.querySelector(".support")
-.addEventListener("click", function (event) {
-  event.stopPropagation();
-  event.preventDefault();
+  document
+    .querySelector(".support")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+      event.preventDefault();
 
-  var myModal = document.querySelector("#myModal");
-  var overlay = document.querySelector(".overlay");
-  var shoeFormModal = document.querySelector(".shoe-form-tab");
+      var myModal = document.querySelector("#myModal");
+      var overlay = document.querySelector(".overlay");
+      myModal.style.display = "block"; //display the outer modal
+      overlay.style.display = "block";
+    });
+
+  // closing modal
+  document.querySelector(".shoe_cancel").addEventListener("click", function (event) {
+    event.stopPropagation();
+    event.preventDefault();
   
-  myModal.style.display = "block"; //display the outer modal
-  overlay.style.display = "block";
-  shoeFormModal.classList.add("visible"); // Show the form
-});
+    var myModal = document.querySelector("#myModal");
+    var overlay = document.querySelector(".overlay");
+    myModal.style.display = "none"; //hide the outer modal
+    overlay.style.display = "none";
+  });
 
-// closing modal
-document.querySelector(".shoe_cancel").addEventListener("click", function (event) {
-event.stopPropagation();
-event.preventDefault();
-
-var myModal = document.querySelector("#myModal");
-var overlay = document.querySelector(".overlay");
-var shoeFormModal = document.querySelector(".shoe-form-tab");
-
-myModal.style.display = "none"; //hide the outer modal
-overlay.style.display = "none";
-shoeFormModal.classList.remove("visible"); // Hide the form
-});
-
-document.querySelector(".overlay").addEventListener("click", function () {
-var myModal = document.querySelector("#myModal");
-var shoeFormModal = document.querySelector(".shoe-form-tab");
-if (shoeFormModal.classList.contains("visible")) {
-  myModal.style.display = "none"; // Hide the outer modal
-  this.style.display = "none";
-  shoeFormModal.classList.remove("visible"); // Hide the form
-}
-});
-
+  document.querySelector(".overlay").addEventListener("click", function () {
+    var shoeFormModal = document.querySelector(".shoe-form-tab");
+    if (shoeFormModal.classList.contains("visible")) {
+      shoeFormModal.classList.remove("visible");
+      this.style.display = "none";
+    }
+  });
 
   document.querySelector(".modal").addEventListener("click", function (event) {
     event.stopPropagation();
   });
 
- 
+  // opening modal
 
-  // stock levels
+  // cart
 
   function initializeStockLevels() {
     const currentStockLevelsLocalStorage =
       localStorage.getItem("currentStockLevels");
-    console.log(currentStockLevelsLocalStorage)
+
     // If there is a saved state of currentStockLevels in localStorage, load it
-    if (currentStockLevelsLocalStorage &&
-      Object.keys(JSON.parse(currentStockLevelsLocalStorage)).length > 0) {
+    if (currentStockLevelsLocalStorage) {
       currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
     } else {
       // Else, set currentStockLevels to its initial state
-      console.log(shoe_data)
       shoe_data.forEach((shoe) => {
         stockLevels[shoe.id] = shoe.in_stock;
         currentStockLevels[shoe.id] = shoe.in_stock;
       });
       // And save it to localStorage
-      console.log(currentStockLevels)
       localStorage.setItem(
         "currentStockLevels",
         JSON.stringify(currentStockLevels)
@@ -283,7 +266,6 @@ if (shoeFormModal.classList.contains("visible")) {
     // Now display the shoes, ensuring that we're using the correct stock levels
     DisplayShoeTemplate(shoe_data);
   }
-
 
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
@@ -303,7 +285,7 @@ if (shoeFormModal.classList.contains("visible")) {
           "currentStockLevels",
           JSON.stringify(currentStockLevels)
         );
-      
+
         updateCart();
         DisplayShoeTemplate(shoe_data);
         addToCartButton();
@@ -386,13 +368,11 @@ if (shoeFormModal.classList.contains("visible")) {
 
   function checkOut() {
     cartItems = [];
-    
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     localStorage.setItem(
       "currentStockLevels",
       JSON.stringify(currentStockLevels)
     );
-  
     updateCart();
     DisplayShoeTemplate(shoe_data);
   }

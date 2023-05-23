@@ -1,7 +1,4 @@
-
-
-
-export let shoe_data = JSON.parse(localStorage.getItem("shoeData")) || [
+let shoe_data = [
   {
     id: 1,
     color: "Black",
@@ -203,11 +200,11 @@ export let shoe_data = JSON.parse(localStorage.getItem("shoeData")) || [
     img: "./images/reebok_daytona.jpg",
     in_stock: 13,
   },
-] 
+];
 
-
-
-
+function getShoeData() {
+  return JSON.parse(localStorage.getItem("shoeData")) || [];
+}
 
 function addShoeToData() {
   const shoeName = document.getElementById("shoeName").value;
@@ -222,6 +219,7 @@ function addShoeToData() {
 
   if (existingShoe) {
     existingShoe.in_stock += parseInt(shoeStock);
+    localStorage.setItem("shoeData", JSON.stringify(shoe_data));
   } else {
     const newShoe = {
       id: shoe_data.length + 1,
@@ -233,24 +231,28 @@ function addShoeToData() {
       in_stock: parseInt(shoeStock),
       img: shoeImage,
     };
-    shoe_data.push(newShoe);
+
+    localStorage.setItem("shoeData", JSON.stringify(shoe_data));
   }
-
-  localStorage.setItem("shoeData", JSON.stringify(shoe_data));
 }
-
-
-
-
 const shoe_form = document.getElementById("shoeForm");
 
 if (shoe_form) {
   shoe_form.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    shoe_data.unshift(newShoe);
+
     addShoeToData();
+
+    const updatedShoeData = getShoeData();
+    console.log(updatedShoeData);
+    console.log(updatedShoeData[1].in_stock);
   });
 }
 
+shoe_data = getShoeData();
 
+console.log(shoe_data);
 
-
+export { shoe_data };

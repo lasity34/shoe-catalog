@@ -1,7 +1,6 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
-console.log(shoe_data)
 document.addEventListener("DOMContentLoaded", function () {
 
 

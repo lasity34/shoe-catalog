@@ -247,6 +247,9 @@ const shoe_form = document.getElementById("shoeForm");
 if (shoe_form) {
   shoe_form.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    shoe_data.unshift(newShoe);
+
     addShoeToData();
   });
 }
