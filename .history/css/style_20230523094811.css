@@ -532,18 +532,18 @@ img {
   background-color: #ff6347; /* Slightly lighter shade for hover effect */
 }
 
-div[id^="cart-notification"] {
+#cart-notification {
   display: none;
   position: fixed;
-  z-index: 70;
+  z-index: 60;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   min-width: 200px;
   padding: 20px;
   border-radius: 5px;
-  background-color: #040404;
-  color: #f1eeee;
+  background-color: #fff;
+  color: #000;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   animation: fadein 2s;

@@ -290,8 +290,8 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         updateCart();
-        DisplayShoeTemplate(shoe_data);
         addToCartButton()
+        DisplayShoeTemplate(shoe_data);
       } else {
         ("Item is out of stock");
       }

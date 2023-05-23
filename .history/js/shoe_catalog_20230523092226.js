@@ -12,18 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let stockLevels = {};
   let currentStockLevels = {};
 
- 
+  const currentStockLevelsLocalStorage =
+    localStorage.getItem("currentStockLevels");
+  if (currentStockLevelsLocalStorage) {
+    currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
+  }
+
   const shoeInstance = shoe_factory();
   initializeApp();
 
   // main function
   function initializeApp() {
-    initializeStockLevels();
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
+    DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
+    initializeStockLevels();
   }
 
   // templates
@@ -60,9 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       in_stock: currentStockLevels[shoe.id],
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
-
-
-    
   }
 
   // helper functions
@@ -251,24 +254,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // cart
 
   function initializeStockLevels() {
-    const currentStockLevelsLocalStorage = localStorage.getItem("currentStockLevels");
-  
-    // If there is a saved state of currentStockLevels in localStorage, load it
-    if (currentStockLevelsLocalStorage) {
-      currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
-    } else {
-      // Else, set currentStockLevels to its initial state
-      shoe_data.forEach((shoe) => {
-        stockLevels[shoe.id] = shoe.in_stock;
-        currentStockLevels[shoe.id] = shoe.in_stock;
-      });
-      // And save it to localStorage
-      localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
-    }
-    // Now display the shoes, ensuring that we're using the correct stock levels
-    DisplayShoeTemplate(shoe_data);
+    shoe_data.forEach((shoe) => {
+      stockLevels[shoe.id] = shoe.in_stock;
+      currentStockLevels[shoe.id] = shoe.in_stock;
+    });
   }
-  
 
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
@@ -291,33 +281,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCart();
         DisplayShoeTemplate(shoe_data);
-        addToCartButton()
       } else {
         ("Item is out of stock");
       }
     }
   }
-
-  function addToCartButton() {
-    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        let itemID = event.target.dataset.id;
-        let notification = document.querySelector('#cart-notification-' + itemID);
-        console.log(notification)
-        setTimeout(function() {
-          notification.style.display = 'block';
-        }, 50); // Adjust this delay as needed. This will hide then show the modal quickly
-        setTimeout(function() {
-          notification.style.display = 'none';
-        }, 2000); // hide after 2 seconds
-      });
-    });
-    
-  }
- 
-
 
   // closing and opening cart modal
 
@@ -373,8 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function checkOut() {
     cartItems = [];
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
+    localStorage.removeItem("cartItems");
     updateCart();
     DisplayShoeTemplate(shoe_data);
   }

@@ -18,12 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // main function
   function initializeApp() {
-    initializeStockLevels();
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
+    DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
+    initializeStockLevels();
   }
 
   // templates
@@ -60,9 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
       in_stock: currentStockLevels[shoe.id],
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
-
-
-    
   }
 
   // helper functions
@@ -251,7 +249,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // cart
 
   function initializeStockLevels() {
-    const currentStockLevelsLocalStorage = localStorage.getItem("currentStockLevels");
+    const currentStockLevelsLocalStorage =
+      localStorage.getItem("currentStockLevels");
   
     // If there is a saved state of currentStockLevels in localStorage, load it
     if (currentStockLevelsLocalStorage) {
@@ -265,8 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // And save it to localStorage
       localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
     }
-    // Now display the shoes, ensuring that we're using the correct stock levels
-    DisplayShoeTemplate(shoe_data);
   }
   
 
@@ -291,33 +288,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCart();
         DisplayShoeTemplate(shoe_data);
-        addToCartButton()
       } else {
         ("Item is out of stock");
       }
     }
   }
-
-  function addToCartButton() {
-    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        let itemID = event.target.dataset.id;
-        let notification = document.querySelector('#cart-notification-' + itemID);
-        console.log(notification)
-        setTimeout(function() {
-          notification.style.display = 'block';
-        }, 50); // Adjust this delay as needed. This will hide then show the modal quickly
-        setTimeout(function() {
-          notification.style.display = 'none';
-        }, 2000); // hide after 2 seconds
-      });
-    });
-    
-  }
- 
-
 
   // closing and opening cart modal
 

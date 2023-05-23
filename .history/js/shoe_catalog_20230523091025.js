@@ -12,18 +12,25 @@ document.addEventListener("DOMContentLoaded", function () {
   let stockLevels = {};
   let currentStockLevels = {};
 
- 
+
+  const currentStockLevelsLocalStorage =
+    localStorage.getItem("currentStockLevels");
+  if (currentStockLevelsLocalStorage) {
+    currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
+  }
+
   const shoeInstance = shoe_factory();
   initializeApp();
 
   // main function
   function initializeApp() {
-    initializeStockLevels();
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
+    DisplayShoeTemplate(shoe_data);
     resetButtonValues();
     updateCart();
+    initializeStockLevels()
   }
 
   // templates
@@ -60,9 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
       in_stock: currentStockLevels[shoe.id],
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
-
-
-    
   }
 
   // helper functions
@@ -206,80 +210,61 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // adding shoes
-  // closing modal
-  document
-    .querySelector(".shoe_cancel")
-    .addEventListener("click", function (event) {
-      var shoeFormModal = document.querySelector(".shoe-form-tab");
-      var overlay = document.querySelector(".overlay");
-
-      if (shoeFormModal.classList.contains("visible")) {
-        shoeFormModal.classList.remove("visible");
+    // adding shoes
+    // closing modal
+    document.querySelector('.shoe_cancel').addEventListener('click', function(event) {
+      var shoeFormModal = document.querySelector('.shoe-form-tab');
+      var overlay = document.querySelector('.overlay');
+    
+      if (shoeFormModal.classList.contains('visible')) {
+        shoeFormModal.classList.remove('visible');
         overlay.style.display = "none";
       }
     });
 
-  document.querySelector(".overlay").addEventListener("click", function () {
-    var shoeFormModal = document.querySelector(".shoe-form-tab");
-
-    if (shoeFormModal.classList.contains("visible")) {
-      shoeFormModal.classList.remove("visible");
-      this.style.display = "none";
-    }
-  });
-
-  document
-    .querySelector(".shoe-form-tab")
-    .addEventListener("click", function (event) {
-      event.stopPropagation();
+    document.querySelector('.overlay').addEventListener('click', function() {
+      var shoeFormModal = document.querySelector('.shoe-form-tab');
+    
+      if (shoeFormModal.classList.contains('visible')) {
+        shoeFormModal.classList.remove('visible');
+        this.style.display = "none";
+      }
     });
 
-  // opening modal
-  document
-    .querySelector(".support")
-    .addEventListener("click", function (event) {
+    document.querySelector('.shoe-form-tab').addEventListener('click', function(event) {
       event.stopPropagation();
+    });
+    
+    // opening modal
+    document.querySelector('.support').addEventListener('click', function(event) {
+      event.stopPropagation();  
       event.preventDefault();
-
-      var shoeFormModal = document.querySelector(".shoe-form-tab");
-      var overlay = document.querySelector(".overlay");
-      shoeFormModal.classList.toggle("visible");
-      overlay.style.display = "block";
+    
+      var shoeFormModal = document.querySelector('.shoe-form-tab');
+      var overlay = document.querySelector('.overlay');
+      shoeFormModal.classList.toggle('visible');
+      overlay.style.display = "block";  
     });
-
+    
   // cart
 
   function initializeStockLevels() {
-    const currentStockLevelsLocalStorage = localStorage.getItem("currentStockLevels");
-  
-    // If there is a saved state of currentStockLevels in localStorage, load it
-    if (currentStockLevelsLocalStorage) {
-      currentStockLevels = JSON.parse(currentStockLevelsLocalStorage);
-    } else {
-      // Else, set currentStockLevels to its initial state
-      shoe_data.forEach((shoe) => {
-        stockLevels[shoe.id] = shoe.in_stock;
-        currentStockLevels[shoe.id] = shoe.in_stock;
-      });
-      // And save it to localStorage
-      localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
-    }
-    // Now display the shoes, ensuring that we're using the correct stock levels
-    DisplayShoeTemplate(shoe_data);
+    shoe_data.forEach((shoe) => {
+      stockLevels[shoe.id] = shoe.in_stock;
+      currentStockLevels[shoe.id] = shoe.in_stock;
+    });
   }
-  
 
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
       let product = shoe_data.find(
         (shoe) => shoe.id === parseInt(e.target.dataset.id)
       );
-
-      const productInCart = cartItems.find((item) => item.id === product.id);
+       
+      const productInCart = cartItems.find((item) => item.id === product.id)
 
       if (currentStockLevels[product.id] > 0 && !productInCart) {
-        product.count = 1;
+        product.count = 1
         cartItems.push(product);
         currentStockLevels[product.id]--;
 
@@ -291,33 +276,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCart();
         DisplayShoeTemplate(shoe_data);
-        addToCartButton()
       } else {
         ("Item is out of stock");
       }
     }
   }
-
-  function addToCartButton() {
-    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        let itemID = event.target.dataset.id;
-        let notification = document.querySelector('#cart-notification-' + itemID);
-        console.log(notification)
-        setTimeout(function() {
-          notification.style.display = 'block';
-        }, 50); // Adjust this delay as needed. This will hide then show the modal quickly
-        setTimeout(function() {
-          notification.style.display = 'none';
-        }, 2000); // hide after 2 seconds
-      });
-    });
-    
-  }
- 
-
 
   // closing and opening cart modal
 
@@ -326,25 +289,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkOut_btn = document.querySelector(".checkOut");
   let overlay = document.querySelector(".overlay");
 
+ 
+
   let openCart = function (e) {
     e.preventDefault();
     e.stopPropagation();
     cartTab.style.right = "0";
-    overlay.style.display = "block";
+    overlay.style.display = "block"
   };
 
   document.addEventListener("click", function (e) {
-    var overlay = document.querySelector(".overlay");
+    var overlay = document.querySelector('.overlay');
     if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
       cartTab.style.right = "-100%";
       overlay.style.display = "none";
     }
   });
 
-  document.querySelector(".cart-close").addEventListener("click", function () {
+  document.querySelector('.cart-close').addEventListener('click', function() {
     cartTab.style.right = "-100%";
     overlay.style.display = "none";
-  });
+  })
+
 
   function calculateSubtotal() {
     let subtotal = 0;
@@ -352,51 +318,44 @@ document.addEventListener("DOMContentLoaded", function () {
       subtotal += cartItems[i].price * (cartItems[i].count || 1);
     }
     return subtotal;
-  }
+}
 
-  function openConfirmModal() {
-    document.getElementById("confirmModal").style.display = "block";
-  }
+function openConfirmModal() {
+  document.getElementById('confirmModal').style.display = 'block';
+}
 
-  function closeConfirmModal() {
-    document.getElementById("confirmModal").style.display = "none";
-  }
+function closeConfirmModal() {
+  document.getElementById('confirmModal').style.display = 'none';
+}
 
-  document.getElementById("yesBtn").addEventListener("click", function () {
-    checkOut();
-    closeConfirmModal();
-  });
+document.getElementById('yesBtn').addEventListener('click', function() {
+  checkOut();
+  closeConfirmModal();
+});
 
-  document.getElementById("noBtn").addEventListener("click", function () {
-    closeConfirmModal();
-  });
+document.getElementById('noBtn').addEventListener('click', function() {
+  closeConfirmModal();
+});
 
-  function checkOut() {
-    cartItems = [];
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
-    updateCart();
-    DisplayShoeTemplate(shoe_data);
-  }
+
 
   function updateCart() {
     let html = cartTemplate({ cartItems: cartItems });
     document.getElementById("cart-list").innerHTML = html;
     document.querySelector(".subtotal").textContent =
       "R" + calculateSubtotal() + ".00";
-
-    document.querySelector(".cart_added_number").textContent = cartItems.reduce(
-      (total, item) => total + (item.count || 0),
-      0
-    );
-    cartItems.forEach((item) =>
-      updateCartCountDisplay(item.id, item.count || 0)
-    );
+     
+      document.querySelector(".cart_added_number").textContent = cartItems.reduce((total, item) => total + (item.count || 0), 0);
+    cartItems.forEach(item => updateCartCountDisplay(item.id, item.count || 0));
   }
 
-  document.querySelector(".checkOut").addEventListener("click", function () {
-    openConfirmModal();
-  });
+  function checkOut() {
+      cartItems = [];
+      localStorage.removeItem("cartItems");
+      updateCart();
+      DisplayShoeTemplate(shoe_data);
+    
+  }
 
   document.addEventListener("click", function (event) {
     if (event.target.matches(".cart_count_inc")) {
@@ -405,47 +364,43 @@ document.addEventListener("DOMContentLoaded", function () {
       decrementCartCount(event.target.dataset.id);
     }
   });
-
+  
   function incrementCartCount(id) {
-    const item = cartItems.find((item) => item.id === parseInt(id));
+    const item = cartItems.find(item => item.id === parseInt(id));
     if (item && currentStockLevels[item.id] > 0) {
       currentStockLevels[item.id]--;
       item.count = (item.count || 0) + 1;
       updateCartCountDisplay(id, item.count);
-      localStorage.setItem(
-        "currentStockLevels",
-        JSON.stringify(currentStockLevels)
-      );
+      localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
       updateCart();
     }
   }
 
+  
   function decrementCartCount(id) {
-    const item = cartItems.find((item) => item.id === parseInt(id));
-
+    const item = cartItems.find(item => item.id === parseInt(id));
+   
     if (item && item.count > 0) {
       currentStockLevels[item.id]++;
       item.count--;
       if (item.count === 0) {
-        cartItems = cartItems.filter(
-          (cartItem) => cartItem.id !== parseInt(id)
-        );
+        cartItems = cartItems.filter(cartItem => cartItem.id !== parseInt(id))
       }
       updateCartCountDisplay(id, item.count);
-      localStorage.setItem(
-        "currentStockLevels",
-        JSON.stringify(currentStockLevels)
-      );
+      localStorage.setItem("currentStockLevels", JSON.stringify(currentStockLevels));
       updateCart();
     }
   }
-
+  
   function updateCartCountDisplay(id, count) {
-    document.querySelector(`.cart_count_num[data-id="${id}"]`).textContent =
-      count;
+    document.querySelector(`.cart_count_num[data-id="${id}"]`).textContent = count;
   }
 
   document.addEventListener("click", addToCart);
   cartLink.addEventListener("click", openCart);
- 
+  checkOut_btn.addEventListener("click", checkOut);
+
 });
+
+
+

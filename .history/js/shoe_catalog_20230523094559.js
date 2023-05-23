@@ -60,9 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
       in_stock: currentStockLevels[shoe.id],
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
-
-
-    
   }
 
   // helper functions
@@ -291,32 +288,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCart();
         DisplayShoeTemplate(shoe_data);
-        addToCartButton()
       } else {
         ("Item is out of stock");
       }
     }
   }
 
-  function addToCartButton() {
-    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+  let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
 
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        let itemID = event.target.dataset.id;
-        let notification = document.querySelector('#cart-notification-' + itemID);
-        console.log(notification)
-        setTimeout(function() {
-          notification.style.display = 'block';
-        }, 50); // Adjust this delay as needed. This will hide then show the modal quickly
-        setTimeout(function() {
-          notification.style.display = 'none';
-        }, 2000); // hide after 2 seconds
-      });
-    });
-    
-  }
- 
+addToCartButtons.forEach(function(button) {
+  button.addEventListener('click', function(event) {
+    let notification = event.target.parentElement.querySelector('#cart-notification');
+    notification.style.display = 'block'; // this will show the modal
+    setTimeout(function() {
+      notification.style.display = 'none'; // this will hide the modal after 2 seconds
+    }, 2000); 
+  });
+});
 
 
   // closing and opening cart modal

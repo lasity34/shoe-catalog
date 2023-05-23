@@ -61,6 +61,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }));
     shoe_display.innerHTML = shoeTemplate({ shoes: shoesWithCurrentStock });
 
+    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+
+    addToCartButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        if (event.target.dataset.clicked === "true") {
+          return; // return early if the button has been clicked before
+        }
+    
+        let itemID = event.target.dataset.id;
+        let notification = document.querySelector('#cart-notification-' + itemID);
+        notification.style.display = 'block';
+        setTimeout(function() {
+          notification.style.display = 'none';
+        }, 2000); // hide after 2 seconds
+    
+        event.target.dataset.clicked = "true"; // set the clicked data attribute to true
+      });
+    });
+    
 
     
   }
@@ -291,32 +310,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCart();
         DisplayShoeTemplate(shoe_data);
-        addToCartButton()
       } else {
         ("Item is out of stock");
       }
     }
   }
 
-  function addToCartButton() {
-    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
 
-    addToCartButtons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        let itemID = event.target.dataset.id;
-        let notification = document.querySelector('#cart-notification-' + itemID);
-        console.log(notification)
-        setTimeout(function() {
-          notification.style.display = 'block';
-        }, 50); // Adjust this delay as needed. This will hide then show the modal quickly
-        setTimeout(function() {
-          notification.style.display = 'none';
-        }, 2000); // hide after 2 seconds
-      });
-    });
-    
-  }
- 
+  
 
 
   // closing and opening cart modal
