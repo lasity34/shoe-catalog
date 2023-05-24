@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     category_display.innerHTML = shoeTemplate(shoeData);
 
-    const resetButton = document.querySelector(".reset_button");
+    const resetButton = document.getElementById("reset_button");
     resetButton.addEventListener("click", resetAllFilters);
 
     const dropdownButtons = document.querySelectorAll(".dropdown-button");
@@ -283,6 +283,7 @@ if (shoeFormModal.classList.contains("visible")) {
       }
     });
   
+   
     if (shouldSave) {
       saveCurrentStockLevels();
     }

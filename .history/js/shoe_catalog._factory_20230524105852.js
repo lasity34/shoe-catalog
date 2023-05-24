@@ -4,7 +4,7 @@
 
 export function shoe_factory() {
 
-  let id_num;
+  let id;
  
   function filter_shoe_categories(shoe_data, category) {
     

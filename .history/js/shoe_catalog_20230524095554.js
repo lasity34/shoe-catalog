@@ -1,13 +1,15 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
+import { cartOperations } from "./cartOperations.js"
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
 
-  let cartTemplate = Handlebars.compile(
-    document.getElementById("cart-template").innerHTML
-  );
+  cartOperations.cart_template()
+  
+  
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const add_shoe_submit = document.querySelector(".add_shoe_submit")
   let currentStockLevels = {};
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     attachHamburgerEventListener();
     shoe_search();
     resetButtonValues();
-    updateCart();
+    cartOperations.updateCart(cartItems, currentStockLevels, updateCartCountDisplay)
   }
 
   // templates
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     category_display.innerHTML = shoeTemplate(shoeData);
 
-    const resetButton = document.querySelector(".reset_button");
+    const resetButton = document.getElementById("reset_button");
     resetButton.addEventListener("click", resetAllFilters);
 
     const dropdownButtons = document.querySelectorAll(".dropdown-button");
@@ -283,6 +285,7 @@ if (shoeFormModal.classList.contains("visible")) {
       }
     });
   
+   
     if (shouldSave) {
       saveCurrentStockLevels();
     }
@@ -296,6 +299,58 @@ if (shoeFormModal.classList.contains("visible")) {
   let cartLink = document.querySelector(".cart_container");
   let cartTab = document.querySelector("#cart-tab");
   let overlay = document.querySelector(".overlay");
+
+  let openCart = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    cartTab.style.right = "0";
+    overlay.style.display = "block";
+  };
+
+  document.addEventListener("click", function (e) {
+    var overlay = document.querySelector(".overlay");
+    if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
+      cartTab.style.right = "-100%";
+      overlay.style.display = "none";
+    }
+  });
+
+  document.querySelector(".cart-close").addEventListener("click", function () {
+    cartTab.style.right = "-100%";
+    overlay.style.display = "none";
+  });
+
+ 
+
+ 
+
+  function openConfirmModal() {
+    document.getElementById("confirmModal").style.display = "block";
+  }
+
+  function closeConfirmModal() {
+    document.getElementById("confirmModal").style.display = "none";
+  }
+
+  document.getElementById("yesBtn").addEventListener("click", function () {
+    checkOut();
+    closeConfirmModal();
+  });
+
+  document.getElementById("noBtn").addEventListener("click", function () {
+    closeConfirmModal();
+  });
+
+  function checkOut() {
+    cartItems = [];
+    
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    saveCurrentStockLevels()
+  
+    updateCart();
+  
+    DisplayShoeTemplate(shoe_data);
+  }
 
   
   function addToCart(e) {
@@ -312,7 +367,8 @@ if (shoeFormModal.classList.contains("visible")) {
         currentStockLevels[product.id]--;
 
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        saveCurrentStockLevels()      
+        saveCurrentStockLevels()
+      
         updateCart();
         DisplayShoeTemplate(shoe_data);
         addToCartButton();
@@ -364,62 +420,9 @@ if (shoeFormModal.classList.contains("visible")) {
 }
 
 
-
-  let openCart = function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    cartTab.style.right = "0";
-    overlay.style.display = "block";
-  };
-
-  document.addEventListener("click", function (e) {
-    var overlay = document.querySelector(".overlay");
-    if (!cartLink.contains(e.target) && !cartTab.contains(e.target)) {
-      cartTab.style.right = "-100%";
-      overlay.style.display = "none";
-    }
+  document.querySelector(".checkOut").addEventListener("click", function () {
+    openConfirmModal();
   });
-
-  document.querySelector(".cart-close").addEventListener("click", function () {
-    cartTab.style.right = "-100%";
-    overlay.style.display = "none";
-  });
-
-  function calculateSubtotal() {
-    let subtotal = 0;
-    for (let i = 0; i < cartItems.length; i++) {
-      subtotal += cartItems[i].price * (cartItems[i].count || 1);
-    }
-    return subtotal;
-  }
-
-  function openConfirmModal() {
-    document.getElementById("confirmModal").style.display = "block";
-  }
-
-  function closeConfirmModal() {
-    document.getElementById("confirmModal").style.display = "none";
-  }
-
-  document.getElementById("yesBtn").addEventListener("click", function () {
-    checkOut();
-    closeConfirmModal();
-  });
-
-  document.getElementById("noBtn").addEventListener("click", function () {
-    closeConfirmModal();
-  });
-
-  function checkOut() {
-    cartItems = [];
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    saveCurrentStockLevels()
-    updateCart();
-    DisplayShoeTemplate(shoe_data);
-  }
-
-
-  document.querySelector(".checkOut").addEventListener("click", openConfirmModal);
 
   document.addEventListener("click", function (event) {
     if (event.target.matches(".cart_count_inc")) {
@@ -461,6 +464,7 @@ if (shoeFormModal.classList.contains("visible")) {
     document.querySelector(`.cart_count_num[data-id="${id}"]`).textContent =
       count;
   }
+  
 
   document.addEventListener("click", addToCart);
   cartLink.addEventListener("click", openCart);

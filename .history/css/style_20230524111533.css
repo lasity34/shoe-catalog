@@ -340,7 +340,7 @@ header {
 
 #cart_icon_count {
   position: absolute;
-  top: 68px;
+  top: 59px;
   padding: 0.1em 0.3em;
   border-radius: 50%;
   background-color: #000;
@@ -662,20 +662,13 @@ div[id^="cart-notification"] {
     height: 90px;
   }
 
-  .title_container .reset_button {
-    border: none;
-    width: 140px;
-    height: 90px;
-    margin-left: 4em;
-  }
-
   .add_shoes_container span {
     display: none;
   }
 
   #cart_icon_count {
     display: flex;
-    top: 35px;
+    top: 30px;
   }
   .support {
     padding: 0;
