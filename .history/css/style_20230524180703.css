@@ -475,7 +475,6 @@ header {
 }
 
 .cancel_filter {
-  display: none;
   border: none;
   background: white;
   font-size: 1.2rem;

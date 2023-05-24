@@ -110,7 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const cancelButton = document.getElementById(dropdownId).querySelector(".cancel_filter");
 
-    cancelButton.style.display = "flex"; // Show the cancel_filter button when an option is selected
+    // Comment out or remove the next line to keep the cancel button visible
+    // cancelButton.style.display = "none"; 
 
     dropdownButton.textContent = event.target.textContent;
 
@@ -129,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
   function cancelDropdown(event) {
     // Stop the click event from bubbling up to the parent elements
     event.stopPropagation();
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hide both the dropdown-content and the cancel_filter button
     dropdownContent.style.display = "none";
-    cancelButton.style.display = "none"; // Hide the cancel_filter button when it is clicked
+    cancelButton.style.display = "none";
 
     // Reset dropdown value
     resetButtonValues(parent.id);

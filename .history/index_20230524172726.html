@@ -38,8 +38,8 @@
             <button class="reset_button">All Footwear</button>
             <div class="select-container">
               <div class="dropdown" id="color_dropdown">
-                <button class="dropdown-button">Color </button>
-                <button class="cancel_filter">x</button>
+                <button class="dropdown-button">Color <span  class="dropdown-indicator">*</span></button>
+
                 <ul id="dropdown-content-placeholder" class="dropdown-content" data-parent="color_dropdown">
                   {{#each colors}}
                   <li class="color_option" data-color={{this}}>{{this}}</li>
@@ -50,8 +50,7 @@
             </div>
               <div class="select-container">
                 <div class="dropdown" id="size_dropdown">
-                  <button class="dropdown-button">Size</button>
-                  <button class="cancel_filter">x</button>
+                  <button class="dropdown-button">Size <span  class="dropdown-indicator">*</span></button>
                   <ul class="dropdown-content" data-parent="size_dropdown">
                     {{#each sizes}}
                     <li class="size_option" data-size={{this}}>{{this}}</li>
@@ -61,8 +60,7 @@
               </div>
               <div class="select-container">
                 <div class="dropdown" id="brand_dropdown">
-                  <button class="dropdown-button">Brand</button>
-                  <button class="cancel_filter">x</button>
+                  <button class="dropdown-button">Brand <span  class="dropdown-indicator">*</span></button>
                   <ul class="dropdown-content" data-parent="brand_dropdown">
                     {{#each brands}}
                     <li class="brand_option" data-brand={{this}}>{{this}}</li>
@@ -72,8 +70,7 @@
               </div>
               <div class="select-container">
                 <div class="dropdown" id="price_dropdown">
-                  <button class="dropdown-button">Price </button>
-                  <button class="cancel_filter">x</button>
+                  <button class="dropdown-button">Price <span  class="dropdown-indicator">*1</span></button>
                   <ul class="dropdown-content" data-parent="price_dropdown">
                     {{#each prices}}
                     <li class="price_option" data-price={{this}}>R{{this}}</li>

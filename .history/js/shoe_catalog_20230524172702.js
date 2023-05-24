@@ -1,5 +1,4 @@
 import { shoe_data } from "../data/shoe_data.js";
-import { cartOperations } from "./cartOperations.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -87,19 +86,19 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   function dropdownDisplay(event) {
-    const dropdownContent = event.target.parentNode.querySelector(".dropdown-content").cloneNode(true);
-    const dropdownDisplayArea = document.getElementById("dropdown-display-area");
-    const cancelButton = event.target.parentNode.querySelector(".cancel_filter");
+    const dropdownContent = event.target.parentNode
+      .querySelector(".dropdown-content")
+      .cloneNode(true);
 
-    dropdownContent.style.display = "flex"; // Ensure dropdownContent is visible
+    const dropdownDisplayArea = document.getElementById(
+      "dropdown-display-area"
+    );
+
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "flex";
-    cancelButton.style.display = "flex"; // Show the cancel_filter button
-  
+    dropdownDisplayArea.style.display = "block";
     dropdownContent.addEventListener("click", dropdownSelection);
   }
-
 
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
@@ -107,10 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownButton = document
       .getElementById(dropdownId)
       .querySelector(".dropdown-button");
-    
-    const cancelButton = document.getElementById(dropdownId).querySelector(".cancel_filter");
-
-    cancelButton.style.display = "flex"; // Show the cancel_filter button when an option is selected
 
     dropdownButton.textContent = event.target.textContent;
 
@@ -126,42 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     update_display();
   }
-
-
-
-
-  function cancelDropdown(event) {
-    // Stop the click event from bubbling up to the parent elements
-    event.stopPropagation();
-  
-    // Select the parent of the cancel_filter button
-    const parent = event.target.parentNode;
-    
-    // From the parent, select the dropdown-content and cancel_filter button
-    const dropdownContent = parent.querySelector(".dropdown-content");
-    const cancelButton = event.target;
-    const dropdownButton = parent.querySelector(".dropdown-button");
-
-    // Hide both the dropdown-content and the cancel_filter button
-    dropdownContent.style.display = "none";
-    cancelButton.style.display = "none"; // Hide the cancel_filter button when it is clicked
-
-    // Reset dropdown value
-    resetButtonValues(parent.id);
-
-    const dropdownDisplayAreaContent = document.querySelector("#dropdown-display-area .dropdown-content");
-    if (dropdownDisplayAreaContent) {
-      dropdownDisplayAreaContent.style.display = "none";
-    }
-
-    // Update the display according to the new filter settings
-    update_display();
-  }
-
-
-  document.querySelectorAll('.cancel_filter').forEach(button => {
-    button.addEventListener('click', cancelDropdown);
-  });
 
   function update_display() {
     const selected_color = document
@@ -194,32 +153,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
-
+  dropdownButtons.forEach((button) => {
+    const indicator = button.querySelector(".dropdown-indicator");
+    button.addEventListener("click", function () {
+      // This will change the indicator to 'x' when the dropdown is clicked.
+      indicator.textContent = "x";
+      indicator.classList.add("reset-dropdown"); // Add a class to style the 'x' if you want.
   
-function resetButtonValues(dropdownId) {
-  // Find the specific dropdown button
-  const dropdownButton = document.querySelector(`#${dropdownId} .dropdown-button`);
+      // Add an event listener to the 'x' that will reset the dropdown when clicked.
+      indicator.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent the dropdown button's click event from firing.
+        button.textContent = button.id.split("_")[0] + " "; // Use the button id to reset the text.
+        indicator.textContent = "*"; // Change the 'x' back to '*'.
+        indicator.classList.remove("reset-dropdown"); // Remove the 'x' styling.
+        button.removeAttribute(`data-${button.id.split("_")[0]}`); // Remove the data attribute.
+        button.appendChild(indicator); // Add the indicator back to the button.
+        // You may also need to close the dropdown here.
+      });
+    });
+  });
+  
 
-  // Set the default button text
-  if (dropdownButton) {
-    if (dropdownId === "color_dropdown") {
-      dropdownButton.textContent = "Color";
-    } else if (dropdownId === "size_dropdown") {
-      dropdownButton.textContent = "Size";
-    } else if (dropdownId === "brand_dropdown") {
-      dropdownButton.textContent = "Brand";
-    } else if (dropdownId === "price_dropdown") {
-      dropdownButton.textContent = "Price";
-    }
+  function resetButtonValues() {
+    const dropdownButtons = document.querySelectorAll(".dropdown-button");
 
-    // Remove all data attributes
-    dropdownButton.removeAttribute("data-color");
-    dropdownButton.removeAttribute("data-size");
-    dropdownButton.removeAttribute("data-brand");
-    dropdownButton.removeAttribute("data-price");
+    dropdownButtons.forEach((button) => {
+      // Set default button texts
+      if (button.parentNode.id === "color_dropdown") {
+        button.textContent = "Color";
+      } else if (button.parentNode.id === "size_dropdown") {
+        button.textContent = "Size";
+      } else if (button.parentNode.id === "brand_dropdown") {
+        button.textContent = "Brand";
+      } else if (button.parentNode.id === "price_dropdown") {
+        button.textContent = "Price";
+      }
+
+      // Remove all data attributes
+      button.removeAttribute("data-color");
+      button.removeAttribute("data-size");
+      button.removeAttribute("data-brand");
+      button.removeAttribute("data-price");
+    });
   }
-}
 
   function resetAllFilters() {
     resetButtonValues();
@@ -344,7 +320,7 @@ if (shoeFormModal.classList.contains("visible")) {
   let cartTab = document.querySelector("#cart-tab");
   let overlay = document.querySelector(".overlay");
 
-
+  
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
       let product = shoe_data.find(

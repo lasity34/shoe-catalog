@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hide both the dropdown-content and the cancel_filter button
     dropdownContent.style.display = "none";
-    cancelButton.style.display = "none"; // Hide the cancel_filter button when it is clicked
+    cancelButton.style.display = "none";
 
     // Reset dropdown value
     resetButtonValues(parent.id);

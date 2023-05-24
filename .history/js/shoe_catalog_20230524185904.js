@@ -90,16 +90,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = event.target.parentNode.querySelector(".dropdown-content").cloneNode(true);
     const dropdownDisplayArea = document.getElementById("dropdown-display-area");
     const cancelButton = event.target.parentNode.querySelector(".cancel_filter");
-
-    dropdownContent.style.display = "flex"; // Ensure dropdownContent is visible
+  
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "flex";
-    cancelButton.style.display = "flex"; // Show the cancel_filter button
+    dropdownDisplayArea.style.display = "block";
+    cancelButton.style.display = "block"; // Show the cancel_filter button
   
     dropdownContent.addEventListener("click", dropdownSelection);
   }
-
 
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
@@ -110,7 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const cancelButton = document.getElementById(dropdownId).querySelector(".cancel_filter");
 
-    cancelButton.style.display = "flex"; // Show the cancel_filter button when an option is selected
+    // Comment out or remove the next line to keep the cancel button visible
+    // cancelButton.style.display = "none"; 
 
     dropdownButton.textContent = event.target.textContent;
 
@@ -129,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
   function cancelDropdown(event) {
     // Stop the click event from bubbling up to the parent elements
     event.stopPropagation();
@@ -144,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hide both the dropdown-content and the cancel_filter button
     dropdownContent.style.display = "none";
-    cancelButton.style.display = "none"; // Hide the cancel_filter button when it is clicked
+    cancelButton.style.display = "none";
 
     // Reset dropdown value
     resetButtonValues(parent.id);

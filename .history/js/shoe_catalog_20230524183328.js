@@ -1,5 +1,4 @@
 import { shoe_data } from "../data/shoe_data.js";
-import { cartOperations } from "./cartOperations.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,16 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = event.target.parentNode.querySelector(".dropdown-content").cloneNode(true);
     const dropdownDisplayArea = document.getElementById("dropdown-display-area");
     const cancelButton = event.target.parentNode.querySelector(".cancel_filter");
-
-    dropdownContent.style.display = "flex"; // Ensure dropdownContent is visible
+  
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
-    dropdownDisplayArea.style.display = "flex";
-    cancelButton.style.display = "flex"; // Show the cancel_filter button
+    dropdownDisplayArea.style.display = "block";
+    cancelButton.style.display = "block"; // Show the cancel_filter button
   
     dropdownContent.addEventListener("click", dropdownSelection);
   }
-
 
   function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
@@ -110,7 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const cancelButton = document.getElementById(dropdownId).querySelector(".cancel_filter");
 
-    cancelButton.style.display = "flex"; // Show the cancel_filter button when an option is selected
+    // Comment out or remove the next line to keep the cancel button visible
+    // cancelButton.style.display = "none"; 
 
     dropdownButton.textContent = event.target.textContent;
 
@@ -129,11 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
   function cancelDropdown(event) {
-    // Stop the click event from bubbling up to the parent elements
-    event.stopPropagation();
-  
     // Select the parent of the cancel_filter button
     const parent = event.target.parentNode;
     
@@ -144,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hide both the dropdown-content and the cancel_filter button
     dropdownContent.style.display = "none";
-    cancelButton.style.display = "none"; // Hide the cancel_filter button when it is clicked
+    cancelButton.style.display = "none";
 
     // Reset dropdown value
     resetButtonValues(parent.id);
@@ -157,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update the display according to the new filter settings
     update_display();
   }
-
 
   document.querySelectorAll('.cancel_filter').forEach(button => {
     button.addEventListener('click', cancelDropdown);
@@ -344,7 +337,7 @@ if (shoeFormModal.classList.contains("visible")) {
   let cartTab = document.querySelector("#cart-tab");
   let overlay = document.querySelector(".overlay");
 
-
+  
   function addToCart(e) {
     if (e.target && e.target.className == "add-to-cart-button") {
       let product = shoe_data.find(
