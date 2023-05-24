@@ -260,7 +260,7 @@ header {
   background-color: white;
   transition: 0.5s;
   overflow-x: hidden;
-  padding: 1em;
+  padding: 2em;
   text-decoration: none;
   z-index: 10;
 }
@@ -277,7 +277,7 @@ header {
 #shoeForm input[type="text"],
 #shoeForm input[type="number"] {
   margin-bottom: 1em;
- 
+  margin-top: 1em;
   padding: 0.5em;
   width: 100%;
   max-width: 400px;
@@ -602,7 +602,7 @@ div[id^="cart-notification"] {
   position: relative;
   background-color: #fefefe;
   margin: 5% auto;
-  padding: 1.6em;
+  padding: 20px;
   border: 1px solid #888;
   width: 80%;
   max-width: 500px;
