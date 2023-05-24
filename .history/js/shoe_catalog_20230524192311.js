@@ -95,29 +95,28 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdownDisplayArea.innerHTML = "";
     dropdownDisplayArea.appendChild(dropdownContent);
     dropdownDisplayArea.style.display = "flex";
-    
-    // Remove this line. We don't want to show the 'x' just because the dropdown was clicked.
-    // cancelButton.style.display = "flex"; 
-
+    cancelButton.style.display = "flex"; // Show the cancel_filter button
+  
     dropdownContent.addEventListener("click", dropdownSelection);
-}
+  }
 
-function dropdownSelection(event) {
+
+  function dropdownSelection(event) {
     const dropdownContent = event.target.parentElement;
     const dropdownId = dropdownContent.getAttribute("data-parent");
     const dropdownButton = document
-        .getElementById(dropdownId)
-        .querySelector(".dropdown-button");
+      .getElementById(dropdownId)
+      .querySelector(".dropdown-button");
+    
     const cancelButton = document.getElementById(dropdownId).querySelector(".cancel_filter");
 
-    // Show the 'x' button because an option has been selected.
-    cancelButton.style.display = "flex"; 
+    cancelButton.style.display = "flex"; // Show the cancel_filter button when an option is selected
 
     dropdownButton.textContent = event.target.textContent;
 
     ["color", "size", "brand", "price"].forEach((type) => {
-        const data = event.target.getAttribute(`data-${type}`);
-        if (data) dropdownButton.setAttribute(`data-${type}`, data);
+      const data = event.target.getAttribute(`data-${type}`);
+      if (data) dropdownButton.setAttribute(`data-${type}`, data);
     });
 
     const originalDropdown = document.getElementById(dropdownId);
@@ -126,7 +125,7 @@ function dropdownSelection(event) {
     document.getElementById("dropdown-display-area").style.display = "none";
 
     update_display();
-}
+  }
 
 
 
