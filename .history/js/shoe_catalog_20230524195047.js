@@ -1,18 +1,17 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
-  const add_shoe_submit = document.querySelector(".add_shoe_submit")
-  const cartTemplate = Handlebars.compile(
-    document.getElementById("cart-template").innerHTML
-    );
-  const shoeInstance = shoe_factory();
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let currentStockLevels = {};
 
+  let cartTemplate = Handlebars.compile(
+    document.getElementById("cart-template").innerHTML
+  );
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const add_shoe_submit = document.querySelector(".add_shoe_submit")
+  let currentStockLevels = {};
+  const shoeInstance = shoe_factory();
   initializeApp();
 
   add_shoe_submit.addEventListener('click', function() {
@@ -263,20 +262,18 @@ function openModal(event) {
 }
 
 // closing modal
-document.querySelector(".shoe_cancel").addEventListener("click", closingModal);
+document.querySelector(".shoe_cancel").addEventListener("click", function (event) {
+event.stopPropagation();
+event.preventDefault();
 
-function closingModal(event) {
-  event.stopPropagation();
-  event.preventDefault();
-  
-  var myModal = document.querySelector("#myModal");
-  var overlay = document.querySelector(".overlay");
-  var shoeFormModal = document.querySelector(".shoe-form-tab");
-  
-  myModal.style.display = "none"; //hide the outer modal
-  overlay.style.display = "none";
-  shoeFormModal.classList.remove("visible"); // Hide the form
-}
+var myModal = document.querySelector("#myModal");
+var overlay = document.querySelector(".overlay");
+var shoeFormModal = document.querySelector(".shoe-form-tab");
+
+myModal.style.display = "none"; //hide the outer modal
+overlay.style.display = "none";
+shoeFormModal.classList.remove("visible"); // Hide the form
+});
 
 document.querySelector(".overlay").addEventListener("click", function () {
 var myModal = document.querySelector("#myModal");

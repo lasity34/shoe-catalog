@@ -1,18 +1,24 @@
 import { shoe_data } from "../data/shoe_data.js";
 import { shoe_factory } from "./shoe_catalog._factory.js";
-
+import { initializeDropdowns, dropdownDisplay, dropdownSelection, cancelDropdown, resetButtonValues, resetAllFilters } from './dropdown.js';
+import { update_display } from './filter.js';
+import { shoe_search } from './search.js';
+import { attachHamburgerEventListener } from './hamburger.js';
+import { openModal, closeModal } from './modal.js';
+import { initializeStockLevels } from './stock.js';
+import { addToCart, updateCart, openCart } from './cart.js';
 
 document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
-  const add_shoe_submit = document.querySelector(".add_shoe_submit")
-  const cartTemplate = Handlebars.compile(
-    document.getElementById("cart-template").innerHTML
-    );
-  const shoeInstance = shoe_factory();
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let currentStockLevels = {};
 
+  let cartTemplate = Handlebars.compile(
+    document.getElementById("cart-template").innerHTML
+  );
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const add_shoe_submit = document.querySelector(".add_shoe_submit")
+  let currentStockLevels = {};
+  const shoeInstance = shoe_factory();
   initializeApp();
 
   add_shoe_submit.addEventListener('click', function() {

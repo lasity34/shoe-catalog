@@ -12,9 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Simonetta:ital@0;1&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Mintz Inc</title>
@@ -157,19 +162,18 @@
         </button>
         <button class="cart_container">
           <img class="cart_img" src="./images/shopping-cart.png" />
-          <span class="cart_added_number" id="cart_icon_count"></span>
-          <span id="cart_word">Cart</span>
+          <span class="cart_added_number " id="cart_icon_count"></span>
+          <span
+           id="cart_word" >Cart</span
+          >
         </button>
         <div id="myModal" class="add_shoes_modal">
           <!-- Modal content -->
           <div id="shoeFormModal" class="shoe-form-tab visible">
-            <button class="shoe_cancel">
-              <img src="./images/cancel.png" />
-            </button>
-            <h2>👟 Add Your Shoes 👟</h2>
+            <button class="shoe_cancel"><img src="./images/cancel.png"/></button>
             <div class="modal-content">
               <form id="shoeForm">
-                <label for="shoeName">Shoe Name:</label><br />
+              
                 <input
                   type="text"
                   id="shoeName"
@@ -177,7 +181,7 @@
                   placeholder="Shoe Name"
                   required
                 /><br />
-                <label for="shoeColor">Color:</label><br />
+              
                 <input
                   type="text"
                   id="shoeColor"
@@ -185,57 +189,46 @@
                   placeholder="Color"
                   required
                 /><br />
-
-                <label for="shoeBrand">Brand:</label><br />
+               
+                <input
+                  type="number"
+                  id="shoeSize"
+                  name="shoeSize"
+                  placeholder="Size"
+                  required
+                /><br />
+         
                 <input
                   type="text"
                   id="shoeBrand"
                   name="shoeBrand"
-                  placeholder="Brand"
+                  placeholder="Size"
                   required
                 /><br />
-                <div class="number_input_container">
-                  <div>
-                    <label for="shoeSize">Size:</label><br />
-                    <input
-                      type="number"
-                      id="shoeSize"
-                      name="shoeSize"
-                      placeholder="Size"
-                      required
-                    /><br />
-                  </div>
-                  <div>
-                    <label for="shoePrice">Price:</label><br />
-                    <input
-                      type="number"
-                      id="shoePrice"
-                      name="shoePrice"
-                      placeholder="price"
-                      required
-                    /><br />
-                  </div>
-                </div>
-
-            
-                <label for="shoeImage">Image:</label><br />
+              
                 <input
-                  type="text"
-                  id="shoeImage"
-                  name="shoeImage"
-                  placeholder="place image link here"
+                  type="number"
+                  id="shoePrice"
+                  name="shoePrice"
+                  placeholder="Price"
                   required
                 /><br />
-                <div class="stock_container">
-                <label for="shoePrice">Stock:</label><br />
+              
                 <input
                   type="number"
                   id="shoeStock"
                   name="shoeStock"
-                  placeholder="stock"
+                  placeholder="Stock"
                   required
                 /><br />
-              </div>
+            
+                <input
+                  type="text"
+                  id="shoeImage"
+                  name="shoeImage"
+                  placeholder="Image"
+                  required
+                /><br />
                 <input type="submit" value="Submit" class="add_shoe_submit" />
               </form>
             </div>

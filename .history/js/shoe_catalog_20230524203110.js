@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const add_shoe_submit = document.querySelector(".add_shoe_submit")
   const cartTemplate = Handlebars.compile(
     document.getElementById("cart-template").innerHTML
-    );
-  const shoeInstance = shoe_factory();
+  );
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let currentStockLevels = {};
 
+  const shoeInstance = shoe_factory();
   initializeApp();
 
   add_shoe_submit.addEventListener('click', function() {

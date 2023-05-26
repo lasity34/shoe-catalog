@@ -276,7 +276,6 @@ header {
 
 #shoeForm label {
   font-weight: bold;
-  margin-bottom: 0.5em;
 }
 
 #shoeForm input[type="text"],
@@ -300,34 +299,9 @@ header {
   cursor: pointer;
 }
 
-.number_input_container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.number_input_container div {
-  width: 40%;
-}
-
-#shoeFormModal h2 {
-  text-align: center;
-} 
-
 #myModal {
   display: none;
-  font-family: 'Simonetta', cursive;
 }
-
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 
 #shoeForm input[type="submit"]:hover {
   background-color: #0b0c0c;
@@ -616,30 +590,16 @@ div[id^="cart-notification"] {
 /* modal */
 
 /* CSS */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 30;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: opacity 0.15s ease-in-out;
-}
-
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: 5% auto;
-  padding: 1.6em;
+  margin: 15% auto;
+  padding: 20px;
   border: 1px solid #888;
   width: 80%;
   max-width: 500px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
   border-radius: 10px;
- 
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
@@ -656,7 +616,21 @@ div[id^="cart-notification"] {
   }
 }
 
-.modal-content button {
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input[type=text],
+.modal-content input[type=number] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modal-content input[type=submit] {
   padding: 10px 20px;
   color: #fff;
   background-color: #4287f5;
@@ -664,11 +638,21 @@ div[id^="cart-notification"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-size: 18px;
 }
 
-.modal-content button:hover {
+.modal-content input[type=submit]:hover {
   background-color: #357ae8;
 }
+
+.modal-content button.shoe_cancel {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+  background: none;
+}
+
 
 /* media queries */
 @media (max-width: 700px) {

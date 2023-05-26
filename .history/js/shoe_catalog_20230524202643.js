@@ -5,14 +5,14 @@ import { shoe_factory } from "./shoe_catalog._factory.js";
 document.addEventListener("DOMContentLoaded", function () {
   const category_display = document.querySelector(".category_display");
   const shoe_display = document.querySelector(".display_container");
-  const add_shoe_submit = document.querySelector(".add_shoe_submit")
-  const cartTemplate = Handlebars.compile(
-    document.getElementById("cart-template").innerHTML
-    );
-  const shoeInstance = shoe_factory();
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let currentStockLevels = {};
 
+  let cartTemplate = Handlebars.compile(
+    document.getElementById("cart-template").innerHTML
+  );
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const add_shoe_submit = document.querySelector(".add_shoe_submit")
+  let currentStockLevels = {};
+  const shoeInstance = shoe_factory();
   initializeApp();
 
   add_shoe_submit.addEventListener('click', function() {

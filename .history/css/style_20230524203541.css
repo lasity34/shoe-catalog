@@ -276,7 +276,6 @@ header {
 
 #shoeForm label {
   font-weight: bold;
-  margin-bottom: 0.5em;
 }
 
 #shoeForm input[type="text"],
@@ -300,34 +299,9 @@ header {
   cursor: pointer;
 }
 
-.number_input_container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.number_input_container div {
-  width: 40%;
-}
-
-#shoeFormModal h2 {
-  text-align: center;
-} 
-
 #myModal {
   display: none;
-  font-family: 'Simonetta', cursive;
 }
-
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 
 #shoeForm input[type="submit"]:hover {
   background-color: #0b0c0c;
@@ -639,7 +613,7 @@ div[id^="cart-notification"] {
   max-width: 500px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
- 
+  text-align: center;
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
