@@ -497,7 +497,6 @@ if (shoeFormModal.classList.contains("visible")) {
       saveCurrentStockLevels()
       updateCart();
       DisplayShoeTemplate(shoe_data);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // Add this line here
     }
   }
 

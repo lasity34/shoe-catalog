@@ -30,13 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
       cartItems = JSON.parse(storedCartItems);
     }
     initializeStockLevels();
-    updateCart();
     saveCurrentStockLevels()
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
     resetButtonValues();
-    
+    updateCart();
   }
 
   initializeApp();
@@ -497,7 +496,6 @@ if (shoeFormModal.classList.contains("visible")) {
       saveCurrentStockLevels()
       updateCart();
       DisplayShoeTemplate(shoe_data);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // Add this line here
     }
   }
 

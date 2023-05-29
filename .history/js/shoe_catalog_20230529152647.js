@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let cartItems =  [];
   let currentStockLevels = {};
 
-
+  initializeApp();
 
   add_shoe_submit.addEventListener('click', function() {
     
@@ -24,22 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // main function
   function initializeApp() {
-    const storedCartItems = localStorage.getItem("cartItems");
-
-    if (storedCartItems) {
-      cartItems = JSON.parse(storedCartItems);
-    }
     initializeStockLevels();
-    updateCart();
     saveCurrentStockLevels()
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
     resetButtonValues();
-    
+    updateCart();
   }
-
-  initializeApp();
 
   // templates
   function updateCategoryTemplate() {
@@ -497,7 +489,6 @@ if (shoeFormModal.classList.contains("visible")) {
       saveCurrentStockLevels()
       updateCart();
       DisplayShoeTemplate(shoe_data);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // Add this line here
     }
   }
 

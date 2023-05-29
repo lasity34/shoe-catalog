@@ -10,36 +10,35 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cart-template").innerHTML
     );
   const shoeInstance = shoe_factory();
-  let cartItems =  [];
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let currentStockLevels = {};
+  let mutableShoeData = [...shoe_data];
+  initializeApp();
 
-
+  
 
   add_shoe_submit.addEventListener('click', function() {
     
-    localStorage.setItem("shoeItem", JSON.stringify(shoe_data));
+    localStorage.setItem("shoeItem", JSON.stringify(mutableShoeData));
     initializeApp()
-    shoe_data = JSON.parse(localStorage.getItem("shoeItem"))
+   
   })
 
   // main function
   function initializeApp() {
-    const storedCartItems = localStorage.getItem("cartItems");
-
-    if (storedCartItems) {
-      cartItems = JSON.parse(storedCartItems);
+    const storedShoeData = JSON.parse(localStorage.getItem("shoeItem"));
+    if (storedShoeData) {
+      mutableShoeData = storedShoeData;
     }
+
     initializeStockLevels();
-    updateCart();
     saveCurrentStockLevels()
     updateCategoryTemplate();
     attachHamburgerEventListener();
     shoe_search();
     resetButtonValues();
-    
+    updateCart();
   }
-
-  initializeApp();
 
   // templates
   function updateCategoryTemplate() {
@@ -497,7 +496,6 @@ if (shoeFormModal.classList.contains("visible")) {
       saveCurrentStockLevels()
       updateCart();
       DisplayShoeTemplate(shoe_data);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // Add this line here
     }
   }
 
